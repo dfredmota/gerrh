@@ -2,7 +2,7 @@
 
 App.controller('PaisController', ['$scope', 'PaisService', function($scope, PaisService) {
     var self = this;
-    self.pais={id:null, description:'',stateregion:'',country_id:''};
+    self.pais={id:null, description:'',countrycode:'',countrycurrency:'',countrylanguage:''};
     self.paises=[];
 
     self.fetchAllPais = function(){
