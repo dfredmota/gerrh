@@ -81,7 +81,7 @@ App.controller('PaisController', ['$scope', 'PaisService', function($scope, Pais
 
 
     self.reset = function(){
-        self.pais={id:null, description:'',stateregion:'',country_id:''};
+        self.pais={id:null, description:'',countrycode:'',countrycurrency:'',countrylanguage:''};
         $scope.myForm.$setPristine(); //reset Form
     };
 

@@ -4,7 +4,7 @@ App.factory('PaisService', ['$http', '$q', function($http, $q){
 
     return {
         fetchAllPaises: function() {
-            return $http.get('http://localhost:3000/paises')
+            return $http.get('http://localhost:8080/hunza/paises')
                 .then(
                     function(response){
                         return response.data;
@@ -17,7 +17,7 @@ App.factory('PaisService', ['$http', '$q', function($http, $q){
         },
 
         createPais: function(pais){
-            return $http.post('http://localhost:3000/paises', pais)
+            return $http.post('http://localhost:8080/hunza/paises', pais)
                 .then(
                     function(response){
                         return response.data;
@@ -30,7 +30,7 @@ App.factory('PaisService', ['$http', '$q', function($http, $q){
         },
 
         updatePais: function(pais, id){
-            return $http.put('http://localhost:3000/paises/'+id, pais)
+            return $http.put('http://localhost:8080/paises/'+id, pais)
                 .then(
                     function(response){
                         return response.data;
@@ -43,7 +43,7 @@ App.factory('PaisService', ['$http', '$q', function($http, $q){
         },
 
         deletePais: function(id){
-            return $http.delete('http://localhost:3000/paises/'+id)
+            return $http.delete('http://localhost:8080/hunza/paises/'+id)
                 .then(
                     function(response){
                         return response.data;
