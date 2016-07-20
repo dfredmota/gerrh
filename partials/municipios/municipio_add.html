@@ -1,0 +1,29 @@
+<form ng-submit="addMunicipio()">
+    <div class="modal-body" >
+        <div class="form-group">
+            <label for="descricao" class="control-label">Descrição:</label>
+            <input type="text" ng-model="municipio.description" class="form-control" id="descricao">
+        </div>
+        <div class="form-group">
+            <label for="estado" class="control-label">Estado:</label>
+            <select class="form-control input-sm" ng-model="municipio.state">
+                <option></option>
+                <option>Ceará</option>
+                <option>Bahia</option>
+                <option>Maranhão</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="pais" class="control-label">País:</label>
+            <select class="form-control input-sm" ng-model="municipio.country">
+                <option></option>
+                <option>Brasil</option>
+                <option>Portugal</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Fechar</button>
+        <input type="submit" class="btn btn-primary btn-sm" value="Salvar Municipio">
+    </div>
+</form>

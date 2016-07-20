@@ -1,0 +1,188 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Hunza Medical Solutions</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/abas.css">
+    <style>
+        body {
+            padding-top: 50px;
+            padding-bottom: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+<body class="menubar-hoverable header-fixed menubar-pin " ng-app="hunzaApp">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid" style="background-color: #2F75B5">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse"></button>
+        <a class="navbar-brand" style="color: white" >
+            MyClinic
+        </a>
+        <div class="navbar-collapse collapse navbar-responsive-collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color: white" aria-expanded="false"> Agenda Médica<span class="caret"></span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color: white" aria-expanded="false"> Recepção<span class="caret"></span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color: white" aria-expanded="false"> Atendimento<span class="caret"></span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color: white" aria-expanded="false"> Financeiro<span class="caret"></span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color: white" aria-expanded="false"> Estoques<span class="caret"></span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" onclick="mostraMenu()" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color: white" aria-expanded="false"> Configurações<span class="caret"></span></a>
+                </li>
+
+            </ul>
+            <ul class="header-nav header-nav-profile navbar-right">
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown"> <img src="img/avatar1.jpgy" alt="" /> <span class="profile-info"> Pedro Henrique <small>Nome empresa</small> </span> </a>
+                    <ul class="dropdown-menu animation-dock">
+                        <li class="dropdown-header">
+                            Configurações
+                        </li>
+                        <li>
+                            <a href="#">Meu Perfil</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off text-danger"></i> Sair</a>
+                        </li>
+                    </ul><!--end .dropdown-menu -->
+                </li><!--end .dropdown -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+
+        <div class="bhoechie-tab-container" id="menu">
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+                <div class="list-group" style="background-color: #D3D3D3">
+                    <a href="#" class="list-group-item active text-center">Empresa </a>
+                    <a href="#" class="list-group-item text-center">Usuários </a>
+                    <a href="#" class="list-group-item text-center">Restrição de Acesso </a>
+                    <a href="#" class="list-group-item text-center">Chat Interno </a>
+                    <a href="#" class="list-group-item text-center">Salas de Atendimento </a>
+                    <a href="#" class="list-group-item text-center">Especialidades </a>
+                    <a href="#" class="list-group-item text-center">Procedimentos </a>
+                    <a href="#" class="list-group-item text-center">Plano de Saúde Atendidos </a>
+                    <a href="#" class="list-group-item text-center">Preços dos Procedimentos </a>
+                    <a href="#" class="list-group-item text-center">Agenda </a>
+                    <a href="#" class="list-group-item text-center">Retomos por Convênio </a>
+                    <a href="#" class="list-group-item text-center">Avisos Sms </a>
+                    <a href="#" class="list-group-item text-center">Avisos por Email </a>
+                    <a href="#" class="list-group-item text-center">Pacientes </a>
+                    <a href="#" class="list-group-item text-center">Recepção de Pacientes </a>
+                    <a href="#" class="list-group-item text-center">Anamnese </a>
+                    <a href="#" class="list-group-item text-center">Avaliação Física </a>
+                    <a href="#" class="list-group-item text-center">Prescrição Médica </a>
+                    <a href="#" class="list-group-item text-center">Solicitação de Exames </a>
+                    <a href="#" class="list-group-item text-center">Atestado </a>
+                    <a href="#" class="list-group-item text-center">Prontuário </a>
+                    <a href="#" class="list-group-item text-center">Laudos </a>
+                    <a href="#" class="list-group-item text-center">Orçamento </a>
+                    <a href="#" class="list-group-item text-center">Contas Bancárias </a>
+                    <a href="#" class="list-group-item text-center">Plano de Contas </a>
+                    <a href="#" class="list-group-item text-center">Horizonte de Fluxo de Caixa </a>
+                    <a href="#" class="list-group-item text-center">Controladoria </a>
+                    <a href="#" class="list-group-item text-center">Centro de Custos </a>
+                    <a href="#" class="list-group-item text-center">Centro de Lucros </a>
+                    <a href="#" class="list-group-item text-center">Unidades de Negócio </a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-3 col-sm-3 col-xs-3">
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <!--<li ng-class="tabClass(tab)" ng-repeat="tab in tabs" tab="tab"><a href="{{tab.link}}" ng-click="setSelectedTab(tab)">{{tab.label}}</a></li>-->
+                    <li role="presentation" class="active"><a href="#municipios" aria-controls="municipios" role="tab" data-toggle="tab">Municipios</a></li>
+                    <li role="presentation"><a href="#estados" aria-controls="estados" role="tab" data-toggle="tab">Estados</a></li>
+                    <li role="presentation"><a href="#paises" aria-controls="paises" role="tab" data-toggle="tab">Paises</a></li>
+                </ul>
+                <!--<div ng-view></div>-->
+
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="municipios" ng-controller="MunicipioController as ctrl">
+
+                        <div ng-include="'partials/municipios/municipios.html'"></div>
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="estados" ng-controller="EstadoController as ctrl">
+
+                        <div ng-include="'partials/estados/estados.html'"></div>
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="paises" ng-controller="PaisController as ctrl">
+
+                        <div ng-include="'partials/paises/paises.html'"></div>
+
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+<!--&lt;!&ndash; Modal &ndash;&gt;-->
+<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
+<!--<div class="modal-dialog" role="document">-->
+<!--<div class="modal-content">-->
+<!--<div class="modal-header">-->
+<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+<!--<h4 class="modal-title" id="myModalLabel">Novo Municipio</h4>-->
+<!--</div>-->
+<!--<div ng-include="'partials/municipios/municipio_add.html'"></div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<script type="text/javascript">
+    function mostraMenu() {
+
+        document.getElementById('menu').style.display = "block";
+    }
+</script>
+
+<!-- BEGIN JAVASCRIPT -->
+<script src="js/vendor/jquery-1.11.2.min.js"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/lib/angular.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/services/municipio_service.js"></script>
+<script type="text/javascript" src="js/controllers/municipio_controller.js"></script>
+<!--<script type="text/javascript" src="js/directives.js"></script>-->
+<!--<script type="text/javascript" src="js/filters.js"></script>-->
+<!-- END JAVASCRIPT -->
+
+</body>
+</html>

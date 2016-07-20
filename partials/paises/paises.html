@@ -1,0 +1,49 @@
+<div class="panel panel-default">
+    <form class="well-lg" ng-submit="ctrl.submit()">
+        <h4>Gerenciar Paises</h4>
+        <hr>
+        <div class="form-group">
+            <label class="">Código</label>
+            <input type="text" class="form-control input-sm"  ng-model="ctrl.pais.countrycode">
+        </div>
+        <div class="form-group">
+            <label class="">Moeda</label>
+            <input type="text" class="form-control input-sm"  ng-model="ctrl.pais.countrycurrency">
+        </div>
+        <div class="form-group">
+            <label >Linguagem</label>
+            <input type="text" class="form-control input-sm" ng-model="ctrl.pais.countrylanguage" >
+        </div>
+        <div class="form-group">
+            <label>Nome do Pais</label>
+            <input type="text" class="form-control input-sm" ng-model="ctrl.pais.description">
+        </div>
+        <input type="submit"  value="{{!ctrl.pais.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+        <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Limpar</button>
+    </form>
+</div>
+<div class="panel panel-default">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th style="max-width: 5%">#</th>
+            <th>Nome</th>
+            <th>Codigo Pais</th>
+            <th>Moeda</th>
+            <th>Linguagem</th>
+            <th style="max-width: 10%">Ações</th>
+        </tr>
+        <tr ng-repeat="pais in ctrl.paises">
+            <td>{{pais.id}}</td>
+            <td>{{pais.description}}</td>
+            <td>{{pais.countrycode}}</td>
+            <td>{{pais.countrycurrency}}</td>
+            <td>{{pais.countrylanguage}}</td>
+            <td>
+                <button type="button" ng-click="ctrl.edit(pais.id)" class="btn btn-success custom-width btn-sm">Edit</button>  <button type="button" ng-click="ctrl.remove(pais.id)" class="btn btn-danger btn-sm custom-width">Remove</button>
+                <!--<a class="btn btn-primary btn-sm" ui-sref="viewPais({id:pais._id})">Editar</a>-->
+                <!--<a class="btn btn-danger btn-sm"  ng-click="deletePais(pais)">Excluir</a>-->
+            </td>
+        </tr>
+
+    </table>
+</div>
