@@ -6,15 +6,15 @@
             <label for="stCityCode" class="">Código</label>
             <input type="text" class="form-control input-sm"  ng-model="ctrl.municipio.stCityCode">
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-controller="EstadoController as e_ctrl">
             <label for="criterio_busca">Estado</label>
-            <input type="text" class="form-control input-sm" readonly="readonly" ng-model="ctrl.municipio.estado_id" >
+            <select ng-model="ctrl.municipio.estado_id" ng-options="estado.id as estado.description for estado in e_ctrl.estados"></select>
         </div>
         <div class="form-group">
             <label for="criterio2">Nome do Municipio</label>
             <input type="text" class="form-control input-sm" ng-model="ctrl.municipio.description">
         </div>
-        <input type="submit"  value="{{!ctrl.municipio.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+        <input type="submit"  value="{{!ctrl.municipio.id ? 'Salvar' : 'Atualizar'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
         <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Limpar</button>
     </form>
 </div>
@@ -33,7 +33,7 @@
             <td>{{municipio.estado_id}}</td>
             <td>{{municipio.stCityCode}}</td>
             <td>
-                <button type="button" ng-click="ctrl.edit(municipio.id)" class="btn btn-success custom-width btn-sm">Edit</button>  <button type="button" ng-click="ctrl.remove(municipio.id)" class="btn btn-danger btn-sm custom-width">Remove</button>
+                <button type="button" ng-click="ctrl.edit(municipio.id)" class="btn btn-success custom-width btn-sm">Editar</button>  <button type="button" ng-click="ctrl.remove(municipio.id)" class="btn btn-danger btn-sm custom-width">Apagar</button>
                 <!--<a class="btn btn-primary btn-sm" ui-sref="viewMunicipio({id:municipio._id})">Editar</a>-->
                 <!--<a class="btn btn-danger btn-sm"  ng-click="deleteMunicipio(municipio)">Excluir</a>-->
             </td>

@@ -20,6 +20,7 @@ App.factory('PaisService', ['$http', '$q', function($http, $q){
             return $http.post('http://localhost:8080/hunza/pais/create', pais)
                 .then(
                     function(response){
+                        alert("País salvo com sucesso!");
                         return response.data;
                     },
                     function(errResponse){

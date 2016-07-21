@@ -3,19 +3,19 @@
         <h4>Gerenciar Estados</h4>
         <hr>
         <div class="form-group">
-            <label class="">Código</label>
-            <input type="text" class="form-control input-sm"  ng-model="ctrl.estado.statecode">
+            <label class="">Código do Estado</label>
+            <input type="text" class="form-control input-sm"  ng-model="ctrl.estado.statecode" required>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-controller="PaisController as p_ctrl">
             <label for="criterio_busca">País</label>
-            <input type="text" class="form-control input-sm" readonly="readonly" ng-model="ctrl.estado.country_id" >
-        </div>
+            <select required ng-model="ctrl.estado.country_id" ng-options="pais.id as pais.description for pais in p_ctrl.paises"></select>
         <div class="form-group">
             <label for="criterio2">Nome do Estado</label>
-            <input type="text" class="form-control input-sm" ng-model="ctrl.estado.description">
+            <input required type="text" class="form-control input-sm" ng-model="ctrl.estado.description">
         </div>
-        <input type="submit"  value="{{!ctrl.estado.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+        <input type="submit"  value="{{!ctrl.estado.id ? 'Salvar' : 'Atualizar'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
         <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Limpar</button>
+    </div>
     </form>
 </div>
 <div class="panel panel-default">
@@ -33,7 +33,7 @@
             <td>{{estado.country_id}}</td>
             <td>{{estado.statecode}}</td>
             <td>
-                <button type="button" ng-click="ctrl.edit(estado.id)" class="btn btn-success custom-width btn-sm">Edit</button>  <button type="button" ng-click="ctrl.remove(estado.id)" class="btn btn-danger btn-sm custom-width">Remove</button>
+                <button type="button" ng-click="ctrl.edit(estado.id)" class="btn btn-success custom-width btn-sm">Editar</button>  <button type="button" ng-click="ctrl.remove(estado.id)" class="btn btn-danger btn-sm custom-width">Apagar</button>
                 <!--<a class="btn btn-primary btn-sm" ui-sref="viewEstado({id:estado._id})">Editar</a>-->
                 <!--<a class="btn btn-danger btn-sm"  ng-click="deleteEstado(estado)">Excluir</a>-->
             </td>
