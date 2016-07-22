@@ -34,6 +34,7 @@ App.factory('PaisService', ['$http', '$q', function($http, $q){
             return $http.put('http://localhost:8080/hunza/pais/update/'+id, pais)
                 .then(
                     function(response){
+                        alert("País atualizado com sucesso!");
                         return response.data;
                     },
                     function(errResponse){

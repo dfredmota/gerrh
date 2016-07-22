@@ -21,6 +21,7 @@ App.factory('MunicipioService', ['$http', '$q', function($http, $q){
             return $http.post('http://localhost:8080/hunza/municipios/create', municipio)
                 .then(
                     function(response){
+                        alert("Municipio salvo com sucesso!");
                         return response.data;
                     },
                     function(errResponse){
@@ -31,9 +32,10 @@ App.factory('MunicipioService', ['$http', '$q', function($http, $q){
         },
 
         updateMunicipio: function(municipio, id){
-            return $http.post('http://localhost:8080/hunza/municipios/update/'+id, municipio)
+            return $http.put('http://localhost:8080/hunza/municipios/update/'+id, municipio)
                 .then(
                     function(response){
+                        alert("Municipio atualizado com sucesso!");
                         return response.data;
                     },
                     function(errResponse){
@@ -78,6 +80,7 @@ App.factory('MunicipioService', ['$http', '$q', function($http, $q){
             return $http.post('http://localhost:8080/hunza/estados/create', state)
                 .then(
                     function(response){
+                        alert("Estado salvo com sucesso!");
                         return response.data;
                     },
                     function(errResponse){
@@ -88,9 +91,10 @@ App.factory('MunicipioService', ['$http', '$q', function($http, $q){
         },
 
         updateEstado: function(state, id){
-            return $http.put('http://localhost:8080/hunza/update'+id, state)
+            return $http.put('http://localhost:8080/hunza/estados/update/'+id, state)
                 .then(
                     function(response){
+                        alert("Estado atualizado com sucesso!");
                         return response.data;
                     },
                     function(errResponse){
@@ -101,7 +105,7 @@ App.factory('MunicipioService', ['$http', '$q', function($http, $q){
         },
 
         deleteEstado: function(id){
-            return $http.delete('http://localhost:8080/hunza/estados'+id)
+            return $http.delete('http://localhost:8080/hunza/estados/destroy/'+id)
                 .then(
                     function(response){
                         return response.data;
@@ -149,6 +153,7 @@ App.factory('MunicipioService', ['$http', '$q', function($http, $q){
             return $http.put('http://localhost:8080/hunza/pais/update/'+id, pais)
                 .then(
                     function(response){
+                        alert("País atualizado com sucesso!");
                         return response.data;
                     },
                     function(errResponse){

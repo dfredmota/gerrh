@@ -4,7 +4,7 @@ App.factory('EstadoService', ['$http', '$q', function($http, $q){
 
     return {
         fetchAllEstados: function() {
-            return $http.get('http://localhost:3000/states')
+            return $http.get('http://localhost:8080/hunza/estados')
                 .then(
                     function(response){
                         return response.data;
@@ -17,7 +17,7 @@ App.factory('EstadoService', ['$http', '$q', function($http, $q){
         },
 
         createEstado: function(state){
-            return $http.post('http://localhost:3000/states', state)
+            return $http.post('http://localhost:8080/hunza/estados/create', state)
                 .then(
                     function(response){
                         return response.data;
@@ -30,7 +30,7 @@ App.factory('EstadoService', ['$http', '$q', function($http, $q){
         },
 
         updateEstado: function(state, id){
-            return $http.put('http://localhost:3000/states/'+id, state)
+            return $http.put('http://localhost:8080/hunza/estados/update/'+id, state)
                 .then(
                     function(response){
                         return response.data;
@@ -43,7 +43,7 @@ App.factory('EstadoService', ['$http', '$q', function($http, $q){
         },
 
         deleteEstado: function(id){
-            return $http.delete('http://localhost:3000/states/'+id)
+            return $http.delete('http://localhost:8080/hunza/estados/destroy/'+id)
                 .then(
                     function(response){
                         return response.data;
