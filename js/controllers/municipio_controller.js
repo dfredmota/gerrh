@@ -38,13 +38,20 @@ App.controller('MunicipioController', ['$scope', 'MunicipioService', function($s
     };
 
     self.deleteMunicipio = function(id){
-        MunicipioService.deleteMunicipio(id)
-            .then(
-                self.fetchAllMunicipios,
-                function(errResponse){
-                    console.error('Error while deleting Municipio.');
-                }
-            );
+
+        var r = confirm("Deseja Deletar Municipio?");
+        if (r == true) {
+            MunicipioService.deleteMunicipio(id)
+                .then(
+                    self.fetchAllMunicipios,
+                    function(errResponse){
+                        console.error('Error while deleting Municipio.');
+                    }
+                );
+        } else {
+            return;
+        }
+
     };
 
     self.fetchAllMunicipios();
@@ -71,11 +78,16 @@ App.controller('MunicipioController', ['$scope', 'MunicipioService', function($s
     };
 
     self.remove = function(id){
-        console.log('id to be deleted', id);
-        if(self.municipio.id === id) {//clean form if the municipio to be deleted is shown there.
-            self.reset();
+        var r = confirm("Deseja Deletar Municipio?");
+        if (r == true) {
+            console.log('id to be deleted', id);
+            if(self.municipio.id === id) {//clean form if the municipio to be deleted is shown there.
+                self.reset();
+            }
+            self.deleteMunicipio(id);
+        } else {
+            return;
         }
-        self.deleteMunicipio(id);
     };
 
 
@@ -155,11 +167,16 @@ App.controller('MunicipioController', ['$scope', 'MunicipioService', function($s
     };
 
     self.remove = function(id){
-        console.log('id to be deleted', id);
-        if(self.estado.id === id) {//clean form if the estado to be deleted is shown there.
-            self.reset();
+        var r = confirm("Deseja Deletar Estado?");
+        if (r == true) {
+            console.log('id to be deleted', id);
+            if(self.estado.id === id) {//clean form if the estado to be deleted is shown there.
+                self.reset();
+            }
+            self.deleteEstado(id);
+        } else {
+            return;
         }
-        self.deleteEstado(id);
     };
 
 
@@ -240,11 +257,16 @@ App.controller('MunicipioController', ['$scope', 'MunicipioService', function($s
     };
 
     self.remove = function(id){
-        console.log('id to be deleted', id);
-        if(self.pais.id === id) {//clean form if the pais to be deleted is shown there.
-            self.reset();
+        var r = confirm("Deseja Deletar Pais?");
+        if (r == true) {
+            console.log('id to be deleted', id);
+            if(self.pais.id === id) {//clean form if the pais to be deleted is shown there.
+                self.reset();
+            }
+            self.deletePais(id);
+        } else {
+            return;
         }
-        self.deletePais(id);
     };
 
 

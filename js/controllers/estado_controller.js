@@ -71,7 +71,6 @@ App.controller('EstadoController', ['$scope', 'EstadoService', function($scope, 
     };
 
     self.remove = function(id){
-        alert("delete")
         console.log('id to be deleted', id);
         if(self.estado.id === id) {//clean form if the estado to be deleted is shown there.
             self.reset();

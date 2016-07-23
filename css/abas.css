@@ -11,19 +11,19 @@ div.bhoechie-tab-container{
   background-clip: padding-box;
   opacity: 0.97;
   filter: alpha(opacity=97);
-  
+
   /* Large desktop */
 @media (min-width: 1200px)
 
-/* Portrait tablet to landscape and desktop */
+  /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px)
 
-/* Landscape phone to portrait tablet */
+  /* Landscape phone to portrait tablet */
 @media (max-width: 767px)
 
-/* Landscape phones and down */
+  /* Landscape phones and down */
 @media (max-width: 480px)
-  
+
 }
 div.bhoechie-tab-menu{
   padding-right: 0;
