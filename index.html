@@ -30,49 +30,49 @@
     <div class="container-fluid" style="background-color: #2F75B5">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse"></button>
         <a class="navbar-brand" style="color: white" >
-            MyClinic
+            HUNZA
         </a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-            <ul class="nav navbar-nav" style="margin-left:250px">
+            <ul class="nav navbar-nav">
 
-                <li class="dropdown"><a href="javascript:void(0);"
-                                        class="dropdown-toggle ink-reaction" data-toggle="dropdown" style="color: white">
+                <li class="dropdown" style="width: 180px"><a href="javascript:void(0);"
+                                        class="dropdown-toggle ink-reaction" data-toggle="dropdown" style="color: white;font-family: Calibri">
                     Agenda Médica
                 </a>
                 </li>
 
-                <li class="dropdown"><a href="#" class="dropdown-toggle"
-                                        data-toggle="dropdown" role="button" style="color: white"
-                                        aria-expanded="false"> Recepção<span class="caret"></span></a></li>
-                <li class="dropdown"><a href="#" class="dropdown-toggle"
-                                        data-toggle="dropdown" role="button" style="color: white"
+                <li class="dropdown" style="width: 180px"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown" role="button" style="color: white;font-family: Calibri"
+                                        aria-expanded="false" > Recepção<span class="caret"></span></a></li>
+                <li class="dropdown" style="width: 180px"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown" role="button" style="color: white;font-family: Calibri"
                                         aria-expanded="false"> Atedimento<span class="caret"></span></a>
                 </li>
 
-                <li class="dropdown"><a href="#" class="dropdown-toggle"
-                                        data-toggle="dropdown" role="button" style="color: white"
+                <li class="dropdown" style="width: 180px"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown" role="button" style="color: white;font-family: Calibri"
                                         aria-expanded="false"> Financeiro<span class="caret"></span></a></li>
 
-                <li class="dropdown"><a href="#" class="dropdown-toggle"
-                                        data-toggle="dropdown" role="button" style="color: white"
+                <li class="dropdown" style="width: 140px"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown" role="button" style="color: white;font-family: Calibri"
                                         aria-expanded="false"> Estoque<span class="caret"></span></a></li>
 
-                <li class="dropdown"><a href="javascript:void(0);"
-                                        class="dropdown-toggle ink-reaction" data-toggle="dropdown" style="color: white;height: 60px;">
+                <li class="dropdown" style="width: 150px"><a href="javascript:void(0);"
+                                        class="dropdown-toggle ink-reaction" data-toggle="dropdown" style="color: white;height: 60px;font-family: Calibri">
                     Configurações
                 </a>
-                    <ul class="dropdown-menu animation-dock" style="left:-90px;margin-top:1px;">
-                        <li><a href="#" onclick="mostraMenu();">Configurações Gerais</a></li>
-                        <li><a href="#">Configurações Empresa</a></li>
+                    <ul class="dropdown-menu animation-dock" style="left:-90px;margin-top:1px;font-family: Calibri">
+                        <li><a href="#" onclick="mostraMenu();" style="font-family: Calibri">Configurações Empresa</a></li>
+                        <li><a href="#">Configurações Gerais</a></li>
                         <li class="divider"></li>
                     </ul></li>
 
             </ul>
-            <ul class="header-nav header-nav-profile">
-                <li class="dropdown"><a href="javascript:void(0);"
-                                        class="dropdown-toggle ink-reaction" data-toggle="dropdown"> <img
-                        src="assets/avatar1.jpg" alt="" /> <span class="profile-info">
-								Pedro Henrique <small><fmt:message key="label.nomeEmpresa" /></small>
+            <ul class="header-nav header-nav-profile" >
+                <li class="dropdown" style="margin-left: 100px"><a href="javascript:void(0);"
+                                        class="dropdown-toggle ink-reaction" data-toggle="dropdown"style="font-family: Calibri"> <img
+                        src="assets/avatar1.jpg" alt="" /> <span class="profile-info" style="font-family: Calibri">
+								Pedro Henrique <small style="font-family: Calibri">Nome Empresa</small>
 						</span>
                 </a>
                     <ul class="dropdown-menu animation-dock" style="left:-90px;">
@@ -90,44 +90,45 @@
 </nav>
 
 <div class="container-fluid">
-    <div class="row-fluid">
+    <div class="row-fluid" style="margin-top: -40px;">
 
         <div class="bhoechie-tab-container" id="menu" style="display:none">
             <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
                 <div class="list-group">
-                    <a id="menuMunicipios" href="#municipios" onclick="mudaStyle(this)" class="list-group-item text-center">Municipios </a>
-                    <a id="menuEstados" href="#estados" onclick="mudaStyle(this)" class="list-group-item text-center">Estados </a>
-                    <a id="menuPaises" href="#paises" onclick="mudaStyle(this)" class="list-group-item text-center">Paises </a>
-                    <a id="menuEmpresa" href="#empresa" onclick="mudaStyle(this)" class="list-group-item text-center">Empresa </a>
-                    <a id="usuario" href="#usuario" onclick="mudaStyle(this)" class="list-group-item text-center">Usuários </a>
-                    <a id="restricao" href="#restricao"  onclick="mudaStyle(this)" class="list-group-item text-center">Restrição de Acesso </a>
-                    <a id="chat" href="#chat" onclick="mudaStyle(this)" class="list-group-item text-center">Chat Interno </a>
-                    <a id="salas" href="#salas" onclick="mudaStyle(this)" class="list-group-item text-center">Salas de Atendimento </a>
-                    <a id="especialidade" onclick="mudaStyle(this)" href="#especialidade" class="list-group-item text-center">Especialidades </a>
-                    <a id="procedimento" onclick="mudaStyle(this)" href="#procedimento" class="list-group-item text-center">Procedimentos </a>
-                    <a id="plano" href="#plano" onclick="mudaStyle(this)" class="list-group-item text-center">Plano de Saúde Atendidos </a>
-                    <a id="preco" href="#preco" onclick="mudaStyle(this)" class="list-group-item text-center">Preços dos Procedimentos </a>
-                    <a id="agenda" href="#agenda" onclick="mudaStyle(this)" class="list-group-item text-center">Agenda </a>
-                    <a id="retomo" href="#retomo" onclick="mudaStyle(this)" class="list-group-item text-center">Retomos por Convênio </a>
-                    <a id="avisoSms" href="#avisoSms" onclick="mudaStyle(this)" class="list-group-item text-center">Avisos Sms </a>
-                    <a id="avisoEmail" href="#avisoEmail" onclick="mudaStyle(this)" class="list-group-item text-center">Avisos por Email </a>
-                    <a id="pacientes" href="#pacientes" onclick="mudaStyle(this)" class="list-group-item text-center">Pacientes </a>
-                    <a id="recepcao" href="#recepcao" onclick="mudaStyle(this)" class="list-group-item text-center">Recepção de Pacientes </a>
-                    <a id="anamnese" href="#anamnese" onclick="mudaStyle(this)" class="list-group-item text-center">Anamnese </a>
-                    <a id="avaliacao" href="#avaliacao" onclick="mudaStyle(this)" class="list-group-item text-center">Avaliação Física </a>
-                    <a id="prescricao" href="#prescricao" onclick="mudaStyle(this)" class="list-group-item text-center">Prescrição Médica </a>
-                    <a id="solicitacao" href="#solicitacao" onclick="mudaStyle(this)" class="list-group-item text-center">Solicitação de Exames </a>
-                    <a id="atestado" href="#atestado" onclick="mudaStyle(this)" class="list-group-item text-center">Atestado </a>
-                    <a id="prontuario" href="#prontuario" onclick="mudaStyle(this)" class="list-group-item text-center">Prontuário </a>
-                    <a id="laudos" href="#laudos" onclick="mudaStyle(this)" class="list-group-item text-center">Laudos </a>
-                    <a id="orcamento" href="#orcamento" onclick="mudaStyle(this)" class="list-group-item text-center">Orçamento </a>
-                    <a id="contas" href="#contas" onclick="mudaStyle(this)" class="list-group-item text-center">Contas Bancárias </a>
-                    <a id="planoContas" href="#plano" onclick="mudaStyle(this)" class="list-group-item text-center">Plano de Contas </a>
-                    <a id="horizonte" href="#horizonte" onclick="mudaStyle(this)" class="list-group-item text-center">Horizonte de Fluxo de Caixa </a>
-                    <a id="controladoria" href="#controladoria" onclick="mudaStyle(this)" class="list-group-item text-center">Controladoria </a>
-                    <a id="centroCustos" href="#centroCustos" onclick="mudaStyle(this)" class="list-group-item text-center">Centro de Custos </a>
-                    <a id="centroLucros" href="#centroLucros" onclick="mudaStyle(this)" class="list-group-item text-center">Centro de Lucros </a>
-                    <a id="unNegocios" href="#unNegocios" onclick="mudaStyle(this)" class="list-group-item text-center">Unidades de Negócio </a>
+                    <p style="font-family: Calibri">Configurações Gerais:</p>
+                    <a id="menuPaises" href="#paises" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Paises </a>
+                    <a id="menuEstados" href="#estados" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Estados </a>
+                    <a id="menuMunicipios" href="#municipios" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Municipios </a>
+                    <a id="menuEmpresa" href="#empresa" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Empresa </a>
+                    <a id="usuario" href="#usuario" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Usuários </a>
+                    <a id="restricao" href="#restricao"  onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Restrição de Acesso </a>
+                    <a id="chat" href="#chat" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Chat Interno </a>
+                    <a id="salas" href="#salas" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Salas de Atendimento </a>
+                    <a id="especialidade" onclick="mudaStyle(this)" href="#especialidade" class="list-group-item text-center" style="font-family: Calibri">Especialidades </a>
+                    <a id="procedimento" onclick="mudaStyle(this)" href="#procedimento" class="list-group-item text-center" style="font-family: Calibri">Procedimentos </a>
+                    <a id="plano" href="#plano" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Plano de Saúde Atendidos </a>
+                    <a id="preco" href="#preco" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Preços dos Procedimentos </a>
+                    <a id="agenda" href="#agenda" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Agenda </a>
+                    <a id="retomo" href="#retomo" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Retomos por Convênio </a>
+                    <a id="avisoSms" href="#avisoSms" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Avisos Sms </a>
+                    <a id="avisoEmail" href="#avisoEmail" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Avisos por Email </a>
+                    <a id="pacientes" href="#pacientes" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Pacientes </a>
+                    <a id="recepcao" href="#recepcao" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Recepção de Pacientes </a>
+                    <a id="anamnese" href="#anamnese" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Anamnese </a>
+                    <a id="avaliacao" href="#avaliacao" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Avaliação Física </a>
+                    <a id="prescricao" href="#prescricao" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Prescrição Médica </a>
+                    <a id="solicitacao" href="#solicitacao" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Solicitação de Exames </a>
+                    <a id="atestado" href="#atestado" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Atestado </a>
+                    <a id="prontuario" href="#prontuario" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Prontuário </a>
+                    <a id="laudos" href="#laudos" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Laudos </a>
+                    <a id="orcamento" href="#orcamento" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Orçamento </a>
+                    <a id="contas" href="#contas" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Contas Bancárias </a>
+                    <a id="planoContas" href="#plano" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Plano de Contas </a>
+                    <a id="horizonte" href="#horizonte" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Horizonte de Fluxo de Caixa </a>
+                    <a id="controladoria" href="#controladoria" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Controladoria </a>
+                    <a id="centroCustos" href="#centroCustos" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Centro de Custos </a>
+                    <a id="centroLucros" href="#centroLucros" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Centro de Lucros </a>
+                    <a id="unNegocios" href="#unNegocios" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Unidades de Negócio </a>
                 </div>
             </div>
             <div class="col-lg-8 col-md-3 col-sm-3 col-xs-3">
@@ -193,20 +194,9 @@
 
 <script type="text/javascript">
 
-    function carregaMenu(){
-
-        var carregaMenu = document.getElementById('mostraMenu').value;
-
-        if(carregaMenu == "S")
-            document.getElementById('menu').style.display = "block";
-
-    }
-
-
     function mostraMenu() {
 
         document.getElementById('menu').style.display = "block";
-        document.getElementById('mostraMenu').value = "S";
     }
 
 </script>

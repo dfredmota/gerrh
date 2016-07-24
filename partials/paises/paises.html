@@ -4,16 +4,16 @@
         <h4>Cadastro de Países</h4>
         <hr>
         <label class=""><b>Busca</b></label>
-        <input type="text" class="form-control input-sm" placeholder="Procure aqui o nome do País..." ng-model="searchDescription">
+        <input type="text" class="form-control input-sm" placeholder="Procure aqui o nome ou Código de País..." ng-model="searchDescription">
     </div>
     <div class="panel panel-default">
         <table class="table table-striped table-bordered">
             <tr>
                 <th style="max-width: 5%">#</th>
                 <th>Nome</th>
-                <th>Codigo Pais</th>
+                <th>Código de País</th>
                 <th>Moeda</th>
-                <th>Linguagem</th>
+                <th>Idioma</th>
                 <th style="max-width: 10%">Ações</th>
             </tr>
             <tr ng-repeat="pais in ctrl.paises | filter:searchDescription">
@@ -50,7 +50,7 @@
                                 <input type="text" class="form-control input-sm"  ng-model="ctrl.pais.countrycurrency" required >
                             </div>
                             <div class="form-group">
-                                <label >Linguagem</label>
+                                <label >Idioma</label>
                                 <input type="text" class="form-control input-sm" ng-model="ctrl.pais.countrylanguage" required >
                             </div>
                             <div class="form-group">
