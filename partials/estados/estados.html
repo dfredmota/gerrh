@@ -6,7 +6,7 @@
         <h2>Cadastro de Estados</h2>
         <hr>
         <label class=""><b>Busca</b></label>
-        <input type="text" class="form-control input-sm" placeholder="Procure aqui o nome do Estado..." ng-model="searchDescription">
+        <input type="text" style="font-family: Calibri;font-weight: bold;text-transform: uppercase" class="form-control input-sm" placeholder="Procure aqui o nome do Estado..." ng-model="searchDescription">
     </div>
     <div class="panel panel-primary">
         <div class="panel-heading" style="background-color: #2F75B5">Estados</div>
@@ -49,20 +49,23 @@
                     <div class="panel panel-default">
                         <form class="well-lg" ng-submit="ctrl.submit()">
                             <div class="form-group">
-                                <label class="" style="font-family: Calibri;font-weight: bold">Código</label>
-                                <input type="text" maxlength="2" class="form-control input-sm"  ng-model="ctrl.estado.statecode" required>
+                                <label class="" style="font-family: Calibri;font-weight: bold;text-transform: uppercase">Código</label>
+                                <input type="text" style="font-family: Calibri;font-weight: bold;text-transform: uppercase" maxlength="2" class="form-control input-sm"  ng-model="ctrl.estado.statecode" required>
                             </div>
                             <div class="form-group" ng-controller="PaisController as p_ctrl">
-                                <label for="criterio_busca" style="font-family: Calibri;font-weight: bold">País</label>
-                                <select ng-model="ctrl.estado.pais.id" ng-options="pais.id as pais.description for pais in p_ctrl.paises" required></select>
+                                <label for="criterio_busca" style="font-family: Calibri;font-weight: bold;text-transform: uppercase">País</label>
+                                <select style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+                                        ng-model="ctrl.estado.pais.id" ng-options="pais.id as pais.description for pais in p_ctrl.paises" required></select>
                             </div>
                             <div class="form-group">
-                                <label for="criterio2" style="font-family: Calibri;font-weight: bold">Nome</label>
-                                <input type="text" maxlength="40" class="form-control input-sm" ng-model="ctrl.estado.description" required>
+                                <label for="criterio2" style="font-family: Calibri;font-weight: bold;text-transform: uppercase">Nome</label>
+                                <input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+                                       type="text" maxlength="40" class="form-control input-sm" ng-model="ctrl.estado.description" required>
                             </div>
                             <div class="form-group">
-                                <label for="criterio2" style="font-family: Calibri;font-weight: bold">Região</label>
-                                <input type="text" maxlength="10" class="form-control input-sm" ng-model="ctrl.estado.stateregion" required>
+                                <label for="criterio2" style="font-family: Calibri;font-weight: bold;text-transform: uppercase">Região</label>
+                                <input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+                                       type="text" maxlength="10" class="form-control input-sm" ng-model="ctrl.estado.stateregion" required>
                             </div>
                             <input type="submit"  value="{{!ctrl.estado.id ? 'Cadastrar' : 'Atualizar'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
                             <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Limpar</button>

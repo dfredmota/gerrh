@@ -6,7 +6,7 @@
         <h2>Cadastro de Países</h2>
         <hr>
         <label class=""><b>Busca</b></label>
-        <input type="text" class="form-control ng-pristine ng-valid" placeholder="Procure aqui o nome ou Código de País..." ng-model="searchDescription">
+        <input type="text" style="text-transform: uppercase" class="form-control ng-pristine ng-valid" placeholder="Procure aqui o nome ou Código de País..." ng-model="searchDescription">
     </div>
     <div class="panel panel-primary">
         <div class="panel-heading" style="background-color: #2F75B5">Países</div>
@@ -49,20 +49,24 @@
                     <div class="panel panel-default">
                         <form class="well-lg" ng-submit="ctrl.submit()">
                             <div class="form-group">
-                                <label style="font-family: Calibri;font-weight: bold">Código</label>
-                                <input type="text" maxlength="3" class="form-control input-sm"  ng-model="ctrl.pais.countrycode" required >
+                                <label style="font-family: Calibri;font-weight: bold;text-transform: uppercase">Código</label>
+                                <input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+                                       type="text" maxlength="3" class="form-control input-sm"  ng-model="ctrl.pais.countrycode" required >
                             </div>
                             <div class="form-group">
-                                <label style="font-family: Calibri;font-weight: bold">Moeda</label>
-                                <input type="text" maxlength="3" class="form-control input-sm"  ng-model="ctrl.pais.countrycurrency" required >
+                                <label style="font-family: Calibri;font-weight: bold;text-transform: uppercase">Moeda</label>
+                                <input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+                                       type="text" maxlength="3" class="form-control input-sm"  ng-model="ctrl.pais.countrycurrency" required >
                             </div>
                             <div class="form-group">
-                                <label style="font-family: Calibri;font-weight: bold">Idioma</label>
-                                <input type="text" maxlength="3" class="form-control input-sm" ng-model="ctrl.pais.countrylanguage" required >
+                                <label style="font-family: Calibri;font-weight: bold;text-transform: uppercase">Idioma</label>
+                                <input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+                                       type="text" maxlength="3" class="form-control input-sm" ng-model="ctrl.pais.countrylanguage" required >
                             </div>
                             <div class="form-group">
-                                <label style="font-family: Calibri;font-weight: bold">Nome</label>
-                                <input type="text" class="form-control input-sm" ng-model="ctrl.pais.description" required>
+                                <label style="font-family: Calibri;font-weight: bold;text-transform: uppercase">Nome</label>
+                                <input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+                                       type="text" class="form-control input-sm" ng-model="ctrl.pais.description" required>
                             </div>
                             <input type="submit"  value="{{!ctrl.pais.id ? 'Cadastrar' : 'Atualizar'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
                             <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Limpar</button>
