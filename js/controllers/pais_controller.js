@@ -73,7 +73,7 @@ App.controller('PaisController', ['$scope', 'PaisService', function($scope, Pais
 
     self.remove = function(id){
 
-        var r = confirm("Deseja Deletar Pais?");
+        var r = confirm("Deseja Excluir País ?");
         if (r == true) {
             console.log('id to be deleted', id);
             if(self.pais.id === id) {//clean form if the pais to be deleted is shown there.

@@ -39,7 +39,7 @@ App.controller('MunicipioController', ['$scope', 'MunicipioService', function($s
 
     self.deleteMunicipio = function(id){
 
-        var r = confirm("Deseja Deletar Municipio?");
+        var r = confirm("Deseja Excluir Municipio?");
         if (r == true) {
             MunicipioService.deleteMunicipio(id)
                 .then(
@@ -78,7 +78,7 @@ App.controller('MunicipioController', ['$scope', 'MunicipioService', function($s
     };
 
     self.remove = function(id){
-        var r = confirm("Deseja Deletar Municipio?");
+        var r = confirm("Deseja Excluir Municipio?");
         if (r == true) {
             console.log('id to be deleted', id);
             if(self.municipio.id === id) {//clean form if the municipio to be deleted is shown there.
@@ -167,7 +167,7 @@ App.controller('MunicipioController', ['$scope', 'MunicipioService', function($s
     };
 
     self.remove = function(id){
-        var r = confirm("Deseja Deletar Estado?");
+        var r = confirm("Deseja Excluir Estado?");
         if (r == true) {
             console.log('id to be deleted', id);
             if(self.estado.id === id) {//clean form if the estado to be deleted is shown there.
@@ -257,7 +257,7 @@ App.controller('MunicipioController', ['$scope', 'MunicipioService', function($s
     };
 
     self.remove = function(id){
-        var r = confirm("Deseja Deletar Pais?");
+        var r = confirm("Deseja Excluir Pais?");
         if (r == true) {
             console.log('id to be deleted', id);
             if(self.pais.id === id) {//clean form if the pais to be deleted is shown there.

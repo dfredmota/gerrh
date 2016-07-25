@@ -20,7 +20,7 @@ App.factory('PaisService', ['$http', '$q', function($http, $q){
             return $http.post('http://localhost:8080/hunza/pais/create', pais)
                 .then(
                     function(response){
-                        alert("País salvo com sucesso!");
+                        alert("País Incluído com sucesso!");
                         return response.data;
                     },
                     function(errResponse){
@@ -34,7 +34,7 @@ App.factory('PaisService', ['$http', '$q', function($http, $q){
             return $http.put('http://localhost:8080/hunza/pais/update/'+id, pais)
                 .then(
                     function(response){
-                        alert("País atualizado com sucesso!");
+                        alert("País Alterado com sucesso!");
                         return response.data;
                     },
                     function(errResponse){
