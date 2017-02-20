@@ -1,0 +1,105 @@
+<head>
+
+	<script>
+
+        $(document).ready(function(){
+            $("#telefone").mask('(99)9999-9999');
+            $("#cep").mask('99.999-9999');
+        });
+
+	</script>
+
+</head>
+<div ng-app="myApp" ng-controller="SecretariaController as ctrl">
+
+
+<div id="content" ng-init="Data.tabs[$parent.tab.i].title='Cadastrar Secretarias'">
+
+
+
+				<div class="container">
+
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="page-header">
+								<h2>Cadastrar Secretaria/Órgãos</h2>
+							</div>
+							<!-- Inputs -->
+							<form role="form" ng-submit="ctrl.submit()">
+								<div class="row">
+									<div class="col-xs-6">
+										<label for="nome">Nome</label>
+										<input id="nome" style="text-transform: uppercase" class="form-control" type="text" placeholder="Nome" ng-model="ctrl.secretaria.nmSecretaria"
+											   title="Nome da Secretaria. Ex: Secretaria de Segurança Pública" bs-tooltip required>
+									</div>
+									<div class="col-xs-3">
+										<label for="telefone">Telefone</label>
+										<input id="telefone" class="form-control" type="text" placeholder="Telefone" required
+											   ng-model="ctrl.secretaria.nuTelefone" title="Telefone de contato da Secretaria. Ex: 8899999999 " bs-tooltip>
+									</div>
+									<div class="col-xs-3">
+										<label for="email">Email</label>
+										<div class="input-group">
+											<!-- icone -->
+											<div class="input-group-addon">
+												@
+											</div><!-- icone -->
+											<input id="email" style="text-transform: uppercase" class="form-control" type="email" placeholder="Email"
+												   ng-model="ctrl.secretaria.dsEmail" required
+												   title="Email da Secretaria. Ex: sesp@crato.gov.ce.br " bs-tooltip>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-2">
+										<label for="cep">CEP</label>
+										<input id="cep" class="form-control" type="text" placeholder="99.999-999"
+											   title="CEP " bs-tooltip required  ng-model="ctrl.secretaria.nuCep"
+											   ng-model="ctrl.secretaria.nuCep" required ui-mask="99.999-999" />
+										<a href="http://www.buscacep.correios.com.br/"
+										   target="_blank"><small><u><i>Buscar CEP</i></u></small></a>
+									</div>
+									<div class="col-xs-2">
+										<label for="tipo_logradouro">Tipo de logradouro</label>
+										<select id="tipo_logradouro" class="form-control" ng-model="ctrl.secretaria.tipoLogradouro" required>
+											<option value="1">Rua</option>
+											<option value="2">Avenida</option>
+											<option value="3">Travessa</option>
+											<option value="4">Beco</option>
+											<option value="5">Alto</option>
+											<option value="6">Vila</option>
+											<option value="7">Sitio</option>
+											<option value="8">Outros</option>
+										</select>
+										<span class="help-block">&nbsp;</span>
+									</div>
+									<div class="col-xs-3">
+										<label for="logradouro">Logradouro</label>
+										<input id="logradouro" type="text" style="text-transform: uppercase"  placeholder="Logradouro" class="form-control"
+											   ng-model="ctrl.secretaria.dsLogradouro" required
+											   title="Logradouro da Secretaria. Ex: Barbara de Alencar " bs-tooltip />
+									</div>
+									<div class="col-xs-3">
+										<label for="bairro">Bairro</label>
+										<input id="bairro" type="text" class="form-control"
+											   ng-model="ctrl.secretaria.dsBairro" required style="text-transform: uppercase"
+											   placeholder="Bairro" title="Bairro da Secretaria. Ex: Centro " bs-tooltip />
+									</div>
+									<div class="col-xs-2">
+										<label for="numero">Número</label>
+										<input id="numero" type="text" class="form-control"
+											   ng-model="ctrl.secretaria.numero" required style="text-transform: uppercase"
+											   placeholder="Número" title="Número da Secretaria. Ex: S/N " bs-tooltip />
+									</div>
+								</div>
+								<hr>
+								<div align="right" class="footer">
+									<input type="submit"  ng-disabled="show" value="{{!ctrl.secretaria.cdSecretaria ? 'Cadastrar' : 'Atualizar'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+									<button type="button" ng-disabled="show" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Limpar</button>
+								</div>
+							</form><!-- Inputs -->
+						</div>
+					</div>
+				</div><!-- container -->
+			</div>
+</div>

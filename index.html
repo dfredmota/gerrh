@@ -3,203 +3,96 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<html ng-app="hunzaApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Hunza Medical Solutions</title>
+    <title>GERRH</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <!--<link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/abas.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/main.css">-->
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="angular-motion/angular-motion.css">
+    <link rel="stylesheet" href="css/dash.css">
+
     <style>
         body {
             padding-top: 50px;
             padding-bottom: 20px;
         }
     </style>
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+    <!--<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>-->
+
+
+    <script src="js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+    <!--<script type="text/javascript" src="js/lib/angular.min.js"></script>-->
+    <script type="text/javascript" src="js/lib/angular-route.js"></script>
+    <script type="text/javascript" src="js/lib/angular-strap.min.js"></script>
+    <script type="text/javascript" src="js/lib/angular-strap.tpl.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.maskMoney.min.js"></script>
+    <script type="text/javascript" src="js/services/secretaria_service.js"></script>
+    <script src="js/controllers/secretaria_controller.js"></script>
+    <script type="text/javascript" src="js/services/unidade_service.js"></script>
+    <script src="js/controllers/unidade_controller.js"></script>
+    <script type="text/javascript" src="js/services/simbologia_service.js"></script>
+    <script src="js/controllers/simbologia_controller.js"></script>
+    <script type="text/javascript" src="js/vendor/abas.js"></script>
 </head>
-<body class="menubar-hoverable header-fixed menubar-pin " ng-app="hunzaApp">
-
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid" style="background-color: #2F75B5">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse"></button>
-        <a class="navbar-brand" style="color: white" >
-            HUNZA
-        </a>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-            <ul class="nav navbar-nav">
-
-                <li class="dropdown" ><a href="javascript:void(0);"
-                                        class="dropdown-toggle ink-reaction" data-toggle="dropdown" style="color: white;font-family: Calibri">
-                    Agenda Médica
-                </a>
-                </li>
-
-                <li class="dropdown" ><a href="#" class="dropdown-toggle"
-                                        data-toggle="dropdown" role="button" style="color: white;font-family: Calibri"
-                                        aria-expanded="false" > Recepção<span class="caret"></span></a></li>
-                <li class="dropdown" ><a href="#" class="dropdown-toggle"
-                                        data-toggle="dropdown" role="button" style="color: white;font-family: Calibri"
-                                        aria-expanded="false"> Atedimento<span class="caret"></span></a>
-                </li>
-
-                <li class="dropdown" ><a href="#" class="dropdown-toggle"
-                                        data-toggle="dropdown" role="button" style="color: white;font-family: Calibri"
-                                        aria-expanded="false"> Financeiro<span class="caret"></span></a></li>
-
-                <li class="dropdown" ><a href="#" class="dropdown-toggle"
-                                        data-toggle="dropdown" role="button" style="color: white;font-family: Calibri"
-                                        aria-expanded="false"> Estoque<span class="caret"></span></a></li>
-
-                <li class="dropdown" ><a href="javascript:void(0);"
-                                        class="dropdown-toggle ink-reaction" data-toggle="dropdown" style="color: white;height: 60px;font-family: Calibri">
-                    Configurações<span class="caret"></span>
-                </a>
-                    <ul class="dropdown-menu animation-dock" style="left:-50px;margin-top:1px;font-family: Calibri">
-                        <li><a href="#" onclick="mostraMenu();" style="font-family: Calibri">Configurações Gerais</a></li>
-                        <li><a href="#">Configurações Empresa</a></li>
-                        <li class="divider"></li>
-                    </ul></li>
-
-            </ul>
-            <ul class="header-nav header-nav-profile" >
-                <li class="dropdown" style="margin-left: 40px"><a href="javascript:void(0);"
-                                        class="dropdown-toggle ink-reaction" data-toggle="dropdown"style="font-family: Calibri"> <img
-                        src="assets/avatar1.jpg" alt="" /> <span class="profile-info" style="font-family: Calibri">
-								Pedro Henrique <small style="font-family: Calibri">Nome Empresa</small>
-						</span>
-                </a>
-                    <ul class="dropdown-menu animation-dock" style="left:-90px;">
-                        <li class="dropdown-header">Configurações</li>
-                        <li><a href="#">Meu Perfil</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#"><i
-                                class="fa fa-fw fa-power-off text-danger"></i> Sair</a></li>
-                    </ul>
-                    <!--end .dropdown-menu --></li>
-                <!--end .dropdown -->
-            </ul>
+<body>
+<header></header>
+<div id="sw-main">
+    <div class="navbar navbar-default navbar-static-top" ng-controller="TopBar" style="margin-top:-50px">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" ng-class="{collapsed:Collapse}" ng-click="Collapse=!Collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
         </div>
+        <!--button type="button" class="square">
+            <i></i>
+        </button-->
+        <div class="collapse navbar-collapse" ng-class="{in:Collapse}">
+
+            <ul class="nav navbar-nav">
+                <li ng-if="menu.href"><a href="#" ng-click="Data.newTab(item.href)" > {{menu.label}}</a></li>
+                <li ng-repeat="menu in Data.conf.menuBar" ng-if="menu.dpdown" class="dropdown">
+                    <a href="#" bs-dropdown="menu" data-template="tab/tab.tpl.html"> {{menu.label}}<span class="caret"></span></a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="navbar-right"></div>
     </div>
-</nav>
+    <div id="content" class="ngTabs" ng-controller="Tabs" >
+        <ul class="nav nav-tabs ngNav">
+            <li ng-repeat="tab in Data.tabs" class="ngTab" ng-class="{active : Data.tabIndex == tab.i}">
+                <a ng-click="Data.tabIndex = tab.i" href="#">{{tab.title}}</a>
+                <span class="close" ng-if="!tab.fix" ng-click="Data.closeTab(tab.i)">&times;</span>
+            </li>
+        </ul>
 
-<div class="container-fluid">
-    <div class="row-fluid" style="margin-top: -40px;">
-
-        <div class="bhoechie-tab-container" id="menu" style="display:none">
-            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu" style="border-color: red">
-                <div class="list-group">
-                    <p style="font-family: Calibri">Configurações Gerais:</p>
-                    <a id="menuPaises" href="#paises" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Paises </a>
-                    <a id="menuEstados" href="#estados" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Estados </a>
-                    <a id="menuMunicipios" href="#municipios" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Municipios </a>
-                    <a id="menuEmpresa" href="#empresa" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Empresa </a>
-                    <a id="usuario" href="#usuario" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Usuários </a>
-                    <a id="restricao" href="#restricao"  onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Restrição de Acesso </a>
-                    <a id="chat" href="#chat" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Chat Interno </a>
-                    <a id="salas" href="#salas" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Salas de Atendimento </a>
-                    <a id="especialidade" onclick="mudaStyle(this)" href="#especialidade" class="list-group-item text-center" style="font-family: Calibri">Especialidades </a>
-                    <a id="procedimento" onclick="mudaStyle(this)" href="#procedimento" class="list-group-item text-center" style="font-family: Calibri">Procedimentos </a>
-                    <a id="plano" href="#plano" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Plano de Saúde Atendidos </a>
-                    <a id="preco" href="#preco" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Preços dos Procedimentos </a>
-                    <a id="agenda" href="#agenda" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Agenda </a>
-                    <a id="retomo" href="#retomo" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Retomos por Convênio </a>
-                    <a id="avisoSms" href="#avisoSms" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Avisos Sms </a>
-                    <a id="avisoEmail" href="#avisoEmail" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Avisos por Email </a>
-                    <a id="pacientes" href="#pacientes" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Pacientes </a>
-                    <a id="recepcao" href="#recepcao" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Recepção de Pacientes </a>
-                    <a id="anamnese" href="#anamnese" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Anamnese </a>
-                    <a id="avaliacao" href="#avaliacao" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Avaliação Física </a>
-                    <a id="prescricao" href="#prescricao" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Prescrição Médica </a>
-                    <a id="solicitacao" href="#solicitacao" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Solicitação de Exames </a>
-                    <a id="atestado" href="#atestado" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Atestado </a>
-                    <a id="prontuario" href="#prontuario" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Prontuário </a>
-                    <a id="laudos" href="#laudos" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Laudos </a>
-                    <a id="orcamento" href="#orcamento" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Orçamento </a>
-                    <a id="contas" href="#contas" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Contas Bancárias </a>
-                    <a id="planoContas" href="#plano" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Plano de Contas </a>
-                    <a id="horizonte" href="#horizonte" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Horizonte de Fluxo de Caixa </a>
-                    <a id="controladoria" href="#controladoria" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Controladoria </a>
-                    <a id="centroCustos" href="#centroCustos" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Centro de Custos </a>
-                    <a id="centroLucros" href="#centroLucros" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Centro de Lucros </a>
-                    <a id="unNegocios" href="#unNegocios" onclick="mudaStyle(this)" class="list-group-item text-center" style="font-family: Calibri">Unidades de Negócio </a>
-                </div>
-            </div>
-            <div class="col-lg-10 col-md-3 col-sm-3 col-xs-3" style="margin-left: -20px;">
-                <div ng-view ></div>
-            </div>
+        <div class="tab-container ngCont sw">
+            <div ng-repeat="tab in Data.tabs" ng-show="Data.tabIndex == tab.i"  class="tab-content" ng-class="{'active' : Data.tabIndex == tab.i}" ng-include="tab.url">Carregando...</div>
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-    function mostraMenu() {
-
-        document.getElementById('menu').style.display = "block";
-    }
-
-    function mudaStyle(e){
-
-        document.getElementById("menuMunicipios").className = "list-group-item text-center";
-        document.getElementById("menuEstados").className = "list-group-item text-center";
-        document.getElementById("menuPaises").className = "list-group-item text-center";
-        document.getElementById("menuEmpresa").className = "list-group-item text-center";
-        document.getElementById("usuario").className = "list-group-item text-center";
-        document.getElementById("restricao").className = "list-group-item text-center";
-        document.getElementById("chat").className = "list-group-item text-center";
-        document.getElementById("salas").className = "list-group-item text-center";
-        document.getElementById("especialidade").className = "list-group-item text-center";
-        document.getElementById("procedimento").className = "list-group-item text-center";
-        document.getElementById("plano").className = "list-group-item text-center";
-        document.getElementById("preco").className = "list-group-item text-center";
-        document.getElementById("agenda").className = "list-group-item text-center";
-        document.getElementById("avisoSms").className = "list-group-item text-center";
-        document.getElementById("avisoEmail").className = "list-group-item text-center";
-        document.getElementById("pacientes").className = "list-group-item text-center";
-        document.getElementById("anamnese").className = "list-group-item text-center";
-        document.getElementById("prescricao").className = "list-group-item text-center";
-        document.getElementById("solicitacao").className = "list-group-item text-center";
-        document.getElementById("atestado").className = "list-group-item text-center";
-        document.getElementById("planoContas").className = "list-group-item text-center";
-        document.getElementById("horizonte").className = "list-group-item text-center";
-        document.getElementById("controladoria").className = "list-group-item text-center";
-        document.getElementById("centroLucros").className = "list-group-item text-center";
-        document.getElementById("unNegocios").className = "list-group-item text-center";
-
-        e.className = "list-group-item active text-center";
-
-    }
-
-</script>
-
-<!-- BEGIN JAVASCRIPT -->
-<script src="js/vendor/jquery-1.11.2.min.js"></script>
-<script src="js/vendor/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/lib/angular.min.js"></script>
-<script type="text/javascript" src="js/lib/angular-route.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="js/services/municipio_service.js"></script>
-<script src="js/controllers/municipio_controller.js"></script>
-<script type="text/javascript" src="js/vendor/abas.js"></script>
-<!--<script type="text/javascript" src="js/directives.js"></script>-->
-<!--<script type="text/javascript" src="js/filters.js"></script>-->
-<!-- END JAVASCRIPT -->
-
-
-<script type="text/javascript">
-
-    function mostraMenu() {
-
-        document.getElementById('menu').style.display = "block";
-    }
-
-</script>
-
 </body>
+</html>
 </html>

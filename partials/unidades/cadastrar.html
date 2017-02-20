@@ -1,0 +1,115 @@
+<head>
+
+	<script>
+
+        $(document).ready(function(){
+            $("#telefone").mask('(99)9999-9999');
+            $("#cep").mask('99.999-9999');
+        });
+
+	</script>
+
+</head>
+<div ng-app="myApp" ng-controller="UnidadeController as ctrl">
+
+
+<div id="content" ng-init="Data.tabs[$parent.tab.i].title='Cadastrar Unidade'">
+
+
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="page-header">
+								<h2>Cadastrar Unidade</h2>
+							</div>
+							<!-- Inputs -->
+							<form role="form" ng-submit="ctrl.submit()">
+								<div class="row">
+
+									<div class="form-group" ng-controller="SecretariaController as p_ctrl">
+										<label for="criterio_busca" style="font-family: Calibri;font-weight: bold;text-transform: uppercase">Secretaria</label>
+										<select style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+												id="unidadeSecretaria " ng-model="ctrl.unidade.idSecretaria" ng-options="secretaria.cdSecretaria as secretaria.nmSecretaria
+                                        for secretaria in p_ctrl.secretariasCombo" required></select>
+									</div>
+
+
+									<div class="col-xs-6">
+										<label for="nome">Nome</label>
+										<input id="nome" style="text-transform: uppercase" class="form-control" type="text" placeholder="Nome" ng-model="ctrl.unidade.nmUnidade"
+											   title="Nome da Unidade. Ex: Unidade de Unidade Pública" bs-tooltip required>
+									</div>
+
+									<div class="col-xs-3">
+										<label for="telefone">Telefone</label>
+										<input id="telefone" class="form-control" type="text" placeholder="Telefone" required
+											   ng-model="ctrl.unidade.nuTelefone" title="Telefone de contato da Unidade. Ex: 8899999999 " bs-tooltip>
+									</div>
+
+									<div class="col-xs-3">
+										<label for="email">Email</label>
+										<div class="input-group">
+											<!-- icone -->
+											<div class="input-group-addon">
+												@
+											</div><!-- icone -->
+											<input id="email" style="text-transform: uppercase" class="form-control" type="email" placeholder="Email"
+												   ng-model="ctrl.unidade.dsEmail" required
+												   title="Email da Unidade. Ex: sesp@crato.gov.ce.br " bs-tooltip>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-2">
+										<label for="cep">CEP</label>
+										<input id="cep" class="form-control" type="text" placeholder="99.999-999"
+											   title="CEP " bs-tooltip required
+											   ng-model="ctrl.unidade.nuCep" required ui-mask="99.999-999" />
+										<a href="http://www.buscacep.correios.com.br/"
+										   ng-model="ctrl.unidade.nuCep"
+										   target="_blank"><small><u><i>Buscar CEP</i></u></small></a>
+									</div>
+									<div class="col-xs-2">
+										<label for="tipo_logradouro">Tipo de logradouro</label>
+										<select id="tipo_logradouro" class="form-control" ng-model="ctrl.unidade.tipoLogradouro" required>
+											<option value="0">Selecione...</option>
+											<option value="1">Rua</option>
+											<option value="2">Avenida</option>
+											<option value="3">Travessa</option>
+											<option value="4">Beco</option>
+											<option value="5">Alto</option>
+											<option value="6">Vila</option>
+											<option value="7">Sitio</option>
+											<option value="8">Outros</option>
+										</select>
+										<span class="help-block">&nbsp;</span>
+									</div>
+									<div class="col-xs-3">
+										<label for="logradouro">Logradouro</label>
+										<input id="logradouro" type="text" style="text-transform: uppercase"  placeholder="Logradouro" class="form-control"
+											   ng-model="ctrl.unidade.dsLogradouro" required
+											   title="Logradouro da Unidade. Ex: Barbara de Alencar " bs-tooltip />
+									</div>
+									<div class="col-xs-3">
+										<label for="bairro">Bairro</label>
+										<input id="bairro" type="text" class="form-control"
+											   ng-model="ctrl.unidade.dsBairro" required style="text-transform: uppercase"
+											   placeholder="Bairro" title="Bairro da Unidade. Ex: Centro " bs-tooltip />
+									</div>
+									<div class="col-xs-2">
+										<label for="numero">Número</label>
+										<input id="numero" type="text" class="form-control"
+											   ng-model="ctrl.unidade.numero" required style="text-transform: uppercase"
+											   placeholder="Número" title="Número da Unidade. Ex: S/N " bs-tooltip />
+									</div>
+								</div>
+								<hr>
+								<div align="right" class="footer">
+									<input type="submit"  ng-disabled="show" value="{{!ctrl.unidade.cdUnidade ? 'Cadastrar' : 'Atualizar'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+									<button type="button" ng-disabled="show" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Limpar</button>
+								</div>
+							</form><!-- Inputs -->
+						</div>
+					</div>
+				</div><!-- container -->
+			</div>
+</div>

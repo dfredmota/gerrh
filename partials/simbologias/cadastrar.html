@@ -1,0 +1,61 @@
+<head>
+
+	<script>
+
+        $(document).ready(function(){
+            $("#nomeclatura").mask('AAA-00');
+            $("#salarioBase").maskMoney({showSymbol:true, symbol:"R$", decimal:",", thousands:"."});
+
+        });
+
+	</script>
+
+</head>
+<div ng-app="myApp" ng-controller="SimbologiaController as ctrl">
+
+
+<div id="content" ng-init="Data.tabs[$parent.tab.i].title='Cadastrar Simbologia'">
+
+				<div class="container">
+
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="page-header">
+								<h2>Cadastrar Simbologia</h2>
+							</div>
+							<!-- Inputs -->
+							<form role="form" ng-submit="ctrl.submit()">
+								<div class="row">
+
+									<div class="col-xs-6">
+
+										<label for="criterio2" style="font-family: Calibri;
+                                font-weight: bold;text-transform: uppercase">Nomeclatura</label>
+										<input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+											   type="text" maxlength="40" class="form-control input-sm"
+											   id="nomeclatura"
+											   ng-model="ctrl.simbologia.nomeclatura" required ng-disabled="show">
+
+									</div>
+
+									<div class="col-xs-3">
+										<label style="font-family: Calibri;
+                                font-weight: bold;text-transform: uppercase">Salário Base</label>
+										<input id="salarioBase" class="form-control" type="text" placeholder="" required
+											   ng-disabled="show" title="Salario Base. Ex: 8899999999 "
+											   bs-tooltip ng-model="ctrl.simbologia.salarioBase" >
+
+									</div>
+
+								</div>
+								<hr>
+								<div align="right" class="footer">
+									<input type="submit"  ng-disabled="show" value="{{!ctrl.simbologia.cdSimbologia ? 'Cadastrar' : 'Atualizar'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+									<button type="button" ng-disabled="show" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Limpar</button>
+								</div>
+							</form><!-- Inputs -->
+						</div>
+					</div>
+				</div><!-- container -->
+			</div>
+</div>

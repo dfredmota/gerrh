@@ -1,0 +1,252 @@
+<head>
+
+    <script>
+
+        $(document).ready(function(){
+            $("#telefone").mask('(99)9999-9999');
+            $("#cep").mask('99.999-9999');
+        });
+
+        function habilitaFiltro(){
+
+            var tipoFiltro  = document.getElementById("filtrar").value;
+
+            if(tipoFiltro == 0 || tipoFiltro == 3){
+
+                document.getElementById("filtroNome").style.display="none";
+                document.getElementById("filtroSecretaria").style.display="none";
+
+            }
+
+            if(tipoFiltro == 1){
+
+                document.getElementById("filtroNome").style.display="block";
+                document.getElementById("filtroSecretaria").style.display="none";
+
+            }
+
+            if(tipoFiltro == 2){
+
+                document.getElementById("filtroNome").style.display="none";
+                document.getElementById("filtroSecretaria").style.display="block";
+
+            }
+
+        }
+
+    </script>
+
+</head>
+<div ng-app="myApp" ng-controller="UnidadeController as ctrl">
+
+
+
+    <div id="content">
+
+
+        <div class="container" ng-init="Data.tabs[$parent.tab.i].title='Consultar Unidades'">
+            <div class="row">
+                <div class="col-xs-11">
+                    <div class="page-header">
+                        <h2>Unidades</h2>
+                    </div>
+                    <!-- Inputs -->
+                    <form role="form">
+
+
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <label for="filtrar">Filtrar por:</label>
+                                <select id="filtrar" name="filtrar" class="form-control" onchange="habilitaFiltro();">
+                                    <option value="0">Selecione...</option>
+                                    <option value="1">Nome</option>
+                                    <option value="2">Secretaria</option>
+                                    <option value="3">Todos</option>
+                                </select>
+                                <span class="help-block">&nbsp;</span>
+                            </div>
+
+
+                            <div class="col-xs-5" id="filtroNome" style="display:none">
+                                <label for="dados">Filtro por nome</label>
+                                <input id="dados" type="text" placeholder="Digite o nome..." class="form-control"
+                                       title=" Ex: Unidade de Agricultura " bs-tooltip
+                                       ng-model="ctrl.unidade.nmUnidade"
+                                />
+                            </div>
+
+
+
+                            <div class="col-xs-3" style="display:none" id="filtroSecretaria"
+                                 ng-controller="SecretariaController as p_ctrl">
+                                <label for="dados">Filtro por Secretaria</label>
+                                <select style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+                                        ng-model="ctrl.unidade.idSecretaria" ng-options="secretaria.cdSecretaria as secretaria.nmSecretaria
+                                        for secretaria in p_ctrl.secretariasCombo" required></select>
+                            </div>
+                        </div>
+
+                        <br/><br/>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-primary" ng-click="ctrl.pesquisa()">
+                                    Buscar
+                                </button>
+                                <button type="button" class="btn btn-primary" ng-click="Data.newTab('partials/unidades/cadastrar.html')">
+                                    Cadastrar
+                                </button>
+                            </div>
+
+                        </div>
+                        <br/><br/>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <table class="table table-bordered table-hover table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nome</th>
+                                        <th>Secretaria Vinculada</th>
+                                        <th>Endereço</th>
+                                        <th>E-mail</th>
+                                        <th>Fone/Fax</th>
+                                        <th colspan="2" style="margin-left: 2px">Operações</th>
+
+                                    </tr>
+
+                                    <tr ng-repeat="unidade in ctrl.unidades | filter:searchDescription">
+
+                                        <td>{{unidade.cdUnidade}}</td>
+                                        <td>{{unidade.nmUnidade}}</td>
+                                        <td>{{unidade.nmSecretaria}}</td>
+                                        <td>Rua {{unidade.dsLogradouro}} , Nº {{unidade.numero}} , {{unidade.dsBairro}}</td>
+                                        <td>{{unidade.dsEmail}}</td>
+                                        <td>{{unidade.nuTelefone}}</td>
+
+                                        <td>
+
+                                            <button type="button" ng-click="Data.newTab('partials/unidades/editar.html',1,unidade)"
+                                                    class="btn btn-small btn-warning">
+                                                <i class="glyphicon glyphicon-edit"></i>
+
+                                        </td>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div align="right" class="footer">
+                        </div>
+                        <!--	<button type="button" class="btn btn-success">
+                                Salvar
+                            </button>
+                            <button type="button" class="btn btn-danger">
+                                Cancelar
+                            </button>
+                        </div> -->
+                        <!--<button type="submit" class="btn btn-default">
+                        Submit
+                        </button> -->
+                    </form><!-- Inputs -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-top: 10px ">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Dados da Unidade</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+                        <form class="well-lg" ng-submit="ctrl.submit()">
+
+                            <div class="form-group" ng-controller="SecretariaController as p_ctrl">
+                                <label for="criterio_busca" style="font-family: Calibri;font-weight: bold;text-transform: uppercase">Secretaria</label>
+                                <select style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+                                        ng-model="ctrl.unidade.idSecretaria" ng-options="secretaria.cdSecretaria as secretaria.nmSecretaria
+                                        for secretaria in p_ctrl.secretariasCombo" required></select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="criterio2" style="font-family: Calibri;font-weight: bold;text-transform: uppercase">Nome</label>
+                                <input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+                                       type="text" maxlength="40" class="form-control input-sm"
+                                       ng-model="ctrl.unidade.nmUnidade" required ng-disabled="show">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input id="telefone" class="form-control" type="text" placeholder="" required
+                                       ng-disabled="show" title="Telefone de contato da unidade. Ex: 8899999999 " bs-tooltip ng-model="ctrl.unidade.nuTelefone" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                    <input id="email" class="form-control" type="email" placeholder=""
+                                           ng-disabled="show" title="Email da Unidade. Ex: sesp@crato.gov.ce.br " bs-tooltip
+                                           ng-model="ctrl.unidade.dsEmail" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cep">CEP</label>
+                                <input id="cep" maxlength="10" class="form-control" type="text" placeholder="99.999-999" title="CEP " bs-tooltip
+                                       ng-disabled="show" ng-model="ctrl.unidade.nuCep" required ui-mask="99.999-999" />
+                                <a href="http://www.buscacep.correios.com.br/"target="_blank"><small><u><i>Buscar CEP</i></u></small></a>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tipo_logradouro">Tipo de logradouro</label>
+                                <select id="tipo_logradouro" class="form-control" ng-model="ctrl.unidade.tipoLogradouro"
+                                        ng-disabled="show" required>
+                                    <option value="0">Selecione...</option>
+                                    <option value="1">Rua</option>
+                                    <option value="2">Avenida</option>
+                                    <option value="3">Travessa</option>
+                                    <option value="4">Beco</option>
+                                    <option value="5">Alto</option>
+                                    <option value="6">Vila</option>
+                                    <option value="7">Sitio</option>
+                                    <option value="8">Outros</option>
+                                </select>
+                                <span class="help-block">&nbsp;</span>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="cep">Logradouro</label>
+                                <input id="logradouro" ng-disabled="show" class="form-control" type="text"
+                                       placeholder="" title="CEP " bs-tooltip
+                                       ng-model="ctrl.unidade.dsLogradouro" required />
+                                <a href="http://www.buscacep.correios.com.br/"target="_blank"><small><u><i>Buscar CEP</i></u></small></a>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bairro">Bairro</label>
+                                <input id="bairro" type="text" class="form-control" placeholder="Bairro"
+                                       ng-disabled="show" title="Bairro da unidade. Ex: Centro " bs-tooltip
+                                       ng-model="ctrl.unidade.dsBairro" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="numero">Número</label>
+                                <input id="numero" type="text" maxlength="10" class="form-control" placeholder="NÂ°"
+                                       ng-disabled="show" title="Numero da unidade. Ex: S/N " bs-tooltip
+                                       ng-model="ctrl.unidade.numero" required/>
+                            </div>
+
+
+                            <input type="submit"  ng-disabled="show" value="{{!ctrl.unidade.cdunidade ? 'Cadastrar' : 'Atualizar'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+                            <button type="button" ng-disabled="show" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Limpar</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>-->

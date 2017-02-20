@@ -1,0 +1,22 @@
+{
+	"menuBar":[
+		{"label":"Tabelas", "dpdown":[
+			{"label": "Secretarias/Órgãos", "href": "partials/secretarias/secretarias.html"},
+			{"label": "Unidades", "href": "partials/unidades/unidades.html"},
+			{"label": "Simbologias", "href": "partials/simbologias/simbologias.html"},
+			{"label": "Cargos", "href": "views/rh/cargos/consultar.html"}
+		]},
+		{"label":"Sistema", "dpdown":[
+			{"label": "Coordenação - unidade", "href": "views/sistema/requerimentos.html"},
+			{"divider":true},
+			{"label": "Configurações", "href": "views/sistema/gerenciar_requerimento.html"},
+			{"label": "Enviar Requerimentos", "href": "views/sistema/enviar_requerimentos.html"},
+			{"label": "Operacões da Gerencia", "href": "views/sistema/operacao_da_gerencia.html"},
+			{"label": "Requerimentos Recebidos", "href": "views/sistema/requerimentos.html"}
+		]},
+		{"label":"Exemplos/Dev", "dpdown":[
+			{"label": "Form com tabs", "href": "views/exemplos/form.html"},
+			{"label": "Modal", "href": "views/sistema/eventos.html"}
+		]}
+	]
+}
