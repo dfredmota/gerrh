@@ -2,55 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16ae0293-0c56-441c-81a1-c06ae1506533" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-motion/angular-motion.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-motion/angular-motion.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-motion/modules/collapse.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-motion/modules/collapse.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-motion/modules/fade-and-scale.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-motion/modules/fade-and-scale.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-motion/modules/fade-and-slide.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-motion/modules/fade-and-slide.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-motion/modules/fade.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-motion/modules/fade.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-motion/modules/flip.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-motion/modules/flip.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-motion/modules/slide.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-motion/modules/slide.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/conf.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/app.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/dash.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/controllers/simbologia_controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/controllers/unidade_controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/lib/angular-strap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/lib/angular-strap.tpl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/lib/jquery.mask.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/lib/jquery.maskMoney.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/services/simbologia_service.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/services/unidade_service.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/partials/secretarias/cadastrar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/partials/secretarias/editar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/partials/simbologias/cadastrar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/partials/simbologias/editar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/partials/simbologias/simbologias.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/partials/unidades/cadastrar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/partials/unidades/editar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/partials/unidades/unidades.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/controllers/municipio_controller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/controllers/pais_controller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/services/municipio_service.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/services/pais_service.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/partials/municipios/_form.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/partials/municipios/municipio_add.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/partials/municipios/municipio_edit.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/partials/municipios/municipios.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/partials/paises/paises.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/controllers/estado_controller.js" afterPath="$PROJECT_DIR$/js/controllers/secretaria_controller.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/services/estado_service.js" afterPath="$PROJECT_DIR$/js/services/secretaria_service.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/partials/estados/estados.html" afterPath="$PROJECT_DIR$/partials/secretarias/secretarias.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/partials/municipios/municipio_view.html" afterPath="$PROJECT_DIR$/home.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/partials/cargos/cadastrar.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/partials/cargos/cargos.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/partials/cargos/editar.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf.json" afterPath="$PROJECT_DIR$/conf.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services/secretaria_service.js" afterPath="$PROJECT_DIR$/js/services/secretaria_service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services/simbologia_service.js" afterPath="$PROJECT_DIR$/js/services/simbologia_service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services/unidade_service.js" afterPath="$PROJECT_DIR$/js/services/unidade_service.js" />
     </list>
     <ignored path="hunza_front.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,41 +34,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="cargo_service.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/services/cargo_service.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1224">
+              <caret line="72" column="30" lean-forward="false" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="secretaria_service.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/services/secretaria_service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+            <state relative-caret-position="85">
+              <caret line="5" column="67" lean-forward="false" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editar.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/partials/secretarias/editar.html">
+      <file leaf-file-name="cargo_controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/controllers/cargo_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="secretaria_controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/controllers/secretaria_controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="141" column="13" lean-forward="true" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="unidade_service.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="unidade_service.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/services/unidade_service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+            <state relative-caret-position="102">
+              <caret line="6" column="73" lean-forward="false" selection-start-line="6" selection-start-column="73" selection-end-line="6" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -116,66 +77,35 @@
       <file leaf-file-name="simbologia_service.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/services/simbologia_service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+            <state relative-caret-position="85">
+              <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="unidades.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/partials/unidades/unidades.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1095">
-              <caret line="73" column="71" lean-forward="false" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="71" />
-              <folding>
-                <element signature="e#2073#2079#1" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="simbologias.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/partials/simbologias/simbologias.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="60" column="76" lean-forward="false" selection-start-line="60" selection-start-column="76" selection-end-line="60" selection-end-column="76" />
-              <folding>
-                <element signature="e#1580#1586#1" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="cadastrar.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/partials/secretarias/cadastrar.html">
+        <entry file="file://$PROJECT_DIR$/partials/cargos/cadastrar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="68" column="75" lean-forward="true" selection-start-line="68" selection-start-column="75" selection-end-line="68" selection-end-column="75" />
+            <state relative-caret-position="204">
+              <caret line="82" column="79" lean-forward="true" selection-start-line="82" selection-start-column="79" selection-end-line="82" selection-end-column="79" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#2;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#3;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#4;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#2794#2800#1" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cadastrar.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/partials/simbologias/cadastrar.html">
+      <file leaf-file-name="simbologia_controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/controllers/simbologia_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="10" selection-end-column="13" />
-              <folding>
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="-34">
+              <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -202,6 +132,9 @@
       <find>showSuccessAlert</find>
       <find>unidade</find>
       <find>nuCep</find>
+      <find>simbologia</find>
+      <find>fetchAllCargos</find>
+      <find>pesquisaPorNome</find>
     </findStrings>
     <replaceStrings>
       <replace>unidade</replace>
@@ -240,9 +173,7 @@
         <option value="$PROJECT_DIR$/js/services/municipio_service.js" />
         <option value="$PROJECT_DIR$/js/controllers/municipio_controller.js" />
         <option value="$PROJECT_DIR$/partials/simbologia/simbologias.html" />
-        <option value="$PROJECT_DIR$/conf.json" />
         <option value="$PROJECT_DIR$/js/app.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/controllers/unidade_controller.js" />
         <option value="$PROJECT_DIR$/partials/simbologias/cadastrar.html" />
         <option value="$PROJECT_DIR$/partials/simbologias/editar.html" />
@@ -253,11 +184,18 @@
         <option value="$PROJECT_DIR$/partials/secretarias/secretarias.html" />
         <option value="$PROJECT_DIR$/partials/simbologias/simbologias.html" />
         <option value="$PROJECT_DIR$/js/controllers/secretaria_controller.js" />
-        <option value="$PROJECT_DIR$/js/services/secretaria_service.js" />
-        <option value="$PROJECT_DIR$/js/services/simbologia_service.js" />
         <option value="$PROJECT_DIR$/partials/secretarias/editar.html" />
         <option value="$PROJECT_DIR$/partials/secretarias/cadastrar.html" />
+        <option value="$PROJECT_DIR$/conf.json" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/partials/cargos/editar.html" />
+        <option value="$PROJECT_DIR$/partials/cargos/cargos.html" />
+        <option value="$PROJECT_DIR$/js/services/secretaria_service.js" />
         <option value="$PROJECT_DIR$/js/services/unidade_service.js" />
+        <option value="$PROJECT_DIR$/partials/cargos/cadastrar.html" />
+        <option value="$PROJECT_DIR$/js/controllers/cargo_controller.js" />
+        <option value="$PROJECT_DIR$/js/services/simbologia_service.js" />
+        <option value="$PROJECT_DIR$/js/services/cargo_service.js" />
       </list>
     </option>
   </component>
@@ -268,9 +206,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
-    <option name="width" value="1295" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1376" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectView">
@@ -288,57 +226,26 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hunza_front" />
+              <option name="myItemId" value="gerrh_front" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hunza_front" />
+              <option name="myItemId" value="gerrh_front" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hunza_front" />
+              <option name="myItemId" value="gerrh_front" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hunza_front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hunza_front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hunza_front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="secretarias" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hunza_front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hunza_front" />
+              <option name="myItemId" value="gerrh_front" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -348,11 +255,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hunza_front" />
+              <option name="myItemId" value="gerrh_front" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hunza_front" />
+              <option name="myItemId" value="gerrh_front" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -366,7 +273,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -386,21 +292,43 @@
       <recent name="$PROJECT_DIR$/js/lib" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\desenvolvimento\projetos\workspace_gerrh\gerrh_front\partials\cargos" />
+      <recent name="C:\desenvolvimento\projetos\workspace_gerrh\gerrh_front\js\controllers" />
+      <recent name="C:\desenvolvimento\projetos\workspace_gerrh\gerrh_front\js\services" />
       <recent name="$PROJECT_DIR$/partials/simbologias" />
       <recent name="$PROJECT_DIR$/partials/unidades" />
-      <recent name="$PROJECT_DIR$/partials/secretarias" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/js/services" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.index.html (1)">
     <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/hunza_front/index.html">
+      <method />
+    </configuration>
+    <configuration default="false" name="index.html (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/gerrh_front/index.html">
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
     <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
@@ -456,12 +384,14 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html (1)" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html (1)" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
   </component>
@@ -517,23 +447,26 @@
       <workItem from="1487310703836" duration="469000" />
       <workItem from="1487386075593" duration="299000" />
       <workItem from="1487539644251" duration="5878000" />
+      <workItem from="1496546807888" duration="2931000" />
+      <workItem from="1496593694335" duration="4397000" />
+      <workItem from="1496725464924" duration="4255000" />
+      <workItem from="1496809961721" duration="6046000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175572000" />
+    <option name="totallyTimeSpent" value="193201000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1295" height="744" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23977987" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.225" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -541,27 +474,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23977987" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -584,43 +499,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="3" lean-forward="false" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/services/municipio_service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js" />
-    <entry file="file://$PROJECT_DIR$/css/site.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js" />
-    <entry file="file://$PROJECT_DIR$/js/lib/angular-resource.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="5" column="455" lean-forward="false" selection-start-line="5" selection-start-column="455" selection-end-line="5" selection-end-column="455" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/tabs_controller.js" />
     <entry file="file://$PROJECT_DIR$/js/controllers.js" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -642,30 +520,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/partials/paises/paises.html" />
-    <entry file="file://$PROJECT_DIR$/js/services/estado_service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/js/services/estado_service.js" />
     <entry file="file://$PROJECT_DIR$/partials/municipios/municipios.html" />
     <entry file="file://$PROJECT_DIR$/js/controllers/estado_controller.js" />
     <entry file="file://$PROJECT_DIR$/js/controllers/pais_controller.js" />
-    <entry file="file://$PROJECT_DIR$/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="3" lean-forward="false" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/services/municipio_service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="54" lean-forward="true" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/js/services/municipio_service.js" />
     <entry file="file://$PROJECT_DIR$/js/controllers/municipio_controller.js" />
     <entry file="file://$PROJECT_DIR$/css/dash.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -710,24 +569,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/services/pais_service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/js/services/pais_service.js" />
     <entry file="file://$PROJECT_DIR$/js/vendor/jquery-1.11.2.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="86" lean-forward="false" selection-start-line="5" selection-start-column="86" selection-end-line="5" selection-end-column="86" />
         </state>
       </provider>
     </entry>
@@ -742,13 +588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="75" column="10" lean-forward="true" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="54" column="7" lean-forward="true" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -773,32 +612,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers/simbologia_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2655">
-          <caret line="177" column="39" lean-forward="false" selection-start-line="177" selection-start-column="39" selection-end-line="177" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/unidade_controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2970">
           <caret line="198" column="17" lean-forward="false" selection-start-line="198" selection-start-column="9" selection-end-line="198" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/partials/unidades/unidades.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
+        <state relative-caret-position="1241">
           <caret line="73" column="71" lean-forward="false" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="71" />
-          <folding>
-            <element signature="e#2073#2079#1" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -806,87 +630,160 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1185">
           <caret line="79" column="30" lean-forward="false" selection-start-line="57" selection-start-column="24" selection-end-line="79" selection-end-column="30" />
-          <folding>
-            <element signature="e#1890#1896#1" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1487308532166" expanded="false" signature="6512:6576" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/partials/simbologias/simbologias.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
+        <state relative-caret-position="1020">
           <caret line="60" column="76" lean-forward="false" selection-start-line="60" selection-start-column="76" selection-end-line="60" selection-end-column="76" />
-          <folding>
-            <element signature="e#1580#1586#1" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/partials/simbologias/cadastrar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
+        <state relative-caret-position="34">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers/secretaria_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="141" column="13" lean-forward="true" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/partials/secretarias/editar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
+        <state relative-caret-position="1071">
           <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="3" lean-forward="false" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="10" lean-forward="true" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="60" column="40" lean-forward="false" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/lib/angular.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4675">
+          <caret line="279" column="376" lean-forward="false" selection-start-line="279" selection-start-column="376" selection-end-line="279" selection-end-column="376" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/partials/secretarias/cadastrar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="68" column="75" lean-forward="true" selection-start-line="68" selection-start-column="75" selection-end-line="68" selection-end-column="75" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#2;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#3;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#4;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="1632">
+          <caret line="96" column="96" lean-forward="false" selection-start-line="96" selection-start-column="96" selection-end-line="96" selection-end-column="96" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/services/secretaria_service.js">
+    <entry file="file://$PROJECT_DIR$/js/controllers/secretaria_controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        <state relative-caret-position="119">
+          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/services/simbologia_service.js">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/common.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        <state relative-caret-position="2108">
+          <caret line="124" column="18" lean-forward="false" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partials/cargos/editar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="64" lean-forward="false" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
+          <folding>
+            <element signature="n#style#0;n#label#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partials/cargos/cargos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="44" column="97" lean-forward="false" selection-start-line="44" selection-start-column="89" selection-end-line="44" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partials/cargos/cadastrar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="82" column="79" lean-forward="true" selection-start-line="82" selection-start-column="79" selection-end-line="82" selection-end-column="79" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#2794#2800#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/simbologia_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/cargo_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/services/unidade_service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+        <state relative-caret-position="102">
+          <caret line="6" column="73" lean-forward="false" selection-start-line="6" selection-start-column="73" selection-end-line="6" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/services/simbologia_service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/services/secretaria_service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="67" lean-forward="false" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/services/cargo_service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="72" column="30" lean-forward="false" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
           <folding />
         </state>
       </provider>

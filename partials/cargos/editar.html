@@ -1,0 +1,66 @@
+<head>
+
+
+</head>
+<div ng-app="myApp" ng-controller="CargoController as ctrl">
+
+
+	<div id="content" ng-init="Data.tabs[$parent.tab.i].title='Editar Cargo'">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-xs-11">
+					<div class="page-header">
+						<h2>Editar Cargo</h2>
+					</div>
+					<!-- Inputs -->
+					<form role="form" ng-submit="ctrl.submit()">
+						<div class="row">
+
+							<div class="col-xs-6">
+
+								<label for="criterio2" style="font-family: Calibri;
+                                font-weight: bold;text-transform: uppercase">Nome</label>
+								<input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+									   type="text" maxlength="40" class="form-control input-sm"
+									   id="nomeclatura"
+									   ng-model="ctrl.cargo.nome" required ng-disabled="show">
+
+							</div>
+
+							<div class="col-xs-3">
+								<label for="tipoCargo">Tipo de Cargo:</label>
+								<select id="tipoCargo" name="tipoCargo" class="form-control">
+									<option value="1">Efetivo</option>
+									<option value="2">Eletivo</option>
+									<option value="3">Temporário</option>
+									<option value="4">Comissionado</option>
+									<option value="5">Estatuário</option>
+								</select>
+								<span class="help-block">&nbsp;</span>
+							</div>
+
+							<div class="col-xs-3">
+
+								<label style="font-family: Calibri;
+                                		font-weight: bold;text-transform: uppercase">Quantidade</label>
+								<input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+									   type="number" maxlength="40" class="form-control input-sm"
+									   id="quantidade"
+									   ng-model="ctrl.cargo.quantidade" required ng-disabled="show">
+
+							</div>
+
+						</div>
+						<hr>
+						<div align="right" class="footer">
+							<input type="submit"  ng-disabled="show" value="{{!ctrl.cargo.cdCargo ? 'Cadastrar' : 'Atualizar'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+							<button type="button" ng-disabled="show" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Limpar</button>
+						</div>
+					</form><!-- Inputs -->
+				</div>
+			</div>
+		</div><!-- container -->
+	</div>
+</div>

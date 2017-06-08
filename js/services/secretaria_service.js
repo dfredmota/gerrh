@@ -2,8 +2,8 @@
 
 App.factory('SecretariaService', ['$http', '$q', function($http, $q){
 
-    var REST_SERVICE_URI = 'http://31.220.57.252:8080/gerrh/secretaria/';
-    var REST_SERVICE_URI_PESQUISA_NOME = 'http://31.220.57.252:8080/gerrh/getbynomesec/';
+    var REST_SERVICE_URI = 'http://209.172.51.58:7447/gerrh/secretaria/';
+    var REST_SERVICE_URI_PESQUISA_NOME = 'http://209.172.51.58:7447/gerrh/getbynomesec/';
 
     //var REST_SERVICE_URI = 'http://localhost:8080/gerrh/secretaria/';
     //var REST_SERVICE_URI_PESQUISA_NOME = 'http://localhost:8080/gerrh/getbynomesec/';

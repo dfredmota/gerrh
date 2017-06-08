@@ -1,0 +1,123 @@
+<head>
+
+    <script>
+
+
+        function habilitaFiltro(){
+
+            var tipoFiltro  = document.getElementById("filtrar").value;
+
+            if(tipoFiltro == 0 || tipoFiltro == 3){
+
+                document.getElementById("filtroNome").style.display="none";
+
+            }
+
+            if(tipoFiltro == 1){
+
+                document.getElementById("filtroNome").style.display="block";
+
+            }
+
+
+        }
+
+    </script>
+
+</head>
+<div ng-app="myApp" ng-controller="CargoController as ctrl">
+
+
+    <div id="content">
+
+        <div class="container" ng-init="Data.tabs[$parent.tab.i].title='Consultar Cargos'">
+            <div class="row">
+                <div class="col-xs-11">
+                    <div class="page-header">
+                        <h2>Cargos</h2>
+                    </div>
+                    <!-- Inputs -->
+                    <form role="form">
+                        <div class="row">
+
+                            <div class="col-xs-3">
+                                <label for="filtrar">Filtrar por:</label>
+                                <select id="filtrar" name="filtrar" class="form-control" onchange="habilitaFiltro();">
+                                    <option value="0">Selecione...</option>
+                                    <option value="1">Nome</option>
+                                    <option value="2">Tipo de Cargo</option>
+                                    <option value="3">Todos</option>
+                                </select>
+                                <span class="help-block">&nbsp;</span>
+                            </div>
+
+
+                            <div class="col-xs-5" id="filtroNome" style="display:none">
+                                <label for="dados">Filtro por nome</label>
+                                <input id="dados" type="text" placeholder="Digite o nome..." class="form-control"
+                                       title=" Ex: Secretaria de Agricultura " bs-tooltip
+                                       ng-model="ctrl.cargo.nome"
+                                />
+                            </div>
+
+
+                        </div>
+
+                        <br/><br/>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-primary" ng-click="ctrl.pesquisa()">
+                                    Buscar
+                                </button>
+                                <button type="button" class="btn btn-primary" ng-click="Data.newTab('partials/cargos/cadastrar.html')">
+                                    Cadastrar
+                                </button>
+                            </div>
+
+                        </div>
+                        <br/><br/>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <table class="table table-bordered table-hover table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nome</th>
+                                        <th>Tipo de Cargo</th>
+                                        <th colspan="2" style="margin-left: 2px" width="50px">Operações</th>
+
+                                    </tr>
+
+                                    <tr ng-repeat="cargo in ctrl.cargos | filter:searchDescription">
+
+                                        <td>{{cargo.cdCargo}}</td>
+                                        <td>{{cargo.nome}}</td>
+                                        <td>{{cargo.descTipoCargo}}</td>
+
+                                        <td>
+
+                                            <button type="button" ng-click="Data.newTab('partials/cargos/editar.html',1,cargo)"
+                                                    class="btn btn-small btn-warning">
+                                                <i class="glyphicon glyphicon-edit"></i>
+                                            </button>
+
+
+                                        </td>
+
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div align="right" class="footer">
+                        </div>
+
+                    </form><!-- Inputs -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

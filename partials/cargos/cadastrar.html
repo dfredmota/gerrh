@@ -1,0 +1,103 @@
+<head>
+
+
+	<script>
+
+		// chama uma função no controller  apartir do javascript
+		function habilitaSimbologia(){
+
+		    var tipoCargo = document.getElementById('tipoCargo').value;
+
+		    if(tipoCargo == 4) {
+
+
+                angular.element(document.getElementById('tipoCargo')).scope().getSimbologias();
+                document.getElementById("div_simbologias").style.display="block";
+
+            }else{
+
+                document.getElementById("div_simbologias").style.display = "none";
+			}
+		}
+
+
+
+	</script>
+
+</head>
+<div ng-app="myApp" ng-controller="CargoController as ctrl">
+
+
+<div id="content" ng-init="Data.tabs[$parent.tab.i].title='Cadastrar Cargo'">
+
+				<div class="container">
+
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="page-header">
+								<h2>Cadastrar Cargo</h2>
+							</div>
+							<!-- Inputs -->
+							<form role="form" ng-submit="ctrl.submit()">
+								<div class="row">
+
+									<div class="col-xs-6">
+
+										<label style="font-family: Calibri;
+                                font-weight: bold;text-transform: uppercase">Nome</label>
+										<input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+											   type="text" maxlength="40" class="form-control input-sm"
+											   id="nome"
+											   ng-model="ctrl.cargo.nome" required ng-disabled="show">
+
+									</div>
+
+									<div class="col-xs-3">
+										<label for="tipoCargo">Tipo de Cargo:</label>
+										<select id="tipoCargo" name="tipoCargo" class="form-control" onchange="habilitaSimbologia()">
+											<option value="1">Efetivo</option>
+											<option value="2">Eletivo</option>
+											<option value="3">Temporário</option>
+											<option value="4">Comissionado</option>
+											<option value="5">Estatuário</option>
+										</select>
+										<span class="help-block">&nbsp;</span>
+									</div>
+
+									<div class="col-xs-3">
+
+										<label style="font-family: Calibri;
+                                		font-weight: bold;text-transform: uppercase">Quantidade</label>
+										<input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+											   type="number" maxlength="40" class="form-control input-sm"
+											   id="quantidade"
+											   ng-model="ctrl.cargo.quantidade" required ng-disabled="show">
+
+									</div>
+									<br>
+
+									<div class="col-xs-3" id="div_simbologias" style="display: none">
+										<label for="simbologias">Simbologias:</label>
+										<select ng-model="selectedSimbologia" id="simbologias" name="simbologias" class="form-control"
+												ng-options="item.cdSimbologia as item.nomeclatura for item in simbologias">
+											<option value="">Selecione</option>
+										</select>
+										<span class="help-block">&nbsp;</span>
+									</div>
+
+									<!--<select name="simbologias" ng-model="simbologiasId">
+										<option ng-repeat="item in simbologias" value="{{item.cdSimbologia}}">{{item.nomeclatura}}</option>
+									</select>-->
+
+								</div>
+								<hr>
+								<div align="right" class="footer">
+									<input type="submit"  ng-disabled="show" value="{{!ctrl.cargo.cdCargo ? 'Cadastrar' : 'Atualizar'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+									<button type="button" ng-disabled="show" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Limpar</button>
+								</div>
+							</form><!-- Inputs -->
+						</div>
+					</div>
+				</div><!-- container -->
+			</div>
+</div>

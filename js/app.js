@@ -12,7 +12,7 @@ App.config(function($routeProvider){
     })
 
        .when('/simbologias',{
-           templateUrl : 'partials/simbologias/simbologias.html',
+           templateUrl : 'partials/simbologias/cargos.html',
            controller : 'SimbologiaController'
        })
 
