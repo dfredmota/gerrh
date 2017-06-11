@@ -20,18 +20,18 @@
 
 							<div class="col-xs-6">
 
-								<label for="criterio2" style="font-family: Calibri;
+								<label style="font-family: Calibri;
                                 font-weight: bold;text-transform: uppercase">Nome</label>
 								<input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
 									   type="text" maxlength="40" class="form-control input-sm"
-									   id="nomeclatura"
+									   id="nome"
 									   ng-model="ctrl.cargo.nome" required ng-disabled="show">
 
 							</div>
 
 							<div class="col-xs-3">
 								<label for="tipoCargo">Tipo de Cargo:</label>
-								<select id="tipoCargo" name="tipoCargo" class="form-control">
+								<select id="tipoCargo" name="tipoCargo" class="form-control" onchange="habilitaSimbologia()">
 									<option value="1">Efetivo</option>
 									<option value="2">Eletivo</option>
 									<option value="3">Temporário</option>
@@ -49,6 +49,163 @@
 									   type="number" maxlength="40" class="form-control input-sm"
 									   id="quantidade"
 									   ng-model="ctrl.cargo.quantidade" required ng-disabled="show">
+
+							</div>
+							<br>
+
+
+
+							<!--<select name="simbologias" ng-model="simbologiasId">
+                                <option ng-repeat="item in simbologias" value="{{item.cdSimbologia}}">{{item.nomeclatura}}</option>
+                            </select>-->
+
+						</div>
+
+						<div class="row">
+
+							<div class="col-xs-3">
+								<label for="escolaridade">Escolaridade:</label>
+								<select id="escolaridade" name="escolaridade" class="form-control">
+									<option value="Fundamental incompleto">Fundamental incompleto</option>
+									<option value="Fundamental completo">Fundamental completo</option>
+									<option value="Médio incompleto">Médio incompleto</option>
+									<option value="Médio completo">Médio completo</option>
+									<option value="Superior">Superior</option>
+									<option value="Outros">Outros</option>
+								</select>
+								<span class="help-block">&nbsp;</span>
+							</div>
+
+
+							<div class="col-xs-3">
+
+								<label style="font-family: Calibri;
+                                font-weight: bold;text-transform: uppercase">Carga Horária Semanal</label>
+								<input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+									   type="number" maxlength="40" class="form-control input-sm"
+									   id="cargaHoraria"
+									   ng-model="ctrl.cargo.cargaHoraria" required ng-disabled="show">
+
+							</div>
+
+
+							<div class="col-xs-3">
+								<label for="grupoOcupacional">Grupos Ocupacionais:</label>
+								<select id="grupoOcupacional" name="grupoOcupacional" class="form-control">
+									<option value="1">ANS - Atividades de nível superior</option>
+									<option value="2">AAD - Atividades de apoio administrativo</option>
+									<option value="3">AAO - Atividades de apoio operacional</option>
+									<option value="4">Outros</option>
+								</select>
+								<span class="help-block">&nbsp;</span>
+							</div>
+
+							<div class="col-xs-3" id="div_simbologias" style="display: none">
+								<label for="simbologias">Simbologias:</label>
+								<select ng-model="selectedSimbologia" id="simbologias" name="simbologias" class="form-control"
+										ng-options="item.cdSimbologia as item.nomeclatura for item in simbologias">
+									<option value="">Selecione</option>
+								</select>
+								<span class="help-block">&nbsp;</span>
+							</div>
+
+
+						</div>
+
+
+						<div class="row">
+
+							<table class="table table-bordered">
+								<thead>
+								<tr>
+									<th>Classe</th>
+									<th>Referência Min.</th>
+									<th>Referência Max.</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>I</td>
+									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+											   type="text" maxlength="40" class="form-control input-sm"
+											   id="classe1ReferenciaMin"
+											   ng-model="ctrl.cargo.classe1ReferenciaMin" required ng-disabled="show"></td>
+									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+											   type="text" maxlength="40" class="form-control input-sm"
+											   id="classe1ReferenciaMax"
+											   ng-model="ctrl.cargo.classe1ReferenciaMax" required ng-disabled="show"></td>
+								</tr>
+								<tr>
+									<td>II</td>
+									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+											   type="text" maxlength="40" class="form-control input-sm"
+											   id="classe2ReferenciaMin"
+											   ng-model="ctrl.cargo.classe2ReferenciaMin" required ng-disabled="show"></td>
+									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+											   type="text" maxlength="40" class="form-control input-sm"
+											   id="classe2ReferenciaMax"
+											   ng-model="ctrl.cargo.classe2ReferenciaMax" required ng-disabled="show"></td>
+								</tr>
+								<tr>
+									<td>III</td>
+									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+											   type="text" maxlength="40" class="form-control input-sm"
+											   id="classe3ReferenciaMin"
+											   ng-model="ctrl.cargo.classe3ReferenciaMin" required ng-disabled="show"></td>
+									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+											   type="text" maxlength="40" class="form-control input-sm"
+											   id="classe3ReferenciaMax"
+											   ng-model="ctrl.cargo.classe3ReferenciaMax" required ng-disabled="show"></td>
+								</tr>
+								<tr>
+									<td>IV</td>
+									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+											   type="text" maxlength="40" class="form-control input-sm"
+											   id="classe4ReferenciaMin"
+											   ng-model="ctrl.cargo.classe4ReferenciaMin" required ng-disabled="show"></td>
+									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+											   type="text" maxlength="40" class="form-control input-sm"
+											   id="classe4ReferenciaMax"
+											   ng-model="ctrl.cargo.classe4ReferenciaMax" required ng-disabled="show"></td>
+								</tr>
+								<tr>
+									<td>V</td>
+									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+											   type="text" maxlength="40" class="form-control input-sm"
+											   id="classe5ReferenciaMin"
+											   ng-model="ctrl.cargo.classe5ReferenciaMin" required ng-disabled="show"></td>
+									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+											   type="text" maxlength="40" class="form-control input-sm"
+											   id="classe5ReferenciaMax"
+											   ng-model="ctrl.cargo.classe5ReferenciaMax" required ng-disabled="show"></td>
+								</tr>
+								</tbody>
+							</table>
+
+						</div>
+
+						<div class="row">
+
+
+							<div class="col-xs-3">
+
+								<label style="font-family: Calibri;
+                                			font-weight: bold;text-transform: uppercase">Atribuições do cargo</label>
+								<textarea class="form-control" rows="5" style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+										  type="text" maxlength="40" class="form-control input-sm"
+										  id="atribuicoesCargo"
+										  ng-model="ctrl.cargo.atribuicoesCargo" required ng-disabled="show"/>
+
+							</div>
+
+							<div class="col-xs-3">
+
+								<label style="font-family: Calibri;
+                                			font-weight: bold;text-transform: uppercase">Requisitos de provimento</label>
+								<textarea class="form-control" rows="5" style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+										  type="text" maxlength="40" class="form-control input-sm"
+										  id="requisitosProvimento"
+										  ng-model="ctrl.cargo.requisitosProvimento" required ng-disabled="show"/>
 
 							</div>
 

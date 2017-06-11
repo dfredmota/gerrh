@@ -5,15 +5,20 @@ App.controller('CargoController', ['$scope', 'CargoService','$location', functio
     var self = this;
 
     self.cargos=[];
-    self.cargo={cdCargo:null, nome:'', tipoCargo:0,descTipoCargo:''};
+    self.cargo={cdCargo:null, nome:'', tipoCargo:0,descTipoCargo:'',escolaridade:'',cargaHoraria:'',
+        grupoOcupacional:0,classe1ReferenciaMin:'',classe1ReferenciaMax:'',classe2ReferenciaMin:'',classe2ReferenciaMax:'',
+        classe3ReferenciaMin:'',classe3ReferenciaMax:'',classe4ReferenciaMin:'',classe4ReferenciaMax:'',classe5ReferenciaMin:'',
+        classe5ReferenciaMax:'',atribuicoesCargo:'',requisitosProvimento:'',idSimbologia:0,grupoOcupacionalDesc:''};
 
     $scope.successTextAlert = "";
     $scope.showSuccessAlert = false;
 
-    $scope.selectedSimbologia = null;
+    self.selectedSimbologia = null;
     $scope.simbologias = [];
 
     $scope.show = false;
+
+    angular.element('#myModalShower').trigger('click');
 
     if(Data.parametro != null && Data.parametro != undefined){
 
@@ -23,6 +28,21 @@ App.controller('CargoController', ['$scope', 'CargoService','$location', functio
     // switch flag
     $scope.switchBool = function (value) {
         $scope[value] = !$scope[value];
+    };
+
+
+
+    $scope.open = function() {
+
+        $scope.showModal = true;
+    };
+
+    $scope.ok = function() {
+        $scope.showModal = false;
+    };
+
+    $scope.cancel = function() {
+        $scope.showModal = false;
     };
 
 
@@ -63,6 +83,7 @@ App.controller('CargoController', ['$scope', 'CargoService','$location', functio
                 },
                 function(errResponse){
                     console.error('Error while fetching Currencies');
+                    console.log(errResponse);
                 }
             );
     };
@@ -169,9 +190,15 @@ App.controller('CargoController', ['$scope', 'CargoService','$location', functio
 
             if(!jaExiste) {
 
-                console.log(self.cargo);
+                console.log("Simbologia");
+
+                self.cargo.idSimbologia = 10;
 
                 self.cargo.tipoCargo = document.getElementById("tipoCargo").value;
+
+                self.cargo.escolaridade = document.getElementById("escolaridade").value;
+
+                self.cargo.grupoOcupacional = document.getElementById("grupoOcupacional").value;
 
                 console.log(self.cargo);
 
@@ -181,7 +208,19 @@ App.controller('CargoController', ['$scope', 'CargoService','$location', functio
             }
 
         }else{
+
+            var simbologia = document.getElementById("simbologias").value;
+
+            if(simbologia != null && simbologia != undefined){
+
+                self.cargo.idSimbologia = simbologia;
+            }
+
             self.cargo.tipoCargo = document.getElementById("tipoCargo").value;
+
+            self.cargo.escolaridade = document.getElementById("escolaridade").value;
+
+            self.cargo.grupoOcupacional = document.getElementById("grupoOcupacional").value;
 
             console.log("Update");
             console.log(self.cargo);
@@ -214,6 +253,27 @@ App.controller('CargoController', ['$scope', 'CargoService','$location', functio
                 self.cargo = angular.copy(self.cargos[i]);
                 $scope.selected = self.cargo;
                 $scope.show = false;
+
+                if(self.cargo.grupoOcupacional == 1){
+
+                    self.cargo.grupoOcupacionalDesc = 'ANS - Atividades de nível superior';
+                }
+
+                if(self.cargo.grupoOcupacional == 2){
+
+                    self.cargo.grupoOcupacionalDesc = 'AAD - Atividades de apoio administrativo';
+                }
+
+                if(self.cargo.grupoOcupacional == 3){
+
+                    self.cargo.grupoOcupacionalDesc = 'AAO - Atividades de apoio operacional';
+                }
+
+                if(self.cargo.grupoOcupacional == 4){
+
+                    self.cargo.grupoOcupacionalDesc = 'Outros';
+                }
+
                 break;
             }
         }

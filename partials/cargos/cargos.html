@@ -102,6 +102,14 @@
                                                 <i class="glyphicon glyphicon-edit"></i>
                                             </button>
 
+                                            <button type="button" ng-click="ctrl.edit(cargo.cdCargo)"
+                                                    class="btn btn-small btn-primary" data-toggle="modal" data-target="#myModal">
+                                                <i class="glyphicon glyphicon-search"></i>
+                                            </button>
+
+
+
+
 
                                         </td>
 
@@ -110,6 +118,59 @@
                                 </table>
                             </div>
                         </div>
+
+                        <div class="modal" id="myModal" tabindex="-1" role="dialog"
+                             aria-labelledby="myModalLabel" style="padding-top: 70px ">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                       <h4 class="modal-title" id="myModalLabel">Dados do Cargo</h4>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="panel panel-default">
+                                            <label for="dados">Nome: {{ctrl.cargo.nome}}</label>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <label for="dados">Tipo de Cargo: {{ctrl.cargo.descTipoCargo}}</label>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <label for="dados">Quantidade de vagas: {{ctrl.cargo.quantidade}}</label>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <label for="dados">Escolaridade: {{ctrl.cargo.escolaridade}}</label>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <label for="dados">Carga Horária: {{ctrl.cargo.cargaHoraria}}H</label>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <label for="dados">Grupo Ocupacional: {{ctrl.cargo.grupoOcupacionalDesc}}</label>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <label for="dados">Atribuiçoes do Cargo: {{ctrl.cargo.atribuicoesCargo}}</label>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <label for="dados">Requisitos de Provimento: {{ctrl.cargo.requisitosProvimento}}</label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
                         <hr>
                         <div align="right" class="footer">
                         </div>

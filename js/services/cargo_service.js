@@ -2,14 +2,14 @@
 
 App.factory('CargoService', ['$http', '$q', function($http, $q){
 
-    var REST_SERVICE_URI = 'http://209.172.51.58:7447/gerrh/cargo/';
-    var REST_SERVICE_URI_PESQUISA_NOME = 'http://209.172.51.58:7447/gerrh/getbynome/';
-    var REST_SERVICE_URI_PESQUISA_SIMBOLOGIAS = 'http://209.172.51.58:7447/gerrh/getsimbologias/';
+    //var REST_SERVICE_URI = 'http://209.172.51.58:7447/gerrh/cargo/';
+    //var REST_SERVICE_URI_PESQUISA_NOME = 'http://209.172.51.58:7447/gerrh/getbynome/';
+    //var REST_SERVICE_URI_PESQUISA_SIMBOLOGIAS = 'http://209.172.51.58:7447/gerrh/getsimbologias/';
 
-    //var REST_SERVICE_URI = 'http://localhost:8080/gerrh/cargo/';
-    //var REST_SERVICE_URI_PESQUISA_NOME = 'http://localhost:8080/gerrh/getbynomecargo/';
+    var REST_SERVICE_URI = 'http://localhost:8080/gerrh/cargo/';
+    var REST_SERVICE_URI_PESQUISA_NOME = 'http://localhost:8080/gerrh/getbynomecargo/';
 
-    //var REST_SERVICE_URI_PESQUISA_SIMBOLOGIAS = 'http://localhost:8080/gerrh/getsimbologias/';
+    var REST_SERVICE_URI_PESQUISA_SIMBOLOGIAS = 'http://localhost:8080/gerrh/getsimbologias/';
 
     var factory = {
         fetchAllCargos: fetchAllCargos,
