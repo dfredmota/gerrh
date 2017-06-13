@@ -18,7 +18,7 @@
 					<form role="form" ng-submit="ctrl.submit()">
 						<div class="row">
 
-							<div class="col-xs-6">
+							<div class="col-xs-4">
 
 								<label style="font-family: Calibri;
                                 font-weight: bold;text-transform: uppercase">Nome</label>
@@ -26,6 +26,15 @@
 									   type="text" maxlength="40" class="form-control input-sm"
 									   id="nome"
 									   ng-model="ctrl.cargo.nome" required ng-disabled="show">
+
+							</div>
+
+							<div class="col-xs-2">
+								<label style="font-family: Calibri;
+                                				font-weight: bold;text-transform: uppercase">Salário Base</label>
+								<input id="salarioBase" class="form-control" type="text" placeholder="" required
+									   ng-disabled="show" title="Salario Base. Ex: 8899999999 "
+									   bs-tooltip ng-model="ctrl.cargo.salarioBase" >
 
 							</div>
 
@@ -82,9 +91,9 @@
 								<label style="font-family: Calibri;
                                 font-weight: bold;text-transform: uppercase">Carga Horária Semanal</label>
 								<input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
-									   type="number" maxlength="40" class="form-control input-sm"
+									   type="text" maxlength="40" class="form-control input-sm"
 									   id="cargaHoraria"
-									   ng-model="ctrl.cargo.cargaHoraria" required ng-disabled="show">
+									   ng-model="ctrl.cargo.cargaHoraria"  ng-disabled="show">
 
 							</div>
 

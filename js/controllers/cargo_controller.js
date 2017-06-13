@@ -8,7 +8,8 @@ App.controller('CargoController', ['$scope', 'CargoService','$location', functio
     self.cargo={cdCargo:null, nome:'', tipoCargo:0,descTipoCargo:'',escolaridade:'',cargaHoraria:'',
         grupoOcupacional:0,classe1ReferenciaMin:'',classe1ReferenciaMax:'',classe2ReferenciaMin:'',classe2ReferenciaMax:'',
         classe3ReferenciaMin:'',classe3ReferenciaMax:'',classe4ReferenciaMin:'',classe4ReferenciaMax:'',classe5ReferenciaMin:'',
-        classe5ReferenciaMax:'',atribuicoesCargo:'',requisitosProvimento:'',idSimbologia:0,grupoOcupacionalDesc:''};
+        classe5ReferenciaMax:'',atribuicoesCargo:'',requisitosProvimento:'',idSimbologia:0,grupoOcupacionalDesc:'',
+        salarioBase:''};
 
     $scope.successTextAlert = "";
     $scope.showSuccessAlert = false;
@@ -190,9 +191,9 @@ App.controller('CargoController', ['$scope', 'CargoService','$location', functio
 
             if(!jaExiste) {
 
-                console.log("Simbologia");
+                var idSimbo = document.getElementById("simbologias").value.replace("number:", "");
 
-                self.cargo.idSimbologia = 10;
+                self.cargo.idSimbologia = idSimbo;
 
                 self.cargo.tipoCargo = document.getElementById("tipoCargo").value;
 
@@ -253,6 +254,8 @@ App.controller('CargoController', ['$scope', 'CargoService','$location', functio
                 self.cargo = angular.copy(self.cargos[i]);
                 $scope.selected = self.cargo;
                 $scope.show = false;
+
+                console.log(self.cargo);
 
                 if(self.cargo.grupoOcupacional == 1){
 
@@ -325,7 +328,11 @@ App.controller('CargoController', ['$scope', 'CargoService','$location', functio
 
 
     self.reset = function(){
-        self.cargo={cdCargo:null, nome:'', tipoCargo:''};
+        self.cargo={cdCargo:null, nome:'', tipoCargo:0,descTipoCargo:'',escolaridade:'',cargaHoraria:'',
+            grupoOcupacional:0,classe1ReferenciaMin:'',classe1ReferenciaMax:'',classe2ReferenciaMin:'',classe2ReferenciaMax:'',
+            classe3ReferenciaMin:'',classe3ReferenciaMax:'',classe4ReferenciaMin:'',classe4ReferenciaMax:'',classe5ReferenciaMin:'',
+            classe5ReferenciaMax:'',atribuicoesCargo:'',requisitosProvimento:'',idSimbologia:0,grupoOcupacionalDesc:'',
+            salarioBase:''};
         //$scope.myForm.$setPristine(); //reset Form
     };
 

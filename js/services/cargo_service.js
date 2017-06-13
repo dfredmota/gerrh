@@ -2,14 +2,14 @@
 
 App.factory('CargoService', ['$http', '$q', function($http, $q){
 
-    //var REST_SERVICE_URI = 'http://209.172.51.58:7447/gerrh/cargo/';
-    //var REST_SERVICE_URI_PESQUISA_NOME = 'http://209.172.51.58:7447/gerrh/getbynome/';
-    //var REST_SERVICE_URI_PESQUISA_SIMBOLOGIAS = 'http://209.172.51.58:7447/gerrh/getsimbologias/';
+    var REST_SERVICE_URI = 'http://209.172.51.58:7447/gerrh/cargo/';
+    var REST_SERVICE_URI_PESQUISA_NOME = 'http://209.172.51.58:7447/gerrh/getbynome/';
+    var REST_SERVICE_URI_PESQUISA_SIMBOLOGIAS = 'http://209.172.51.58:7447/gerrh/getsimbologias/';
 
-    var REST_SERVICE_URI = 'http://localhost:8080/gerrh/cargo/';
-    var REST_SERVICE_URI_PESQUISA_NOME = 'http://localhost:8080/gerrh/getbynomecargo/';
+    //var REST_SERVICE_URI = 'http://localhost:8080/gerrh/cargo/';
+    //var REST_SERVICE_URI_PESQUISA_NOME = 'http://localhost:8080/gerrh/getbynomecargo/';
 
-    var REST_SERVICE_URI_PESQUISA_SIMBOLOGIAS = 'http://localhost:8080/gerrh/getsimbologias/';
+    //var REST_SERVICE_URI_PESQUISA_SIMBOLOGIAS = 'http://localhost:8080/gerrh/getsimbologias/';
 
     var factory = {
         fetchAllCargos: fetchAllCargos,
@@ -73,13 +73,40 @@ App.factory('CargoService', ['$http', '$q', function($http, $q){
         $http.post(REST_SERVICE_URI, cargo)
             .then(
                 function (response) {
-                    alert("Cargo Salva com Sucesso!");
+                    alert("Cargo Salvo com Sucesso!");
                     deferred.resolve(response.data);
                 },
                 function(errResponse){
-                    alert("Já existe um cargo com essa nome!");
-                    console.error('Error while creating Cargo');
-                    deferred.reject(errResponse);
+
+
+                    var tipoErro = errResponse.status;
+
+                    if(tipoErro == 995){
+
+                        alert("Já existe um cargo com esse mesmo nome e tipo!");
+                    }
+
+                    if(tipoErro == 996){
+
+                        alert("Não pode existir um cargo com mesmo nome que seja Efetivado e Comissionado!");
+                    }
+
+                    if(tipoErro == 997){
+
+                        alert("Não pode existir um cargo com mesmo nome que seja Comissionado e Efetivado!");
+                    }
+
+                    if(tipoErro == 998){
+
+                        alert("Não pode existir um cargo com mesmo nome que seja temporário e comissionado ao mesmo tempo!");
+                    }
+
+                    if(tipoErro == 999){
+
+                        alert("Não pode existir um cargo com mesmo nome que seja comissionado e temporário ao mesmo tempo!");
+                    }
+
+                    console.log(errResponse);
                 }
             );
         return deferred.promise;
