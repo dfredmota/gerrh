@@ -1,7 +1,11 @@
 'use strict';
 
-App.controller('CargoController', ['$scope', 'CargoService','$location', function($scope, cargoService,
-                                                                                  $location) {
+App.controller('CargoController', ['$scope', 'CargoService','$location','$timeout', function($scope, cargoService,
+                                                                                  $location,$timeout) {
+
+
+
+
     var self = this;
 
     self.cargos=[];
@@ -89,6 +93,24 @@ App.controller('CargoController', ['$scope', 'CargoService','$location', functio
             );
     };
 
+    self.pesquisaPorTipoCargo = function(cargo){
+
+        console.log("Pesquisa por Tipo de Cargo");
+        console.log("Tipo de Cargo:");
+        console.log(cargo.tipoCargo);
+        $scope.showSuccessAlert = false;
+        $scope.successTextAlert = "";
+        cargoService.pesquisaPorTipoCargo(cargo)
+            .then(
+                function(d) {
+                    self.cargos = d;
+                },
+                function(errResponse){
+                    console.error('Error while fetching Currencies');
+                }
+            );
+    };
+
     self.pesquisaPorNome = function(cargo){
 
         console.log("Pesquisa por nome");
@@ -110,9 +132,6 @@ App.controller('CargoController', ['$scope', 'CargoService','$location', functio
 
     self.getSimbologias = function(cargo){
 
-        console.log("lista simbologias");
-        console.log("Tipo de Simbologia:");
-        console.log(cargo.tipoCargo);
         $scope.showSuccessAlert = false;
         $scope.successTextAlert = "";
         cargoService.pesquisaPorNome(cargo)
@@ -127,14 +146,13 @@ App.controller('CargoController', ['$scope', 'CargoService','$location', functio
     };
 
     self.createCargo = function(cargo){
-        cargoService.createCargo(cargo)
-            .then(
-                self.fetchAllCargos,
-                function(errResponse){
-                    alert("Já existe um cargo com esse nome!");
-                    console.error('Error while creating cargos.');
-                }
-            );
+        cargoService.createCargo(cargo,$scope)
+            .then(self.fetchAllCargos
+
+
+            ).catch(function (errResponse) {
+            alert("ERRRRRO!!");
+        });
     };
 
     self.updateCargo = function(cargo, id){
@@ -193,7 +211,10 @@ App.controller('CargoController', ['$scope', 'CargoService','$location', functio
 
                 var idSimbo = document.getElementById("simbologias").value.replace("number:", "");
 
-                self.cargo.idSimbologia = idSimbo;
+                if(idSimbo != null && idSimbo != undefined){
+
+                    self.cargo.idSimbologia = idSimbo;
+                }
 
                 self.cargo.tipoCargo = document.getElementById("tipoCargo").value;
 
@@ -201,20 +222,17 @@ App.controller('CargoController', ['$scope', 'CargoService','$location', functio
 
                 self.cargo.grupoOcupacional = document.getElementById("grupoOcupacional").value;
 
-                console.log(self.cargo);
-
                 cargoService.createCargo(self.cargo);
-                $scope.showSuccessAlert = true;
-                $scope.successTextAlert = "Operação Realizada com Sucesso!";
+
             }
 
         }else{
 
-            var simbologia = document.getElementById("simbologias").value;
+            var idSimbo = document.getElementById("simbologias").value.replace("number:", "");
 
-            if(simbologia != null && simbologia != undefined){
+            if(idSimbo != null && idSimbo != undefined){
 
-                self.cargo.idSimbologia = simbologia;
+                self.cargo.idSimbologia = idSimbo;
             }
 
             self.cargo.tipoCargo = document.getElementById("tipoCargo").value;
@@ -223,29 +241,14 @@ App.controller('CargoController', ['$scope', 'CargoService','$location', functio
 
             self.cargo.grupoOcupacional = document.getElementById("grupoOcupacional").value;
 
-            console.log("Update");
-            console.log(self.cargo);
-
             cargoService.updateCargo(self.cargo, self.cargo.cdCargo);
-            console.log('cargos updated with id ', self.cargo.cdCargo);
-            $scope.showSuccessAlert = true;
-            $scope.successTextAlert = "Operação Realizada com Sucesso!";
+
         }
 
         self.reset();
 
     };
 
-    self.pesquisa = function() {
-        if(self.cargo.nome === null || self.cargo.nome === ''){
-            console.log('pesquisa todas as cargos', self.cargo);
-            self.fetchAllCargos();
-        }else{
-            console.log('pesquisa por nome ', self.c.nome);
-            self.pesquisaPorNome(self.cargo);
-        }
-
-    };
 
     self.edit = function(id){
         console.log('id to be edited', id);
@@ -302,15 +305,20 @@ App.controller('CargoController', ['$scope', 'CargoService','$location', functio
 
         var tipoFiltro = document.getElementById("filtrar").value;
 
-        if(tipoFiltro == 0 || tipoFiltro == 3){
-
+        if(tipoFiltro === '3' || tipoFiltro === '0'){
             self.fetchAllCargos();
-
-        }
-
-        if(tipoFiltro == 1){
-
+        }else if(tipoFiltro === '1'){
             self.pesquisaPorNome(self.cargo);
+        }else if(tipoFiltro === '2'){
+
+            var tipoCargo = document.getElementById("tipoCargo").value;
+
+            if(tipoCargo != null && tipoCargo != undefined){
+
+                self.cargo.tipoCargo = tipoCargo;
+            }
+
+            self.pesquisaPorTipoCargo(self.cargo);
 
         }
 

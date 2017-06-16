@@ -6,12 +6,12 @@
 		// chama uma função no controller  apartir do javascript
 		function habilitaSimbologia(){
 
-		    var tipoCargo = document.getElementById('tipoCargo').value;
+		    var tipoCargo = document.getElementById('tipoCargo_').value;
+
 
 		    if(tipoCargo == 4) {
 
-
-                angular.element(document.getElementById('tipoCargo')).scope().getSimbologias();
+                angular.element(document.getElementById('tipoCargo_')).scope().getSimbologias();
                 document.getElementById("div_simbologias").style.display="block";
 
             }else{
@@ -21,7 +21,7 @@
 
             if(tipoCargo == 1) {
 
-                angular.element(document.getElementById('tipoCargo')).scope().getSimbologias();
+                angular.element(document.getElementById('tipoCargo_')).scope().getSimbologias();
                 document.getElementById("table_referencias").style.display="block";
 
             }else{
@@ -43,6 +43,13 @@
 </head>
 <div ng-app="myApp" ng-controller="CargoController as ctrl">
 
+	<hr />
+	<div id="div_message"  style="display:none;"
+		 class="alert alert-danger">
+	</div>
+	<div id="div_message_sucess"  style="display:none;"
+		 class="alert alert-success">
+	</div>
 
 <div id="content" ng-init="Data.tabs[$parent.tab.i].title='Cadastrar Cargo'">
 
@@ -78,8 +85,8 @@
 									</div>
 
 									<div class="col-xs-3">
-										<label for="tipoCargo">Tipo de Cargo:</label>
-										<select id="tipoCargo" name="tipoCargo" class="form-control" onchange="habilitaSimbologia()">
+										<label for="tipoCargo_">Tipo de Cargo:</label>
+										<select id="tipoCargo_" name="tipoCargo_" class="form-control" onchange="habilitaSimbologia()">
 											<option value="0">Selecione...</option>
 											<option value="1">Efetivo</option>
 											<option value="2">Eletivo</option>

@@ -10,12 +10,21 @@
             if(tipoFiltro == 0 || tipoFiltro == 3){
 
                 document.getElementById("filtroNome").style.display="none";
+                document.getElementById("filtro_tipo_cargo").style.display="none";
 
             }
 
             if(tipoFiltro == 1){
 
                 document.getElementById("filtroNome").style.display="block";
+                document.getElementById("filtro_tipo_cargo").style.display="none";
+
+            }
+
+            if(tipoFiltro == 2){
+
+                document.getElementById("filtro_tipo_cargo").style.display="block";
+                document.getElementById("filtroNome").style.display="none";
 
             }
 
@@ -60,6 +69,19 @@
                                 />
                             </div>
 
+                            <div class="col-xs-3" id="filtro_tipo_cargo" style="display: none">
+                                <label for="tipoCargo">Tipo de Cargo:</label>
+                                <select id="tipoCargo" name="tipoCargo" class="form-control">
+                                    <option value="0">Selecione...</option>
+                                    <option value="1">Efetivo</option>
+                                    <option value="2">Eletivo</option>
+                                    <option value="3">Temporário</option>
+                                    <option value="4">Comissionado</option>
+                                    <option value="5">Estatuário</option>
+                                </select>
+                                <span class="help-block">&nbsp;</span>
+                            </div>
+
 
                         </div>
 
@@ -85,7 +107,7 @@
                                         <th>#</th>
                                         <th>Nome</th>
                                         <th>Tipo de Cargo</th>
-                                        <th colspan="2" style="margin-left: 2px" width="50px">Operações</th>
+                                        <th colspan="2" style="margin-left: 2px" width="25px">Operações</th>
 
                                     </tr>
 

@@ -1,9 +1,54 @@
 <head>
 
 
+	<script>
+
+        // chama uma função no controller  apartir do javascript
+        function habilitaSimbologia(){
+
+            var tipoCargo = document.getElementById('tipoCargo').value;
+
+            if(tipoCargo == 4) {
+
+
+                angular.element(document.getElementById('tipoCargo')).scope().getSimbologias();
+                document.getElementById("div_simbologias").style.display="block";
+
+            }else{
+
+                document.getElementById("div_simbologias").style.display = "none";
+            }
+
+            if(tipoCargo == 1) {
+
+                angular.element(document.getElementById('tipoCargo')).scope().getSimbologias();
+                document.getElementById("table_referencias").style.display="block";
+
+            }else{
+
+                document.getElementById("table_referencias").style.display = "none";
+            }
+        }
+
+
+        $(document).ready(function(){
+            $("#salarioBase").maskMoney({showSymbol:true, symbol:"R$", decimal:",", thousands:"."});
+
+        });
+
+
+	</script>
+
 </head>
 <div ng-app="myApp" ng-controller="CargoController as ctrl">
 
+	<hr />
+	<div id="div_message"  style="display:none;"
+		 class="alert alert-danger">
+	</div>
+	<div id="div_message_sucess"  style="display:none;"
+		 class="alert alert-success">
+	</div>
 
 	<div id="content" ng-init="Data.tabs[$parent.tab.i].title='Editar Cargo'">
 
@@ -122,7 +167,7 @@
 						</div>
 
 
-						<div class="row">
+						<div class="row" id="table_referencias" style="display: none">
 
 							<table class="table table-bordered">
 								<thead>
@@ -138,55 +183,55 @@
 									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
 											   type="text" maxlength="40" class="form-control input-sm"
 											   id="classe1ReferenciaMin"
-											   ng-model="ctrl.cargo.classe1ReferenciaMin" required ng-disabled="show"></td>
+											   ng-model="ctrl.cargo.classe1ReferenciaMin"  ng-disabled="show"></td>
 									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
 											   type="text" maxlength="40" class="form-control input-sm"
 											   id="classe1ReferenciaMax"
-											   ng-model="ctrl.cargo.classe1ReferenciaMax" required ng-disabled="show"></td>
+											   ng-model="ctrl.cargo.classe1ReferenciaMax"  ng-disabled="show"></td>
 								</tr>
 								<tr>
 									<td>II</td>
 									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
 											   type="text" maxlength="40" class="form-control input-sm"
 											   id="classe2ReferenciaMin"
-											   ng-model="ctrl.cargo.classe2ReferenciaMin" required ng-disabled="show"></td>
+											   ng-model="ctrl.cargo.classe2ReferenciaMin"  ng-disabled="show"></td>
 									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
 											   type="text" maxlength="40" class="form-control input-sm"
 											   id="classe2ReferenciaMax"
-											   ng-model="ctrl.cargo.classe2ReferenciaMax" required ng-disabled="show"></td>
+											   ng-model="ctrl.cargo.classe2ReferenciaMax"  ng-disabled="show"></td>
 								</tr>
 								<tr>
 									<td>III</td>
 									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
 											   type="text" maxlength="40" class="form-control input-sm"
 											   id="classe3ReferenciaMin"
-											   ng-model="ctrl.cargo.classe3ReferenciaMin" required ng-disabled="show"></td>
+											   ng-model="ctrl.cargo.classe3ReferenciaMin"  ng-disabled="show"></td>
 									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
 											   type="text" maxlength="40" class="form-control input-sm"
 											   id="classe3ReferenciaMax"
-											   ng-model="ctrl.cargo.classe3ReferenciaMax" required ng-disabled="show"></td>
+											   ng-model="ctrl.cargo.classe3ReferenciaMax"  ng-disabled="show"></td>
 								</tr>
 								<tr>
 									<td>IV</td>
 									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
 											   type="text" maxlength="40" class="form-control input-sm"
 											   id="classe4ReferenciaMin"
-											   ng-model="ctrl.cargo.classe4ReferenciaMin" required ng-disabled="show"></td>
+											   ng-model="ctrl.cargo.classe4ReferenciaMin"  ng-disabled="show"></td>
 									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
 											   type="text" maxlength="40" class="form-control input-sm"
 											   id="classe4ReferenciaMax"
-											   ng-model="ctrl.cargo.classe4ReferenciaMax" required ng-disabled="show"></td>
+											   ng-model="ctrl.cargo.classe4ReferenciaMax"  ng-disabled="show"></td>
 								</tr>
 								<tr>
 									<td>V</td>
 									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
 											   type="text" maxlength="40" class="form-control input-sm"
 											   id="classe5ReferenciaMin"
-											   ng-model="ctrl.cargo.classe5ReferenciaMin" required ng-disabled="show"></td>
+											   ng-model="ctrl.cargo.classe5ReferenciaMin"  ng-disabled="show"></td>
 									<td><input style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
 											   type="text" maxlength="40" class="form-control input-sm"
 											   id="classe5ReferenciaMax"
-											   ng-model="ctrl.cargo.classe5ReferenciaMax" required ng-disabled="show"></td>
+											   ng-model="ctrl.cargo.classe5ReferenciaMax"  ng-disabled="show"></td>
 								</tr>
 								</tbody>
 							</table>
@@ -196,25 +241,25 @@
 						<div class="row">
 
 
-							<div class="col-xs-3">
+							<div class="col-xs-5">
 
 								<label style="font-family: Calibri;
                                 			font-weight: bold;text-transform: uppercase">Atribuições do cargo</label>
-								<textarea class="form-control" rows="5" style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+								<textarea class="form-control" rows="6" style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
 										  type="text" maxlength="40" class="form-control input-sm"
 										  id="atribuicoesCargo"
-										  ng-model="ctrl.cargo.atribuicoesCargo" required ng-disabled="show"/>
+										  ng-model="ctrl.cargo.atribuicoesCargo"  ng-disabled="show"/>
 
 							</div>
 
-							<div class="col-xs-3">
+							<div class="col-xs-5">
 
 								<label style="font-family: Calibri;
                                 			font-weight: bold;text-transform: uppercase">Requisitos de provimento</label>
-								<textarea class="form-control" rows="5" style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
+								<textarea class="form-control" rows="6" style="font-family: Calibri;font-weight: bold;text-transform: uppercase"
 										  type="text" maxlength="40" class="form-control input-sm"
 										  id="requisitosProvimento"
-										  ng-model="ctrl.cargo.requisitosProvimento" required ng-disabled="show"/>
+										  ng-model="ctrl.cargo.requisitosProvimento"  ng-disabled="show"/>
 
 							</div>
 
