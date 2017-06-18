@@ -36,6 +36,72 @@
 
         });
 
+		function validaCampos(){
+
+			var nome = document.getElementById("nome").value;
+
+            var salarioBase = document.getElementById("salarioBase").value;
+
+            var tipoCargo_ = document.getElementById("tipoCargo_").value;
+
+            var quantidade = document.getElementById("quantidade").value;
+
+            var escolaridade = document.getElementById("escolaridade").value;
+
+            var cargaHoraria = document.getElementById("cargaHoraria").value;
+
+            var grupoOcupacional = document.getElementById("grupoOcupacional").value;
+
+            var atribuicoesCargo = document.getElementById("atribuicoesCargo").value;
+
+            var requisitosProvimento = document.getElementById("requisitosProvimento").value;
+
+			if(nome == ""){
+
+                document.getElementById("nome").style.borderColor = "red";
+			}
+
+            if(salarioBase == ""){
+
+                document.getElementById("salarioBase").style.borderColor = "red";
+            }
+
+            if(tipoCargo_ == ""){
+
+                document.getElementById("tipoCargo_").style.borderColor = "red";
+            }
+
+            if(quantidade == ""){
+
+                document.getElementById("quantidade").style.borderColor = "red";
+            }
+
+            if(escolaridade == ""){
+
+                document.getElementById("escolaridade").style.borderColor = "red";
+            }
+
+            if(cargaHoraria == ""){
+
+                document.getElementById("cargaHoraria").style.borderColor = "red";
+            }
+
+            if(grupoOcupacional == ""){
+
+                document.getElementById("grupoOcupacional").style.borderColor = "red";
+            }
+
+            if(atribuicoesCargo == ""){
+
+                document.getElementById("atribuicoesCargo").style.borderColor = "red";
+            }
+
+            if(requisitosProvimento == ""){
+
+                document.getElementById("requisitosProvimento").style.borderColor = "red";
+            }
+		}
+
 
 	</script>
 
@@ -269,7 +335,7 @@
 
 								<hr>
 								<div align="right" class="footer">
-									<input type="submit"  ng-disabled="show" value="{{!ctrl.cargo.cdCargo ? 'Cadastrar' : 'Atualizar'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+									<input type="submit" onclick="validaCampos();"  ng-disabled="show" value="{{!ctrl.cargo.cdCargo ? 'Cadastrar' : 'Atualizar'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
 									<button type="button" ng-disabled="show" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Limpar</button>
 								</div>
 							</form><!-- Inputs -->

@@ -188,16 +188,17 @@ App.controller('CargoController', ['$scope', 'CargoService','$location','$timeou
     };
 
     self.submit = function() {
-        if(self.cargo.cdCargo === null || self.cargo.cdCargo === undefined){
+
+        if(self.cargo.cdCargo === null || self.cargo.cdCargo === undefined) {
             console.log('Saving New cargos', self.cargo);
 
             var jaExiste = false;
 
             console.log(self.cargos[i]);
 
-            for(var i = 0; i < self.cargos.length; i++){
+            for (var i = 0; i < self.cargos.length; i++) {
 
-                if(self.cargos[i].nome.toUpperCase() === self.cargo.nome.toUpperCase()) {
+                if (self.cargos[i].nome.toUpperCase() === self.cargo.nome.toUpperCase()) {
 
                     jaExiste = true;
                     alert("Já existe um cargo com esse nome!");
@@ -207,11 +208,23 @@ App.controller('CargoController', ['$scope', 'CargoService','$location','$timeou
                 }
             }
 
-            if(!jaExiste) {
+            if (!jaExiste) {
+
+                //reseta as bordas
+
+                document.getElementById("nome").style.borderColor = "";
+                document.getElementById("salarioBase").style.borderColor = "";
+                document.getElementById("tipoCargo_").style.borderColor = "";
+                document.getElementById("quantidade").style.borderColor = "";
+                document.getElementById("escolaridade").style.borderColor = "";
+                document.getElementById("cargaHoraria").style.borderColor = "";
+                document.getElementById("grupoOcupacional").style.borderColor = "";
+                document.getElementById("atribuicoesCargo").style.borderColor = "";
+                document.getElementById("requisitosProvimento").style.borderColor = "";
 
                 var idSimbo = document.getElementById("simbologias").value.replace("number:", "");
 
-                if(idSimbo != null && idSimbo != undefined){
+                if (idSimbo != null && idSimbo != undefined) {
 
                     self.cargo.idSimbologia = idSimbo;
                 }
@@ -224,31 +237,40 @@ App.controller('CargoController', ['$scope', 'CargoService','$location','$timeou
 
                 cargoService.createCargo(self.cargo);
 
+            } else {
+
+
+                document.getElementById("nome").style.borderColor = "";
+                document.getElementById("salarioBase").style.borderColor = "";
+                document.getElementById("tipoCargo_").style.borderColor = "";
+                document.getElementById("quantidade").style.borderColor = "";
+                document.getElementById("escolaridade").style.borderColor = "";
+                document.getElementById("cargaHoraria").style.borderColor = "";
+                document.getElementById("grupoOcupacional").style.borderColor = "";
+                document.getElementById("atribuicoesCargo").style.borderColor = "";
+                document.getElementById("requisitosProvimento").style.borderColor = "";
+
+                var idSimbo = document.getElementById("simbologias").value.replace("number:", "");
+
+                if (idSimbo != null && idSimbo != undefined) {
+
+                    self.cargo.idSimbologia = idSimbo;
+                }
+
+                self.cargo.tipoCargo = document.getElementById("tipoCargo").value;
+
+                self.cargo.escolaridade = document.getElementById("escolaridade").value;
+
+                self.cargo.grupoOcupacional = document.getElementById("grupoOcupacional").value;
+
+                cargoService.updateCargo(self.cargo, self.cargo.cdCargo);
+
             }
 
-        }else{
-
-            var idSimbo = document.getElementById("simbologias").value.replace("number:", "");
-
-            if(idSimbo != null && idSimbo != undefined){
-
-                self.cargo.idSimbologia = idSimbo;
-            }
-
-            self.cargo.tipoCargo = document.getElementById("tipoCargo").value;
-
-            self.cargo.escolaridade = document.getElementById("escolaridade").value;
-
-            self.cargo.grupoOcupacional = document.getElementById("grupoOcupacional").value;
-
-            cargoService.updateCargo(self.cargo, self.cargo.cdCargo);
-
+            self.reset();
         }
 
-        self.reset();
-
     };
-
 
     self.edit = function(id){
         console.log('id to be edited', id);
