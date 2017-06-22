@@ -1,0 +1,520 @@
+<head>
+
+	<script>
+
+        $(document).ready(function(){
+            $("#telefone").mask('(99)9999-9999');
+            $("#cep").mask('99.999-9999');
+            $("#telefone2").mask('(99)9999-9999');
+            $("#data_nascimento").mask('99/99/9999');
+            $("#cpf").mask('999.999.999.99');
+            $("#data_admissao").mask('99/99/9999');
+
+        });
+
+
+        function validaCampos(){
+
+            var nome = document.getElementById("nome").value;
+
+            var estadoCivil = document.getElementById("estado_civil").value;
+
+            var optionsSexo = document.getElementById("optionsSexo").value;
+
+            var filiacao_mae = document.getElementById("filiacao_mae").value;
+
+            var filiacao_pai = document.getElementById("filiacao_pai").value;
+
+            var nacionalidade = document.getElementById("nacionalidade").value;
+
+            var uf = document.getElementById("uf").value;
+
+            var municipio_nascimento = document.getElementById("municipio_nascimento").value;
+
+            var telefone = document.getElementById("telefone").value;
+
+            var escolaridade = document.getElementById("escolaridade").value;
+
+            var cep = document.getElementById("cep").value;
+
+            var tipo_logradouro = document.getElementById("tipo_logradouro").value;
+
+            var logradouro = document.getElementById("logradouro").value;
+
+            var numero = document.getElementById("numero").value;
+
+            var municipio = document.getElementById("municipio").value;
+
+            var bairro = document.getElementById("bairro").value;
+
+            var data_admissao = document.getElementById("data_admissao").value;
+
+            var optionsSituacao = document.getElementById("optionsSituacao").value;
+
+            var tipo_admissao = document.getElementById("tipo_admissao").value;
+
+
+
+            if(nome == ""){
+
+                document.getElementById("nome").style.borderColor = "red";
+            }
+
+            if(estadoCivil == 0){
+
+                document.getElementById("estado_civil").style.borderColor = "red";
+            }
+
+            if(optionsSexo == 0){
+
+                document.getElementById("optionsSexo").style.borderColor = "red";
+            }
+
+            if(uf == 0){
+
+                document.getElementById("uf").style.borderColor = "red";
+            }
+
+            if(escolaridade == 0){
+
+                document.getElementById("uf").style.borderColor = "red";
+            }
+
+            if(municipio_nascimento == 0){
+
+                document.getElementById("municipio_nascimento").style.borderColor = "red";
+            }
+
+            if(filiacao_mae == ""){
+
+                document.getElementById("filiacao_mae").style.borderColor = "red";
+            }
+
+            if(filiacao_pai == ""){
+
+                document.getElementById("filiacao_pai").style.borderColor = "red";
+            }
+
+            if(nacionalidade == ""){
+
+                document.getElementById("nacionalidade").style.borderColor = "red";
+            }
+
+            if(telefone == ""){
+
+                document.getElementById("telefone").style.borderColor = "red";
+            }
+
+            if(cep == ""){
+
+                document.getElementById("cep").style.borderColor = "red";
+            }
+
+            if(tipo_logradouro == 0){
+
+                document.getElementById("tipo_logradouro").style.borderColor = "red";
+            }
+
+            if(logradouro == ""){
+
+                document.getElementById("logradouro").style.borderColor = "red";
+            }
+
+            if(numero == ""){
+
+                document.getElementById("numero").style.borderColor = "red";
+            }
+
+            if(municipio == ""){
+
+                document.getElementById("municipio").style.borderColor = "red";
+            }
+
+            if(bairro == ""){
+
+                document.getElementById("bairro").style.borderColor = "red";
+            }
+
+            if(data_admissao == ""){
+
+                document.getElementById("data_admissao").style.borderColor = "red";
+            }
+
+            if(optionsSituacao == 0){
+
+                document.getElementById("optionsSituacao").style.borderColor = "red";
+            }
+
+            if(tipo_admissao == 0){
+
+                document.getElementById("tipo_admissao").style.borderColor = "red";
+            }
+
+        }
+
+
+
+	</script>
+
+</head>
+<div ng-app="myApp" ng-controller="ServidorController as ctrl">
+
+
+	<ul id="content" class="nav nav-tabs" role="tablist" ng-init="Data.tabs[$parent.tab.i].title='Cadastrar Servidores'">
+
+		<li ng-class="{active:SelfTab==1}">
+			<a ng-click="SelfTab=1" href="javascript:void(0);" ng-init="SelfTab=1">Dados Pessoais</a>
+		</li>
+		<li ng-class="{active:SelfTab==2}">
+			<a ng-click="SelfTab=2" href="javascript:void(0);">Dados Residênciais</a>
+		</li>
+		<li ng-class="{active:SelfTab==3}">
+			<a ng-click="SelfTab=3" href="javascript:void(0);">Dados Funcionais</a>
+		</li>
+		<li ng-class="{active:SelfTab==4}">
+			<a ng-click="SelfTab=4" href="javascript:void(0);">Anexos</a>
+		</li>
+
+	</ul>
+
+	<form role="form" ng-submit="ctrl.submit()">
+
+		<div class="tab-content">
+
+			<div ng-class="{active:SelfTab==1}" class="tab-pane">
+				<span class="help-block">&nbsp;</span>
+				<!-- Pessoais -->
+				<div class="row">
+					<div class="col-xs-2">
+						<label for="nome">Nome</label>
+						<input id="nome" name="nome" type="text" placeholder="Nome" class="form-control"
+							   title="Insira o nome do servidor" required bs-tooltip ng-model="ctrl.servidor.nome" />
+					</div>
+
+					<div class="col-xs-2">
+
+						<label style="font-family: Calibri;
+                                font-weight: bold;text-transform: uppercase">Cpf</label>
+						<input id="cpf" name="cpf" type="text" placeholder="Nome" class="form-control"
+							   title="Insira o nome do servidor" bs-tooltip ng-model="ctrl.servidor.cpf" />
+
+					</div>
+
+					<div class="col-xs-2" id="div_secretarias">
+						<label for="secretarias">Secretarias:</label>
+						<select ng-model="selectedSecretaria" id="secretarias" name="secretarias" class="form-control"
+								ng-options="item.cdSecretaria as item.nmSecretaria for item in secretarias">
+							<option value="">Selecione</option>
+						</select>
+						<span class="help-block">&nbsp;</span>
+					</div>
+
+					<div class="col-xs-2" id="div_unidades">
+						<label for="unidades">Unidades:</label>
+						<select ng-model="selectedUnidade" id="unidades" name="unidades" class="form-control"
+								ng-options="item.cdUnidade as item.nmUnidade for item in unidades">
+							<option value="">Selecione</option>
+						</select>
+						<span class="help-block">&nbsp;</span>
+					</div>
+
+					<div class="col-xs-2">
+						<label for="estado_civil">Estado Civíl</label>
+						<select required id="estado_civil" name="estado_civil" class="form-control">
+							<option value="0">Selecione...</option>
+							<option value="1">Solteiro</option>
+							<option value="2">Casado</option>
+							<option value="3">Divorciado</option>
+							<option value="4">Viúvo</option>
+						</select>
+					</div>
+					<div class="col-xs-2">
+						<label for="optionsSexo">Sexo</label>
+						<select  required id="optionsSexo" name="optionsSexo" class="form-control">
+							<option value="0">Selecione...</option>
+							<option value="1">Masculino</option>
+							<option value="2">Feminino</option>
+						</select>
+					</div>
+
+
+
+
+				</div>
+
+
+				<div class="row">
+
+					<div class="col-xs-3">
+						<label for="filiacao_mae">Nome da Mãe</label>
+						<input type="text" id="filiacao_mae" placeholder="Nome da Mãe" class="form-control" title="Nome da mãe do Servidor"
+							   bs-tooltip ng-model="ctrl.servidor.filiacao_mae" />
+					</div>
+
+					<div class="col-xs-3">
+						<label for="filiacao_pai">Nome do Pai</label>
+						<input type="text" id="filiacao_pai" placeholder="Nome do Pai"  class="form-control"
+							   title="Nome do pai do Servidor" bs-tooltip  ng-model="ctrl.servidor.filiacao_pai" />
+					</div>
+					<div class="col-xs-2">
+						<label for="nacionalidade">Nacionalidade</label>
+						<input type="text" ng-model="ctrl.servidor.nacionalidade" id="nacionalidade" placeholder="Nacionalidade" class="form-control" title="Nacionalidade do Servidor. Ex: Brasileiro" bs-tooltip />
+					</div>
+
+					<div class="form-group col-xs-2" >
+						<label class="control-label"><i class="fa fa-calendar"></i> Data de Nascimento</label>
+						<input type="text" id="data_nascimento" placeholder="Nome do Pai"  class="form-control"
+							   title="Nome do pai do Servidor" bs-tooltip  ng-model="ctrl.servidor.dateNascimento" />
+					</div>
+
+					<div class="col-xs-2">
+						<label for="uf">UF</label>
+						<select id="uf" name="uf" class="form-control">
+							<option value="0">Selecione...</option>
+							<option value="1">Acre</option>
+							<option value="2">Amapá</option>
+							<option value="3">Bahia</option>
+							<option value="4">Ceara</option>
+						</select>
+					</div>
+
+
+				</div>
+
+
+				<div class="row">
+
+					<div class="col-xs-3">
+						<label for="municipio_nascimento">Município de nascimento</label>
+						<select id="municipio_nascimento" name="municipio_nascimento" class="form-control">
+							<option value="0">Selecione...</option>
+							<option value="1">Crato</option>
+							<option value="2">Juazeiro</option>
+							<option value="3">Barbalha</option>
+							<option value="4">Missão Velha</option>
+						</select>
+					</div>
+					<div class="col-xs-2">
+						<label for="telefone">Telefone</label>
+						<input id="telefone" name="telefone" type="text"
+							   placeholder="Telefone" class="form-control" title="Insira o telefone de contato do Servidor"
+							   bs-tooltip ng-model="ctrl.servidor.telefone" />
+					</div>
+					<div class="col-xs-2">
+						<label for="telefone2">Telefone 2</label>
+						<input id="telefone2" ng-model="ctrl.servidor.telefone2" name="telefone2" type="text" placeholder="Telefone 2" class="form-control" title="Insira o telefone2 de contato do Servidor" bs-tooltip />
+					</div>
+				</div>
+
+
+
+				<div class="row">
+
+				</div>
+				<div class="row">
+					<div class="col-xs-2">
+						<label for="">Escolaridade</label>
+						<select id="escolaridade" name="escolaridade" class="form-control">
+							<option value="0">Selecione...</option>
+							<option value="1">Fundamental Incompleto</option>
+							<option value="2">Fundamental Completo</option>
+							<option value="3">Médio Incompleto</option>
+							<option value="4">Médio Completo</option>
+							<option value="5">Superior Incompleto</option>
+							<option value="6">Superior Completo</option>
+						</select>
+						<span class="help-block">&nbsp;</span>
+					</div>
+					<div class="col-xs-3">
+						<label for="conselho_classe">Conselho de Classe</label>
+						<input type="text" ng-model="ctrl.servidor.conselho_classe" id="conselho_classe" placeholder="Conselho" class="form-control" title="Insira o conselho de classe (caso possua) do Servidor. Ex: Conselho Regional de Engenharia" bs-tooltip  />
+					</div>
+					<div class="col-xs-1">
+						<label for="num_conselho">N°</label>
+						<input type="text" ng-model="ctrl.servidor.num_conselho" id="num_conselho" placeholder="N°" class="form-control" title="Insira o número do conselho de classe do Servidor. Ex: 1235" bs-tooltip  />
+					</div>
+				</div>
+			</div><!-- Fim Pessoais -->
+
+			<div ng-class="{active:SelfTab==2}" class="tab-pane">
+				<span class="help-block">&nbsp;</span>
+				<!-- Residenciais -->
+				<div class="row">
+					<div class="col-xs-2">
+						<label for="cep">CEP</label>
+						<input id="cep" name="cep" type="text" class="form-control"  ng-model="ctrl.servidor.cep"  />
+						<a href="http://www.buscacep.correios.com.br/"target="_blank"><small><u><i>Buscar CEP</i></u></small></a>
+					</div>
+					<div class="col-xs-2">
+						<label for="">Tipo de Logradouro</label>
+						<select id="tipo_logradouro" name="tipo_logradouro" class="form-control">
+							<option value="0">Selecione...</option>
+							<option value="1">Rua</option>
+							<option value="2">Avenida</option>
+							<option value="3">Travessa</option>
+							<option value="4">Beco</option>
+							<option value="5">AltoSitio</option>
+							<option value="6">Vila</option>
+							<option value="7">Sítion</option>
+							<option value="8">Outro...</option>
+						</select>
+						<span class="help-block">&nbsp;</span>
+					</div>
+					<div class="col-xs-4">
+						<label for="logradouro">Logradouro</label>
+						<input id="logradouro" ng-model="ctrl.servidor.logradouro" name="logradouro" type="text" class="form-control"
+							   title="Insira o logradouro do Servidor. Ex: Rua Barbara de Alencar " bs-tooltip  />
+					</div>
+					<div class="col-xs-1">
+						<label for="numero">Número</label>
+						<input id="numero" ng-model="ctrl.servidor.numero" name="numero" type="text" class="form-control"
+							   title="Insira o número da residência do Servidor" bs-tooltip  />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4">
+						<label for="municipio">Município<font color="RED"> *</font></label>
+						<input id="municipio"  ng-model="ctrl.servidor.municipio" name="municipio" placeholder="Municipio"
+							   type="text" class="form-control" title="Insira o município de residência do Servidor" bs-tooltip  />
+					</div>
+					<div class="col-xs-3">
+						<label for="bairro">Bairro</label>
+						<input id="bairro" name="bairro" ng-model="ctrl.servidor.bairro" type="text" placeholder="Bairro"
+							   class="form-control" title="Insira o bairro do Servidor" bs-tooltip  />
+					</div>
+					<div class="col-xs-3">
+						<label for="complemento">Complemento</label>
+						<input id="complemento" ng-model="ctrl.servidor.complemento"
+							   name="complemento" type="text" class="form-control" title="Insira um complemento de endereço para o Servidor. Ex: Apartamento 2b" bs-tooltip  />
+					</div>
+				</div>
+			</div><!-- Fim Residênciais -->
+
+
+			<div ng-class="{active:SelfTab==3}" class="tab-pane">
+				<span class="help-block">&nbsp;</span>
+				<div class="row">
+					<div class="col-xs-2">
+						<label for="data_admissao">Data de Admissão</label>
+						<input type="text" id="data_admissao" ng-model="ctrl.servidor.data_admissao" placeholder="Data de Admissão" class="form-control" title="Insira a data de admissão do Servidor" bs-tooltip  />
+					</div>
+					<div class="col-xs-2">
+						<label for="ini_contrato_temp">Ini contrato temp</label>
+						<input type="text" ng-model="ctrl.servidor.ini_contrato_temp" id="ini_contrato_temp" placeholder="Inicio" class="form-control" title="Insira a data de início do contrato temporário do Servidor" bs-tooltip  />
+					</div>
+					<div class="col-xs-2">
+						<label for="fim_contrato_temp">Fim contrato temp</label>
+						<input type="text" ng-model="ctrl.servidor.fim_contrato_temp" id="fim_contrato_temp" placeholder="Final" class="form-control" title="Insira a data de término do contrato temporário do Servidor" bs-tooltip />
+					</div>
+					<div class="col-xs-2">
+						<label for="ordem">Ordem</label>
+						<input type="text" ng-model="ctrl.servidor.ordem" id="ordem" placeholder="Ordem" class="form-control" title="Ordem" bs-tooltip  />
+					</div>
+					<div class="col-xs-2">
+						<label for="serie">Série</label>
+						<input type="text" ng-model="ctrl.servidor.serie" id="serie" placeholder="Série" class="form-control" title="Série" bs-tooltip  />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3">
+						<label for="optionsSituacao">Situação</label>
+						<select id="optionsSituacao" name="optionsSituacao" class="form-control">
+							<option value="0">Selecione...</option>
+							<option value="1">Ativo</option>
+							<option value="2">Inativo</option>
+						</select>
+					</div>
+					<div class="col-xs-2">
+						<label for="tipo_admissao">Tipo de Admissão</label>
+						<select id="tipo_admissao" name="tipo_admissao" class="form-control">
+							<option value="0">Selecione...</option>
+							<option value="1">Cargo em comissão</option>
+							<option value="2">Concurso público</option>
+							<option value="3">Contrato temporario</option>
+							<option value="4">Eletivo</option>
+							<option value="5">Estatuto</option>
+							<option value="6">Outro...</option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3">
+						<label for="tipo_previdencia">Tipo de Previdência</label>
+						<input type="text" id="tipo_previdencia" placeholder="Tipo de Previdência" class="form-control" title="Insira o tipo de Previdência do Servidor. Ex: Previdência Municipal" bs-tooltip  />
+					</div>
+				</div><!-- Fim Funcionais -->
+			</div>
+			<div ng-class="{active:SelfTab==4}" class="tab-pane">
+				<span class="help-block">&nbsp;</span>
+				<div class="row">
+					<div class="col-xs-12">
+						<legend>
+							<strong>Selecione os documentos entregues pelo Servidor</strong>
+						</legend>
+					</div>
+				</div>
+				<table class="table table-hover">
+					<thead>
+					<tr>
+						<th>Documentos</th>
+						<th>Buscar</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr >
+						<td>RG</td>
+						<td>
+							<input type="file" id="doc_rg" name="rg" placeholder="Selecionar..."  />
+						</td>
+					</tr>
+					<tr>
+						<td>CPF</td>
+						<td>
+							<input type="file" id="doc_cpf" name="cpf" placeholder="Selecionar..." />
+						</td>
+					</tr>
+					<tr>
+						<td>Comprovante de Residência</td>
+						<td>
+							<input type="file" id="doc_comp_residencia" name="comp_residencia" placeholder="Selecionar..."/>
+						</td>
+					</tr>
+					<tr>
+						<td>CTPS</td>
+						<td>
+							<input type="file" id="doc_ctps" name="ctps" placeholder="Selecionar..." />
+						</td>
+					</tr>
+					<tr>
+						<td>Título de Eleitor</td>
+						<td>
+							<input type="file" id="doc_titulo_eleitoral" name="titulo_eleitoral" placeholder="Selecionar..." />
+						</td>
+					</tr>
+					<tr>
+						<td>Diploma Nível Médio</td>
+						<td>
+							<input type="file" id="doc_diploma_nivel_medio" name="diploma_nivel_medio" placeholder="Selecionar..." />
+						</td>
+					</tr>
+					<tr>
+						<td>Diploma Nível Superior</td>
+						<td>
+							<input type="file" id="doc_diploma_nivel_superior" name="diploma_nivel_superior" placeholder="Selecionar..." />
+						</td>
+					</tr>
+					</tbody>
+				</table>
+
+
+			</div>
+		</div>
+
+		<div align="right" class="footer">
+			<input type="submit" onclick="validaCampos();"  ng-disabled="show" value="{{!ctrl.servidor.cdServidor ? 'Cadastrar' : 'Atualizar'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+			<button type="button" ng-disabled="show" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Limpar</button>
+		</div>
+
+	</form>
+
+</div>

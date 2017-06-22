@@ -1,0 +1,125 @@
+<head>
+
+    <script>
+
+
+        function habilitaFiltro(){
+
+            var tipoFiltro  = document.getElementById("filtrar").value;
+
+            if(tipoFiltro == 0 || tipoFiltro == 3){
+
+                document.getElementById("filtroNomeServidor").style.display="none";
+
+            }
+
+            if(tipoFiltro == 1){
+
+                document.getElementById("filtroNomeServidor").style.display="block";
+
+            }
+
+
+        }
+
+    </script>
+
+</head>
+<div ng-app="myApp" ng-controller="ServidorController as ctrl">
+
+
+    <div id="content">
+
+        <div class="container" ng-init="Data.tabs[$parent.tab.i].title='Consultar Servidores'">
+            <div class="row">
+                <div class="col-xs-11">
+                    <div class="page-header">
+                        <h2>Servidores</h2>
+                    </div>
+                    <!-- Inputs -->
+                    <form role="form">
+                        <div class="row">
+
+                            <div class="col-xs-3">
+                                <label for="filtrar">Filtrar por:</label>
+                                <select id="filtrar" name="filtrar" class="form-control" onchange="habilitaFiltro();">
+                                    <option value="0">Selecione...</option>
+                                    <option value="1">Nome</option>
+                                    <option value="2">Secretárias</option>
+                                    <option value="3">Unidades</option>
+                                    <option value="4">Todos</option>
+                                </select>
+                                <span class="help-block">&nbsp;</span>
+                            </div>
+
+
+                            <div class="col-xs-5" id="filtroNomeServidor" style="display:none">
+                                <label for="dados">Filtro por nome</label>
+                                <input id="dados" type="text" placeholder="Digite o nome..." class="form-control"
+                                       title=" Ex: Antônio Lucas do Nascimento " bs-tooltip
+                                       ng-model="ctrl.servidor.nome"
+                                />
+                            </div>
+
+
+                        </div>
+
+                        <br/><br/>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-primary" ng-click="ctrl.pesquisa()">
+                                    Buscar
+                                </button>
+                                <button type="button" class="btn btn-primary" ng-click="Data.newTab('partials/servidores/cadastrar.html')">
+                                    Cadastrar
+                                </button>
+                            </div>
+
+                        </div>
+                        <br/><br/>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <table class="table table-bordered table-hover table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nome</th>
+                                        <th>Cpf</th>
+                                        <th>Secretaria</th>
+                                        <th>Unidade</th>
+                                        <th colspan="2" style="margin-left: 2px" width="50px">Operações</th>
+
+                                    </tr>
+
+                                    <tr ng-repeat="servidor in ctrl.servidores | filter:searchDescription">
+
+                                        <td>{{servidor.cdServidor}}</td>
+                                        <td>{{servidor.nome}}</td>
+                                        <td>{{servidor.cpf}}</td>
+                                        <td>{{servidor.descSecretaria}}</td>
+                                        <td>{{servidor.descUnidade}}</td>
+                                        <td>
+
+                                            <button type="button" ng-click="Data.newTab('partials/servidores/editar.html',1,servidor)"
+                                                    class="btn btn-small btn-warning">
+                                                <i class="glyphicon glyphicon-edit"></i>
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div align="right" class="footer">
+                        </div>
+
+                    </form><!-- Inputs -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

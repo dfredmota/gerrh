@@ -4,7 +4,8 @@
 			{"label": "Secretarias/Órgãos", "href": "partials/secretarias/secretarias.html"},
 			{"label": "Unidades", "href": "partials/unidades/unidades.html"},
 			{"label": "Simbologias", "href": "partials/simbologias/simbologias.html"},
-			{"label": "Cargos", "href": "partials/cargos/cargos.html"}
+			{"label": "Cargos", "href": "partials/cargos/cargos.html"},
+			{"label": "Servidor", "href": "partials/servidores/servidores.html"}
 		]},
 		{"label":"Sistema", "dpdown":[
 			{"label": "Coordenação - unidade", "href": "views/sistema/requerimentos.html"},
