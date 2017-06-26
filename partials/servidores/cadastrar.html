@@ -9,6 +9,8 @@
             $("#data_nascimento").mask('99/99/9999');
             $("#cpf").mask('999.999.999.99');
             $("#data_admissao").mask('99/99/9999');
+            $("#ini_contrato_temp").mask('99/99/9999');
+            $("#fim_contrato_temp").mask('99/99/9999');
 
         });
 
@@ -26,8 +28,6 @@
             var filiacao_pai = document.getElementById("filiacao_pai").value;
 
             var nacionalidade = document.getElementById("nacionalidade").value;
-
-            var uf = document.getElementById("uf").value;
 
 			var municipio_nascimento = document.getElementById("municipio_nascimento").value;
 
@@ -70,14 +70,10 @@
                 document.getElementById("optionsSexo").style.borderColor = "red";
             }
 
-            if(uf == 0){
-
-                document.getElementById("uf").style.borderColor = "red";
-            }
 
             if(escolaridade == 0){
 
-                document.getElementById("uf").style.borderColor = "red";
+                document.getElementById("escolaridade").style.borderColor = "red";
             }
 
             if(municipio_nascimento == 0){
@@ -153,6 +149,26 @@
         }
 
 
+        function habilitaGratificacao(){
+
+            var temGratificacao = document.getElementById("temGratificacao").value;
+
+            if(temGratificacao == "Sim"){
+                document.getElementById("div_tipo_gratificacao").style.display="block";
+			}else{
+                document.getElementById("div_tipo_gratificacao").style.display="none";
+			}
+
+		}
+
+//        $("input[type=file]").on('change',function(){
+//
+//            var nome_arquivo = document.getElementById("cpf").value + "_"+this.id;
+//
+//            this.files[0].name = nome_arquivo;
+//
+//            alert(nome_arquivo);
+//        });
 
 	</script>
 
@@ -177,11 +193,11 @@
 
 </ul>
 
-	<form role="form" ng-submit="ctrl.submit()">
+	<form role="form" ng-submit="ctrl.submit()" enctype="multipart/form-data">
 
 	<div class="tab-content">
 
-        <div ng-class="{active:SelfTab==1}" class="tab-pane">
+		<div ng-class="{active:SelfTab==1}" class="tab-pane">
             <span class="help-block">&nbsp;</span>
 			<!-- Pessoais -->
 			<div class="row">
@@ -198,24 +214,6 @@
 					<input id="cpf" name="cpf" type="text" placeholder="Nome" class="form-control"
 						   title="Insira o nome do servidor" bs-tooltip ng-model="ctrl.servidor.cpf" />
 
-				</div>
-
-				<div class="col-xs-2" id="div_secretarias">
-					<label for="secretarias">Secretarias:</label>
-					<select ng-model="selectedSecretaria" id="secretarias" name="secretarias" class="form-control"
-							ng-options="item.cdSecretaria as item.nmSecretaria for item in secretarias">
-						<option value="">Selecione</option>
-					</select>
-					<span class="help-block">&nbsp;</span>
-				</div>
-
-				<div class="col-xs-2" id="div_unidades">
-					<label for="unidades">Unidades:</label>
-					<select ng-model="selectedUnidade" id="unidades" name="unidades" class="form-control"
-							ng-options="item.cdUnidade as item.nmUnidade for item in unidades">
-						<option value="">Selecione</option>
-					</select>
-					<span class="help-block">&nbsp;</span>
 				</div>
 
 				<div class="col-xs-2">
@@ -237,44 +235,63 @@
 					</select>
 				</div>
 
-
-
-
-			</div>
-
-
-			<div class="row">
-
 				<div class="col-xs-3">
 					<label for="filiacao_mae">Nome da Mãe</label>
 					<input type="text" id="filiacao_mae" placeholder="Nome da Mãe" class="form-control" title="Nome da mãe do Servidor"
-						   bs-tooltip ng-model="ctrl.servidor.filiacao_mae" />
+						   required bs-tooltip ng-model="ctrl.servidor.filiacao_mae" />
 				</div>
+
+			</div>
+
+			<div class="row">
+
+
 
 				<div class="col-xs-3">
 					<label for="filiacao_pai">Nome do Pai</label>
 					<input type="text" id="filiacao_pai" placeholder="Nome do Pai"  class="form-control"
-						   title="Nome do pai do Servidor" bs-tooltip  ng-model="ctrl.servidor.filiacao_pai" />
+						   required title="Nome do pai do Servidor" bs-tooltip  ng-model="ctrl.servidor.filiacao_pai" />
 				</div>
 				<div class="col-xs-2">
 					<label for="nacionalidade">Nacionalidade</label>
-					<input type="text" ng-model="ctrl.servidor.nacionalidade" id="nacionalidade" placeholder="Nacionalidade" class="form-control" title="Nacionalidade do Servidor. Ex: Brasileiro" bs-tooltip />
+					<input required type="text" ng-model="ctrl.servidor.nacionalidade" id="nacionalidade" placeholder="Nacionalidade" class="form-control" title="Nacionalidade do Servidor. Ex: Brasileiro" bs-tooltip />
 				</div>
 
 				<div class="form-group col-xs-2" >
 					<label class="control-label"><i class="fa fa-calendar"></i> Data de Nascimento</label>
-					<input type="text" id="data_nascimento" placeholder="Nome do Pai"  class="form-control"
-						   title="Nome do pai do Servidor" bs-tooltip  ng-model="ctrl.servidor.dateNascimento" />
+					<input type="text" id="data_nascimento" placeholder="Data de Nascimento"  class="form-control"
+						   title="Data de Nascimento" bs-tooltip  ng-model="ctrl.servidor.dateNascimento" />
 				</div>
 
 				<div class="col-xs-2">
 					<label for="uf">UF</label>
-					<select id="uf" name="uf" class="form-control">
+					<select id="uf_nascimento" name="uf_nascimento" class="form-control">
 						<option value="0">Selecione...</option>
-						<option value="1">Acre</option>
-						<option value="2">Amapá</option>
-						<option value="3">Bahia</option>
-						<option value="4">Ceara</option>
+						<option value="Acre">Acre</option>
+						<option value="Alagoas">Alagoas</option>
+						<option value="Amapá">Amapá</option>
+						<option value="Ceará">Ceará</option>
+						<option value="Distrito Federal">Distrito Federal</option>
+						<option value="Espírito Santo">Espírito Santo</option>
+						<option value="Goiás">Goiás</option>
+						<option value="Maranhão">Maranhão</option>
+						<option value="Mato Grosso">Mato Grosso</option>
+						<option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+						<option value="Minas Gerais">Minas Gerais</option>
+						<option value="Pará">Pará</option>
+						<option value="Paraná">Paraná</option>
+						<option value="Pernambuco">Pernambuco</option>
+						<option value="Piauí">Piauí</option>
+						<option value="Rio de Janeiro">Rio de Janeiro</option>
+						<option value="Rio Grande do Norte">Rio Grande do Norte</option>
+						<option value="Rio Grande do Sul">Rio Grande do Sul</option>
+						<option value="Rondônia">Rondônia</option>
+						<option value="Roraima">Roraima</option>
+						<option value="Santa Catarina">Santa Catarina</option>
+						<option value="São Paulo">São Paulo</option>
+						<option value="Sergipe">Sergipe</option>
+						<option value="Tocantins">Tocantins</option>
+
 					</select>
 				</div>
 
@@ -286,19 +303,14 @@
 
 				<div class="col-xs-3">
 					<label for="municipio_nascimento">Município de nascimento</label>
-					<select id="municipio_nascimento" name="municipio_nascimento" class="form-control">
-						<option value="0">Selecione...</option>
-						<option value="1">Crato</option>
-						<option value="2">Juazeiro</option>
-						<option value="3">Barbalha</option>
-						<option value="4">Missão Velha</option>
-					</select>
+					<input type="text" id="municipio_nascimento" placeholder="Município"  class="form-control"
+						   required title="Município" bs-tooltip  ng-model="ctrl.servidor.municipio_nascimento" />
 				</div>
 				<div class="col-xs-2">
 					<label for="telefone">Telefone</label>
 					<input id="telefone" name="telefone" type="text"
 						   placeholder="Telefone" class="form-control" title="Insira o telefone de contato do Servidor"
-						   bs-tooltip ng-model="ctrl.servidor.telefone" />
+						   required bs-tooltip ng-model="ctrl.servidor.telefone" />
 				</div>
 				<div class="col-xs-2">
 					<label for="telefone2">Telefone 2</label>
@@ -314,7 +326,7 @@
 			<div class="row">
 				<div class="col-xs-2">
 					<label for="">Escolaridade</label>
-					<select id="escolaridade" name="escolaridade" class="form-control">
+					<select required id="escolaridade" name="escolaridade" class="form-control">
 						<option value="0">Selecione...</option>
 						<option value="1">Fundamental Incompleto</option>
 						<option value="2">Fundamental Completo</option>
@@ -331,7 +343,7 @@
 				</div>
 				<div class="col-xs-1">
 					<label for="num_conselho">N°</label>
-					<input type="text" ng-model="ctrl.servidor.num_conselho" id="num_conselho" placeholder="N°" class="form-control" title="Insira o número do conselho de classe do Servidor. Ex: 1235" bs-tooltip  />
+					<input type="number" ng-model="ctrl.servidor.num_conselho" id="num_conselho" placeholder="N°" class="form-control" title="Insira o número do conselho de classe do Servidor. Ex: 1235" bs-tooltip  />
 				</div>
 			</div>
 		</div><!-- Fim Pessoais -->
@@ -342,12 +354,12 @@
 		<div class="row">
 			<div class="col-xs-2">
 				<label for="cep">CEP</label>
-				<input id="cep" name="cep" type="text" class="form-control"  ng-model="ctrl.servidor.cep"  />
+				<input required id="cep" name="cep" type="text" class="form-control"  ng-model="ctrl.servidor.cep"  />
 				<a href="http://www.buscacep.correios.com.br/"target="_blank"><small><u><i>Buscar CEP</i></u></small></a>
 			</div>
 			<div class="col-xs-2">
 				<label for="">Tipo de Logradouro</label>
-				<select id="tipo_logradouro" name="tipo_logradouro" class="form-control">
+				<select required id="tipo_logradouro" name="tipo_logradouro" class="form-control">
 					<option value="0">Selecione...</option>
 					<option value="1">Rua</option>
 					<option value="2">Avenida</option>
@@ -363,24 +375,24 @@
 			<div class="col-xs-4">
 				<label for="logradouro">Logradouro</label>
 				<input id="logradouro" ng-model="ctrl.servidor.logradouro" name="logradouro" type="text" class="form-control"
-					   title="Insira o logradouro do Servidor. Ex: Rua Barbara de Alencar " bs-tooltip  />
+					   required title="Insira o logradouro do Servidor. Ex: Rua Barbara de Alencar " bs-tooltip  />
 			</div>
 			<div class="col-xs-1">
 				<label for="numero">Número</label>
-				<input id="numero" ng-model="ctrl.servidor.numero" name="numero" type="text" class="form-control"
-					   title="Insira o número da residência do Servidor" bs-tooltip  />
+				<input id="numero" ng-model="ctrl.servidor.numero" name="numero" type="number" class="form-control"
+					   required title="Insira o número da residência do Servidor" bs-tooltip  />
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-4">
 				<label for="municipio">Município<font color="RED"> *</font></label>
 				<input id="municipio"  ng-model="ctrl.servidor.municipio" name="municipio" placeholder="Municipio"
-					   type="text" class="form-control" title="Insira o município de residência do Servidor" bs-tooltip  />
+					   required type="text" class="form-control" title="Insira o município de residência do Servidor" bs-tooltip  />
 			</div>
 			<div class="col-xs-3">
 				<label for="bairro">Bairro</label>
 				<input id="bairro" name="bairro" ng-model="ctrl.servidor.bairro" type="text" placeholder="Bairro"
-					   class="form-control" title="Insira o bairro do Servidor" bs-tooltip  />
+					   required class="form-control" title="Insira o bairro do Servidor" bs-tooltip  />
 			</div>
 			<div class="col-xs-3">
 				<label for="complemento">Complemento</label>
@@ -396,7 +408,7 @@
         <div class="row">
             <div class="col-xs-2">
                 <label for="data_admissao">Data de Admissão</label>
-                <input type="text" id="data_admissao" ng-model="ctrl.servidor.data_admissao" placeholder="Data de Admissão" class="form-control" title="Insira a data de admissão do Servidor" bs-tooltip  />
+                <input required type="text" id="data_admissao" ng-model="ctrl.servidor.data_admissao" placeholder="Data de Admissão" class="form-control" title="Insira a data de admissão do Servidor" bs-tooltip  />
             </div>
             <div class="col-xs-2">
                 <label for="ini_contrato_temp">Ini contrato temp</label>
@@ -418,7 +430,7 @@
         <div class="row">
 			<div class="col-xs-3">
 				<label for="optionsSituacao">Situação</label>
-				<select id="optionsSituacao" name="optionsSituacao" class="form-control">
+				<select required id="optionsSituacao" name="optionsSituacao" class="form-control">
 					<option value="0">Selecione...</option>
 					<option value="1">Ativo</option>
 					<option value="2">Inativo</option>
@@ -426,7 +438,7 @@
 			</div>
             <div class="col-xs-2">
                 <label for="tipo_admissao">Tipo de Admissão</label>
-                <select id="tipo_admissao" name="tipo_admissao" class="form-control">
+                <select required id="tipo_admissao" name="tipo_admissao" class="form-control">
                     <option value="0">Selecione...</option>
                     <option value="1">Cargo em comissão</option>
                     <option value="2">Concurso público</option>
@@ -442,6 +454,28 @@
                 <label for="tipo_previdencia">Tipo de Previdência</label>
                 <input type="text" id="tipo_previdencia" placeholder="Tipo de Previdência" class="form-control" title="Insira o tipo de Previdência do Servidor. Ex: Previdência Municipal" bs-tooltip  />
             </div>
+
+
+			<div class="col-xs-3">
+				<label for="temGratificacao">Recebe Gratificação</label>
+				<select onchange="habilitaGratificacao();" required id="temGratificacao" name="temGratificacao" class="form-control">
+					<option value="Nao">Não</option>
+					<option value="Sim">Sim</option>
+				</select>
+			</div>
+
+
+			<div class="col-xs-3" id="div_tipo_gratificacao" style="display: none">
+				<label for="temGratificacao">Tipo de  Gratificação</label>
+				<select required id="tipoGratificacao" name="temGratificacao" class="form-control">
+					<option value="Portaria">Portaria</option>
+					<option value="Função Gratificativa FG">Função Gratificativa FG</option>
+					<option value="Outro">Outro</option>
+				</select>
+			</div>
+
+
+
         </div><!-- Fim Funcionais -->
     </div>
     <div ng-class="{active:SelfTab==4}" class="tab-pane">
@@ -464,43 +498,50 @@
             <tr >
                 <td>RG</td>
                 <td>
-                    <input type="file" id="doc_rg" name="rg" placeholder="Selecionar..."  />
+					<input type="file" demo-file-model="fileRg"  class="form-control" id ="fileRg"/>
+					<button ng-click = "uploadFile()">upload me</button>
                 </td>
             </tr>
             <tr>
                 <td>CPF</td>
                 <td>
-                    <input type="file" id="doc_cpf" name="cpf" placeholder="Selecionar..." />
+                    <input type="file" file-model="doc_cpf" id="doc_cpf" name="cpf" placeholder="Selecionar..." />
+					<button ng-click = "upload('doc_cpf')">upload me</button>
                 </td>
             </tr>
             <tr>
                 <td>Comprovante de Residência</td>
                 <td>
-                    <input type="file" id="doc_comp_residencia" name="comp_residencia" placeholder="Selecionar..."/>
+                    <input type="file" file-model="doc_comp_residencia" id="doc_comp_residencia" name="comp_residencia" placeholder="Selecionar..."/>
+					<button ng-click = "upload('doc_comp_residencia')">upload me</button>
                 </td>
             </tr>
             <tr>
                 <td>CTPS</td>
                 <td>
-                    <input type="file" id="doc_ctps" name="ctps" placeholder="Selecionar..." />
+                    <input type="file" file-model="doc_ctps" id="doc_ctps" name="ctps" placeholder="Selecionar..." />
+					<button ng-click = "upload('doc_ctps')">upload me</button>
                 </td>
             </tr>
             <tr>
                 <td>Título de Eleitor</td>
                 <td>
-                    <input type="file" id="doc_titulo_eleitoral" name="titulo_eleitoral" placeholder="Selecionar..." />
+                    <input type="file" file-model="doc_titulo_eleitoral" id="doc_titulo_eleitoral" name="titulo_eleitoral" placeholder="Selecionar..." />
+					<button ng-click = "upload('doc_titulo_eleitoral')">upload me</button>
                 </td>
             </tr>
             <tr>
                 <td>Diploma Nível Médio</td>
                 <td>
-                    <input type="file" id="doc_diploma_nivel_medio" name="diploma_nivel_medio" placeholder="Selecionar..." />
+                    <input type="file" file-model="doc_diploma_nivel_medio" id="doc_diploma_nivel_medio" name="diploma_nivel_medio" placeholder="Selecionar..." />
+					<button ng-click = "upload('doc_diploma_nivel_medio')">upload me</button>
                 </td>
             </tr>
             <tr>
                 <td>Diploma Nível Superior</td>
                 <td>
-                    <input type="file" id="doc_diploma_nivel_superior" name="diploma_nivel_superior" placeholder="Selecionar..." />
+                    <input type="file" file-model="doc_diploma_nivel_superior" id="doc_diploma_nivel_superior" name="diploma_nivel_superior" placeholder="Selecionar..." />
+					<button ng-click = "upload('doc_diploma_nivel_superior')">upload me</button>
                 </td>
             </tr>
             </tbody>
@@ -515,6 +556,18 @@
 			<button type="button" ng-disabled="show" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Limpar</button>
 		</div>
 
+
+		<!--<form method="POST" action="http://localhost:8080/gerrh/UploadServlet" enctype="multipart/form-data" >
+			File:
+			<input type="file" name="file" id="file" /> <br/>
+			Destination:
+			<input type="text" value="{{ctrl.servidor.cpf}}" name="tipo"/>
+			</br>
+			<input type="submit" onclick="" value="Upload" name="upload" id="upload" />
+		</form>-->
+
 	</form>
+
+
 
 </div>

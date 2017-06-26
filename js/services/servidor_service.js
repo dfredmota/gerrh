@@ -2,19 +2,15 @@
 
 App.factory('ServidorService', ['$http', '$q', function($http, $q){
 
-    var REST_SERVICE_URI = 'http://209.172.51.58:7447/gerrh/servidor/';
-    var REST_SERVICE_URI_PESQUISA_NOME = 'http://209.172.51.58:7447/gerrh/getbynomeservidor/';
-    var REST_SERVICE_URI_PESQUISA_SECRETARIAS = 'http://209.172.51.58:7447/gerrh/getsecretarias/';
+    var url_local = "localhost:8080";
+    //var url_local = "209.172.51.58:7447";
 
-    var REST_SERVICE_URI_PESQUISA_UNIDADE = 'http://209.172.51.58:7447/gerrh/getunidades/';
-
-    //var REST_SERVICE_URI = 'http://localhost:8080/gerrh/servidor/';
-    //var REST_SERVICE_URI_PESQUISA_NOME = 'http://localhost:8080/gerrh/getbynomeservidor/';
-
-    //var REST_SERVICE_URI_PESQUISA_SECRETARIAS = 'http://localhost:8080/gerrh/getsecretarias/';
-
-    //var REST_SERVICE_URI_PESQUISA_UNIDADE = 'http://localhost:8080/gerrh/getunidades/';
-
+    var REST_SERVICE_URI = "http://"+url_local+"/gerrh/servidor/";
+    var REST_SERVICE_URI_PESQUISA_NOME = "http://"+url_local+"/gerrh/getbynomeservidor/";
+    var REST_SERVICE_URI_PESQUISA_SECRETARIAS = "http://"+url_local+"/gerrh/getsecretarias/";
+    var REST_SERVICE_URI_PESQUISA_UNIDADE = "http://"+url_local+"/gerrh/getunidades/";
+    var REST_SERVICE_URI_FILE_UPLOAD= "http://"+url_local+"/gerrh/fileUpload/";
+    var servlet= "http://localhost:8080/gerrh/UploadServlet";
 
 
     var factory = {
@@ -26,9 +22,32 @@ App.factory('ServidorService', ['$http', '$q', function($http, $q){
         pesquisaPorNome:pesquisaPorNome,
         getSecretaria:getSecretaria,
         getUnidades:getUnidades,
+        uploadFileToUrl:uploadFileToUrl,
     };
 
     return factory;
+
+    function uploadFileToUrl(file,tipo,cpf){
+
+        var fd = new FormData();
+        fd.append('file', file);
+        fd.append('tipo',tipo);
+        fd.append('cpf',cpf);
+
+        console.log(file);
+        console.log(fd);
+
+        $http.post(REST_SERVICE_URI_FILE_UPLOAD, fd, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+        })
+            .success(function(){
+            })
+            .error(function(){
+            });
+
+    };
+
 
     function pesquisaPorNome(servidor) {
         var deferred = $q.defer();

@@ -2,11 +2,12 @@
 
 App.factory('SimbologiaService', ['$http', '$q', function($http, $q){
 
-    var REST_SERVICE_URI = 'http://209.172.51.58:7447/gerrh/simbologia/';
-    var REST_SERVICE_URI_PESQUISA_NOME = 'http://209.172.51.58:7447/gerrh/getbynomeclatura/';
+    var url_local = "localhost:8080";
+    //var url_local = "209.172.51.58:7447";
 
-   // var REST_SERVICE_URI = 'http://localhost:8080/gerrh/simbologia/';
-    //var REST_SERVICE_URI_PESQUISA_NOME = 'http://localhost:8080/gerrh/getbynomeclatura/';
+    var REST_SERVICE_URI = "http://"+url_local+"/gerrh/simbologia/";
+    var REST_SERVICE_URI_PESQUISA_NOME = "http://"+url_local+"/gerrh/getbynomeclatura/";
+
 
     var factory = {
         fetchAllSimbologias: fetchAllSimbologias,

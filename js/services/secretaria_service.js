@@ -2,12 +2,12 @@
 
 App.factory('SecretariaService', ['$http', '$q', function($http, $q){
 
-    var REST_SERVICE_URI = 'http://209.172.51.58:7447/gerrh/secretaria/';
-    var REST_SERVICE_URI_PESQUISA_NOME = 'http://209.172.51.58:7447/gerrh/getbynomesec/';
 
-    //var REST_SERVICE_URI = 'http://localhost:8080/gerrh/secretaria/';
-    //var REST_SERVICE_URI_PESQUISA_NOME = 'http://localhost:8080/gerrh/getbynomesec/';
+    var url_local = "localhost:8080";
+    //var url_local = "209.172.51.58:7447";
 
+    var REST_SERVICE_URI = "http://"+url_local+"/gerrh/secretaria/";
+    var REST_SERVICE_URI_PESQUISA_NOME = "http://"+url_local+"/gerrh/getbynomesec/";
 
 
     var factory = {

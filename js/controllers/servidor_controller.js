@@ -1,15 +1,79 @@
 'use strict';
 
-App.controller('ServidorController', ['$scope', 'ServidorService','$location', function($scope, servidorService,
-                                                                                  $location) {
+
+App.directive('demoFileModel', function ($parse) {
+
+    return {
+        restrict: 'A', //the directive can be used as an attribute only
+
+        /*
+         link is a function that defines functionality of directive
+         scope: scope associated with the element
+         element: element on which this directive used
+         attrs: key value pair of element attributes
+         */
+        link: function (scope, element, attrs) {
+            var model = $parse(attrs.demoFileModel),
+                modelSetter = model.assign; //define a setter for demoFileModel
+
+            //Bind change event on the element
+            element.bind('change', function () {
+                //Call apply on scope, it checks for value changes and reflect them on UI
+                scope.$apply(function () {
+                    //set the model value
+                    modelSetter(scope, element[0].files[0]);
+                });
+            });
+        }
+    };
+});
+
+App.controller('ServidorController', ['$scope', 'ServidorService', '$location',function ($scope, servidorService,
+                                                                                          $location) {
     var self = this;
 
-    self.servidores=[];
-    self.servidor={cdServidor:null,nome:'',optionsSexo:'',filiacao_pai:'',filiacao_mae:'',dateNascimento:'',nacionalidade:'',
-        telefone:'',telefone2:'',estado_civil:0,escolaridade:0,municipio_nascimento:'',conselho_classe:'',num_conselho:0,
-        tipoLogradouro:0,cep:'',logradouro:'',numero:0,municipio:'',bairro:'',complemento:'',data_admissao:'',ini_contrato_temp:'',
-        fim_contrato_temp:'',ordem:'',serie:'',optionsSituacao:'',natureza:0,tipo_admissao:0,tipo_previdencia:'',
-        cdCargo:0,cdSecretaria:0,cdUnidade:0,descSecretaria:'',descUnidade:'',cpf:''};
+    self.servidores = [];
+    self.servidor = {
+        cdServidor: null,
+        nome: '',
+        optionsSexo: '',
+        filiacao_pai: '',
+        filiacao_mae: '',
+        dateNascimento: '',
+        nacionalidade: '',
+        telefone: '',
+        telefone2: '',
+        estado_civil: 0,
+        escolaridade: 0,
+        municipio_nascimento: '',
+        conselho_classe: '',
+        num_conselho: 0,
+        tipoLogradouro: 0,
+        cep: '',
+        logradouro: '',
+        numero: 0,
+        municipio: '',
+        bairro: '',
+        complemento: '',
+        data_admissao: '',
+        ini_contrato_temp: '',
+        fim_contrato_temp: '',
+        ordem: '',
+        serie: '',
+        optionsSituacao: '',
+        natureza: 0,
+        tipo_admissao: 0,
+        tipo_previdencia: '',
+        cdCargo: 0,
+        cdSecretaria: 0,
+        cdUnidade: 0,
+        descSecretaria: '',
+        descUnidade: '',
+        cpf: '',
+        ufNascimento: '',
+        temGratificacao: '',
+        tipoGratificacao: ''
+    };
 
     $scope.successTextAlert = "";
     $scope.showSuccessAlert = false;
@@ -22,9 +86,9 @@ App.controller('ServidorController', ['$scope', 'ServidorService','$location', f
 
     $scope.show = false;
 
-    if(Data.parametro != null && Data.parametro != undefined){
+    if (Data.parametro != null && Data.parametro != undefined) {
 
-        self.servidor =  Data.parametro;
+        self.servidor = Data.parametro;
     }
 
     // switch flag
@@ -33,51 +97,68 @@ App.controller('ServidorController', ['$scope', 'ServidorService','$location', f
     };
 
 
+    $scope.uploadFile = function () {
+
+        var file = $scope.fileRg;
+
+        console.log("FILEEE...");
+        console.log(file.name);
+
+       var promise = servidorService.uploadFileToUrl(file,'rg',self.servidor.cpf);
+
+        promise.then(function (response) {
+            $scope.serverResponse = response;
+        }, function () {
+            $scope.serverResponse = 'An error has occurred';
+        })
+    };
+
+
 
     servidorService.getSecretaria()
         .then(
-            function(d) {
+            function (d) {
                 console.log("Lista de Secretarias:");
                 console.log(d);
                 $scope.secretarias = d;
             },
-            function(errResponse){
+            function (errResponse) {
                 console.error('Error while fetching Currencies');
             }
         );
 
     servidorService.getUnidades()
         .then(
-            function(d) {
+            function (d) {
                 console.log("Lista de Unidades:");
                 console.log(d);
                 $scope.unidades = d;
             },
-            function(errResponse){
+            function (errResponse) {
                 console.error('Error while fetching Currencies');
             }
         );
 
 
-    self.fetchAllServidores= function(){
+    self.fetchAllServidores = function () {
 
         $scope.showSuccessAlert = false;
         $scope.successTextAlert = "";
 
         servidorService.fetchAllServidores()
             .then(
-                function(d) {
+                function (d) {
                     console.log("Lista:");
                     console.log(d);
                     self.servidores = d;
                 },
-                function(errResponse){
+                function (errResponse) {
                     console.error('Error while fetching Currencies');
                 }
             );
     };
 
-    self.pesquisaPorNome = function(servidor){
+    self.pesquisaPorNome = function (servidor) {
 
         console.log("Pesquisa por nome");
         console.log("Nome:");
@@ -86,17 +167,17 @@ App.controller('ServidorController', ['$scope', 'ServidorService','$location', f
         $scope.successTextAlert = "";
         servidorService.pesquisaPorNome(servidor)
             .then(
-                function(d) {
+                function (d) {
                     self.servidores = d;
                 },
-                function(errResponse){
+                function (errResponse) {
                     console.error('Error while fetching Currencies');
                 }
             );
     };
 
 
-    self.getSimbologias = function(servidor){
+    self.getSimbologias = function (servidor) {
 
         console.log("lista simbologias");
         console.log("Tipo de Simbologia:");
@@ -105,69 +186,69 @@ App.controller('ServidorController', ['$scope', 'ServidorService','$location', f
         $scope.successTextAlert = "";
         servidorService.pesquisaPorNome(servidor)
             .then(
-                function(d) {
+                function (d) {
                     self.servidores = d;
                 },
-                function(errResponse){
+                function (errResponse) {
                     console.error('Error while fetching Currencies');
                 }
             );
     };
 
-    self.createServidor = function(servidor){
+    self.createServidor = function (servidor) {
         servidorService.createServidor(servidor)
             .then(
                 self.fetchAllServidores,
-                function(errResponse){
+                function (errResponse) {
                     alert("Já existe um servidor com esse nome!");
                     console.error('Error while creating servidores.');
                 }
             );
     };
 
-    self.updateServidor = function(servidor, id){
+    self.updateServidor = function (servidor, id) {
         servidorService.updateServidor(servidor, id)
             .then(
                 self.updateServidor(servidor, id),
-                function(errResponse){
+                function (errResponse) {
                     console.error('Error while updating servidores.');
                 }
             );
     };
 
-    self.showServidor = function(id){
+    self.showServidor = function (id) {
         servidorService.showServidor(id)
             .then(
-                function(d) {
+                function (d) {
                     self.servidor = d;
                 },
-                function(errResponse){
+                function (errResponse) {
                     console.error('Error while fetching Currencies');
                 }
             );
     };
 
-    self.deleteServidor = function(id){
+    self.deleteServidor = function (id) {
         servidorService.deleteServidor(id)
             .then(
                 self.fetchAllServidores,
-                function(errResponse){
+                function (errResponse) {
                     console.error('Error while deleting servidores.');
                 }
             );
     };
 
-    self.submit = function() {
-        if(self.servidor.cdServidor === null || self.servidor.cdServidor === undefined){
+    self.submit = function () {
+        if (self.servidor.cdServidor === null || self.servidor.cdServidor === undefined) {
             console.log('Saving New servidores', self.servidor);
 
             var jaExiste = false;
 
             console.log(self.servidores[i]);
 
-            for(var i = 0; i < self.servidores.length; i++){
+            for (var i = 0; i < self.servidores.length; i++) {
 
-                if(self.servidores[i].nome.toUpperCase() === self.servidor.nome.toUpperCase()) {
+                if (self.servidores[i].nome.toUpperCase() === self.servidor.nome.toUpperCase()) {
 
                     jaExiste = true;
                     alert("Já existe um servidor com esse nome!");
@@ -177,13 +258,15 @@ App.controller('ServidorController', ['$scope', 'ServidorService','$location', f
                 }
             }
 
-            if(!jaExiste) {
+            if (!jaExiste) {
+
+                console.log(document.getElementById("doc_rg").value);
+
+                return;
 
                 var estado_civil = document.getElementById("estado_civil").value;
 
                 var escolaridade = document.getElementById("escolaridade").value;
-
-                var uf = document.getElementById("uf").value;
 
                 var tipo_logradouro = document.getElementById("tipo_logradouro").value;
 
@@ -191,9 +274,21 @@ App.controller('ServidorController', ['$scope', 'ServidorService','$location', f
 
                 var tipo_previdencia = document.getElementById("tipo_previdencia").value;
 
-                var optionsSexo =  document.getElementById("optionsSexo").value;
+                var optionsSexo = document.getElementById("optionsSexo").value;
 
                 var optionsSituacao = document.getElementById("optionsSituacao").value;
+
+                var uf_nascimento = document.getElementById("uf_nascimento").value;
+
+                var temGratificacao = document.getElementById("temGratificacao").value;
+
+                var tipoGratificacao = document.getElementById("tipoGratificacao").value;
+
+                self.servidor.temGratificacao = temGratificacao;
+
+                self.servidor.tipoGratificacao = tipoGratificacao;
+
+                self.servidor.ufNascimento = uf_nascimento;
 
                 self.servidor.optionsSexo = optionsSexo;
 
@@ -203,8 +298,6 @@ App.controller('ServidorController', ['$scope', 'ServidorService','$location', f
 
                 self.servidor.escolaridade = escolaridade;
 
-                self.servidor.uf = uf;
-
                 self.servidor.tipoLogradouro = tipo_logradouro;
 
                 self.servidor.tipo_admissao = tipo_admissao;
@@ -213,20 +306,12 @@ App.controller('ServidorController', ['$scope', 'ServidorService','$location', f
 
                 console.log(self.servidor);
 
-                var idSecretaria = document.getElementById("secretarias").value.replace("number:", "");
-
-                self.servidor.cdSecretaria = idSecretaria;
-
-                var idUnidade = document.getElementById("unidades").value.replace("number:", "");
-
-                self.servidor.cdUnidade = idUnidade;
-
                 servidorService.createServidor(self.servidor);
                 $scope.showSuccessAlert = true;
                 $scope.successTextAlert = "Operação Realizada com Sucesso!";
             }
 
-        }else{
+        } else {
 
             var estado_civil = document.getElementById("estado_civil").value;
 
@@ -240,7 +325,7 @@ App.controller('ServidorController', ['$scope', 'ServidorService','$location', f
 
             var tipo_previdencia = document.getElementById("tipo_previdencia").value;
 
-            var optionsSexo =  document.getElementById("optionsSexo").value;
+            var optionsSexo = document.getElementById("optionsSexo").value;
 
             var optionsSituacao = document.getElementById("optionsSituacao").value;
 
@@ -280,21 +365,21 @@ App.controller('ServidorController', ['$scope', 'ServidorService','$location', f
 
     };
 
-    self.pesquisa = function() {
-        if(self.servidor.nome === null || self.servidor.nome === ''){
+    self.pesquisa = function () {
+        if (self.servidor.nome === null || self.servidor.nome === '') {
             console.log('pesquisa todas as servidores', self.servidor);
             self.fetchAllServidores();
-        }else{
+        } else {
             console.log('pesquisa por nome ', self.c.nome);
             self.pesquisaPorNome(self.servidor);
         }
 
     };
 
-    self.edit = function(id){
+    self.edit = function (id) {
         console.log('id to be edited', id);
-        for(var i = 0; i < self.servidores.length; i++){
-            if(self.servidores[i].cdServidor === id) {
+        for (var i = 0; i < self.servidores.length; i++) {
+            if (self.servidores[i].cdServidor === id) {
                 self.servidor = angular.copy(self.servidores[i]);
                 $scope.selected = self.servidor;
                 $scope.show = false;
@@ -305,10 +390,10 @@ App.controller('ServidorController', ['$scope', 'ServidorService','$location', f
 
     };
 
-    self.show = function(id){
+    self.show = function (id) {
         console.log('id to be edited', id);
-        for(var i = 0; i < self.servidores.length; i++){
-            if(self.servidores[i].cdServidor === id) {
+        for (var i = 0; i < self.servidores.length; i++) {
+            if (self.servidores[i].cdServidor === id) {
                 self.servidor = angular.copy(self.servidores[i]);
                 $scope.selected = self.servidor;
                 $scope.show = true;
@@ -319,17 +404,17 @@ App.controller('ServidorController', ['$scope', 'ServidorService','$location', f
 
     };
 
-    self.pesquisa = function(){
+    self.pesquisa = function () {
 
         var tipoFiltro = document.getElementById("filtrar").value;
 
-        if(tipoFiltro == 0 || tipoFiltro == 3){
+        if (tipoFiltro == 0 || tipoFiltro == 3) {
 
             self.fetchAllServidores();
 
         }
 
-        if(tipoFiltro == 1){
+        if (tipoFiltro == 1) {
 
             self.pesquisaPorNome(self.servidor);
 
@@ -339,17 +424,57 @@ App.controller('ServidorController', ['$scope', 'ServidorService','$location', f
 
     };
 
-    self.remove = function(id){
+    self.remove = function (id) {
         console.log('id to be deleted', id);
-        if(self.servidor.cdServidor === id) {//clean form if the servidores to be deleted is shown there.
+        if (self.servidor.cdServidor === id) {//clean form if the servidores to be deleted is shown there.
             self.reset();
         }
         self.deleteServidor(id);
     };
 
 
-    self.reset = function(){
-        self.servidor={cdServidor:null, nome:'', tipoServidor:''};
+    self.reset = function () {
+        self.servidor = {
+            cdServidor: null,
+            nome: '',
+            optionsSexo: '',
+            filiacao_pai: '',
+            filiacao_mae: '',
+            dateNascimento: '',
+            nacionalidade: '',
+            telefone: '',
+            telefone2: '',
+            estado_civil: 0,
+            escolaridade: 0,
+            municipio_nascimento: '',
+            conselho_classe: '',
+            num_conselho: 0,
+            tipoLogradouro: 0,
+            cep: '',
+            logradouro: '',
+            numero: 0,
+            municipio: '',
+            bairro: '',
+            complemento: '',
+            data_admissao: '',
+            ini_contrato_temp: '',
+            fim_contrato_temp: '',
+            ordem: '',
+            serie: '',
+            optionsSituacao: '',
+            natureza: 0,
+            tipo_admissao: 0,
+            tipo_previdencia: '',
+            cdCargo: 0,
+            cdSecretaria: 0,
+            cdUnidade: 0,
+            descSecretaria: '',
+            descUnidade: '',
+            cpf: '',
+            ufNascimento: '',
+            temGratificacao: '',
+            tipoGratificacao: ''
+        };
         //$scope.myForm.$setPristine(); //reset Form
     };
 

@@ -2,17 +2,15 @@
 
 App.factory('CargoService', ['$http', '$q','$timeout', function($http, $q,$timeout){
 
-    var REST_SERVICE_URI = 'http://209.172.51.58:7447/gerrh/cargo/';
-    var REST_SERVICE_URI_PESQUISA_NOME = 'http://209.172.51.58:7447/gerrh/getbynome/';
-    var REST_SERVICE_URI_PESQUISA_SIMBOLOGIAS = 'http://209.172.51.58:7447/gerrh/getsimbologias/';
-    var REST_SERVICE_URI_PESQUISA_TIPO_CARGO = 'http://209.172.51.58:7447/gerrh/getbytipocargo/';
 
-    //var REST_SERVICE_URI = 'http://localhost:8080/gerrh/cargo/';
-    //var REST_SERVICE_URI_PESQUISA_NOME = 'http://localhost:8080/gerrh/getbynomecargo/';
+    var url_local = "localhost:8080";
+    //var url_local = "209.172.51.58:7447";
 
-    //var REST_SERVICE_URI_PESQUISA_SIMBOLOGIAS = 'http://localhost:8080/gerrh/getsimbologias/';
+    var REST_SERVICE_URI = "http://"+url_local+"/gerrh/cargo/";
+    var REST_SERVICE_URI_PESQUISA_NOME = "http://"+url_local+"/gerrh/getbynome/";
+    var REST_SERVICE_URI_PESQUISA_SIMBOLOGIAS = "http://"+url_local+"/gerrh/getsimbologias/";
+    var REST_SERVICE_URI_PESQUISA_TIPO_CARGO = "http://"+url_local+"/gerrh/getbytipocargo/";
 
-    //var REST_SERVICE_URI_PESQUISA_TIPO_CARGO = 'http://localhost:8080/gerrh/getbytipocargo/';
 
     var factory = {
         fetchAllCargos: fetchAllCargos,

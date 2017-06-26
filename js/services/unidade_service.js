@@ -2,13 +2,12 @@
 
 App.factory('UnidadeService', ['$http', '$q', function($http, $q){
 
-    var REST_SERVICE_URI = 'http://209.172.51.58:7447/gerrh/unidade/';
-    var REST_SERVICE_URI_PESQUISA_NOME = 'http://209.172.51.58:7447/gerrh/getbynome/';
-    var REST_SERVICE_URI_PESQUISA_SECRETARIA = 'http://209.172.51.58:7447/gerrh/getbysecretaria/';
+    var url_local = "localhost:8080";
+    //var url_local = "209.172.51.58:7447";
 
-    //var REST_SERVICE_URI = 'http://localhost:8080/gerrh/unidade/';
-    //var REST_SERVICE_URI_PESQUISA_NOME = 'http://localhost:8080/gerrh/getbynome/';
-    //var REST_SERVICE_URI_PESQUISA_SECRETARIA = 'http://localhost:8080/gerrh/getbysecretaria/';
+    var REST_SERVICE_URI = "http://"+url_local+"/gerrh/unidade/";
+    var REST_SERVICE_URI_PESQUISA_NOME = "http://"+url_local+"/gerrh/getbynome/";
+    var REST_SERVICE_URI_PESQUISA_SECRETARIA = "http://"+url_local+"/gerrh/getbysecretaria/";
 
 
     var factory = {
