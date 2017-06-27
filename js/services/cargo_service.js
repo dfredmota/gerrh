@@ -3,8 +3,8 @@
 App.factory('CargoService', ['$http', '$q','$timeout', function($http, $q,$timeout){
 
 
-    var url_local = "localhost:8080";
-    //var url_local = "209.172.51.58:7447";
+    //var url_local = "localhost:8080";
+    var url_local = "209.172.51.58:7447";
 
     var REST_SERVICE_URI = "http://"+url_local+"/gerrh/cargo/";
     var REST_SERVICE_URI_PESQUISA_NOME = "http://"+url_local+"/gerrh/getbynome/";

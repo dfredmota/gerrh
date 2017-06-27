@@ -2,15 +2,14 @@
 
 App.factory('ServidorService', ['$http', '$q', function($http, $q){
 
-    var url_local = "localhost:8080";
-    //var url_local = "209.172.51.58:7447";
+    //var url_local = "localhost:8080";
+    var url_local = "209.172.51.58:7447";
 
     var REST_SERVICE_URI = "http://"+url_local+"/gerrh/servidor/";
     var REST_SERVICE_URI_PESQUISA_NOME = "http://"+url_local+"/gerrh/getbynomeservidor/";
     var REST_SERVICE_URI_PESQUISA_SECRETARIAS = "http://"+url_local+"/gerrh/getsecretarias/";
     var REST_SERVICE_URI_PESQUISA_UNIDADE = "http://"+url_local+"/gerrh/getunidades/";
     var REST_SERVICE_URI_FILE_UPLOAD= "http://"+url_local+"/gerrh/fileUpload/";
-    var servlet= "http://localhost:8080/gerrh/UploadServlet";
 
 
     var factory = {
@@ -42,6 +41,13 @@ App.factory('ServidorService', ['$http', '$q', function($http, $q){
             headers: {'Content-Type': undefined}
         })
             .success(function(){
+
+
+
+
+
+
+
             })
             .error(function(){
             });

@@ -170,6 +170,95 @@
 //            alert(nome_arquivo);
 //        });
 
+
+        document.getElementById("fileRg").onchange = function () {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                // get loaded data and render thumbnail.
+                document.getElementById("image_fileRg").src = e.target.result;
+            };
+
+            // read the image file as a data URL.
+            reader.readAsDataURL(this.files[0]);
+        };
+
+
+        document.getElementById("doc_cpf").onchange = function () {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                // get loaded data and render thumbnail.
+                document.getElementById("image_doc_cpf").src = e.target.result;
+            };
+
+            // read the image file as a data URL.
+            reader.readAsDataURL(this.files[0]);
+        };
+
+
+        document.getElementById("doc_comp_residencia").onchange = function () {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                // get loaded data and render thumbnail.
+                document.getElementById("image_doc_comp_residencia").src = e.target.result;
+            };
+
+            // read the image file as a data URL.
+            reader.readAsDataURL(this.files[0]);
+        };
+
+        document.getElementById("doc_ctps").onchange = function () {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                // get loaded data and render thumbnail.
+                document.getElementById("image_doc_ctps").src = e.target.result;
+            };
+
+            // read the image file as a data URL.
+            reader.readAsDataURL(this.files[0]);
+        };
+
+
+        document.getElementById("doc_titulo_eleitoral").onchange = function () {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                // get loaded data and render thumbnail.
+                document.getElementById("image_doc_titulo_eleitoral").src = e.target.result;
+            };
+
+            // read the image file as a data URL.
+            reader.readAsDataURL(this.files[0]);
+        };
+
+
+        document.getElementById("doc_diploma_nivel_medio").onchange = function () {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                // get loaded data and render thumbnail.
+                document.getElementById("image_doc_diploma_nivel_medio").src = e.target.result;
+            };
+
+            // read the image file as a data URL.
+            reader.readAsDataURL(this.files[0]);
+        };
+
+        document.getElementById("doc_diploma_nivel_superior").onchange = function () {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                // get loaded data and render thumbnail.
+                document.getElementById("image_doc_diploma_nivel_superior").src = e.target.result;
+            };
+
+            // read the image file as a data URL.
+            reader.readAsDataURL(this.files[0]);
+        };
+
 	</script>
 
 </head>
@@ -475,7 +564,6 @@
 			</div>
 
 
-
         </div><!-- Fim Funcionais -->
     </div>
     <div ng-class="{active:SelfTab==4}" class="tab-pane">
@@ -498,50 +586,60 @@
             <tr >
                 <td>RG</td>
                 <td>
-					<input type="file" demo-file-model="fileRg"  class="form-control" id ="fileRg"/>
-					<button ng-click = "uploadFile()">upload me</button>
+					<input type="file" size="25px" demo-file-model="fileRg" placeholder="Selecionar..."  id ="fileRg"/>
+
+					<img id="image_fileRg" width="150" height="150" />
+
+
+					<!--<a href="ftp://geerhco:RGeeoot@3873H@ftp.geerh.com.br/vistorias/5/fotos/Cnh.png">
+						<img  width="90" height="50" src="ftp://geerhco:RGeeoot@3873H@ftp.geerh.com.br/vistorias/5/fotos/Cnh.png"/>
+					</a>-->
+
                 </td>
             </tr>
             <tr>
                 <td>CPF</td>
                 <td>
-                    <input type="file" file-model="doc_cpf" id="doc_cpf" name="cpf" placeholder="Selecionar..." />
-					<button ng-click = "upload('doc_cpf')">upload me</button>
+                    <input type="file" demo-file-model="docCpf" id="doc_cpf" name="doc_cpf" placeholder="Selecionar..." />
+					<img id="image_doc_cpf" width="150" height="150" />
                 </td>
             </tr>
             <tr>
                 <td>Comprovante de Residência</td>
                 <td>
-                    <input type="file" file-model="doc_comp_residencia" id="doc_comp_residencia" name="comp_residencia" placeholder="Selecionar..."/>
-					<button ng-click = "upload('doc_comp_residencia')">upload me</button>
+                    <input type="file" demo-file-model="doc_comp_residencia" id="doc_comp_residencia" name="doc_comp_residencia"/>
+					<img id="image_doc_comp_residencia" width="150" height="150" />
                 </td>
             </tr>
             <tr>
                 <td>CTPS</td>
                 <td>
-                    <input type="file" file-model="doc_ctps" id="doc_ctps" name="ctps" placeholder="Selecionar..." />
-					<button ng-click = "upload('doc_ctps')">upload me</button>
+                    <input type="file" demo-file-model="doc_ctps" id="doc_ctps" name="doc_ctps"  />
+					<img id="image_doc_ctps" width="150" height="150" />
                 </td>
             </tr>
             <tr>
                 <td>Título de Eleitor</td>
                 <td>
-                    <input type="file" file-model="doc_titulo_eleitoral" id="doc_titulo_eleitoral" name="titulo_eleitoral" placeholder="Selecionar..." />
-					<button ng-click = "upload('doc_titulo_eleitoral')">upload me</button>
+                    <input type="file" demo-file-model="doc_titulo_eleitoral" id="doc_titulo_eleitoral"
+						   name="doc_titulo_eleitoral" />
+					<img id="image_doc_titulo_eleitoral" width="150" height="150" />
                 </td>
             </tr>
             <tr>
                 <td>Diploma Nível Médio</td>
                 <td>
-                    <input type="file" file-model="doc_diploma_nivel_medio" id="doc_diploma_nivel_medio" name="diploma_nivel_medio" placeholder="Selecionar..." />
-					<button ng-click = "upload('doc_diploma_nivel_medio')">upload me</button>
+                    <input type="file" demo-file-model="doc_diploma_nivel_medio" id="doc_diploma_nivel_medio"
+						   name="doc_diploma_nivel_medio" />
+					<img id="image_doc_diploma_nivel_medio" width="150" height="150" />
                 </td>
             </tr>
             <tr>
                 <td>Diploma Nível Superior</td>
                 <td>
-                    <input type="file" file-model="doc_diploma_nivel_superior" id="doc_diploma_nivel_superior" name="diploma_nivel_superior" placeholder="Selecionar..." />
-					<button ng-click = "upload('doc_diploma_nivel_superior')">upload me</button>
+                    <input type="file" demo-file-model="doc_diploma_nivel_superior" id="doc_diploma_nivel_superior"
+						   name="doc_diploma_nivel_superior" />
+					<img id="image_doc_diploma_nivel_superior" width="150" height="150" />
                 </td>
             </tr>
             </tbody>
@@ -555,16 +653,6 @@
 			<input type="submit" onclick="validaCampos();"  ng-disabled="show" value="{{!ctrl.servidor.cdServidor ? 'Cadastrar' : 'Atualizar'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
 			<button type="button" ng-disabled="show" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Limpar</button>
 		</div>
-
-
-		<!--<form method="POST" action="http://localhost:8080/gerrh/UploadServlet" enctype="multipart/form-data" >
-			File:
-			<input type="file" name="file" id="file" /> <br/>
-			Destination:
-			<input type="text" value="{{ctrl.servidor.cpf}}" name="tipo"/>
-			</br>
-			<input type="submit" onclick="" value="Upload" name="upload" id="upload" />
-		</form>-->
 
 	</form>
 

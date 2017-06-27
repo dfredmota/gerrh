@@ -97,20 +97,11 @@ App.controller('ServidorController', ['$scope', 'ServidorService', '$location',f
     };
 
 
-    $scope.uploadFile = function () {
+    $scope.uploadFile = function (tipo) {
 
-        var file = $scope.fileRg;
 
-        console.log("FILEEE...");
-        console.log(file.name);
 
-       var promise = servidorService.uploadFileToUrl(file,'rg',self.servidor.cpf);
 
-        promise.then(function (response) {
-            $scope.serverResponse = response;
-        }, function () {
-            $scope.serverResponse = 'An error has occurred';
-        })
     };
 
 
@@ -260,9 +251,7 @@ App.controller('ServidorController', ['$scope', 'ServidorService', '$location',f
 
             if (!jaExiste) {
 
-                console.log(document.getElementById("doc_rg").value);
-
-                return;
+                var cpf_upload = self.servidor.cpf+"";
 
                 var estado_civil = document.getElementById("estado_civil").value;
 
@@ -306,9 +295,83 @@ App.controller('ServidorController', ['$scope', 'ServidorService', '$location',f
 
                 console.log(self.servidor);
 
-                servidorService.createServidor(self.servidor);
-                $scope.showSuccessAlert = true;
-                $scope.successTextAlert = "Operação Realizada com Sucesso!";
+                var promise = servidorService.createServidor(self.servidor);
+
+                promise.then(function (response) {
+
+                    //uploads
+
+                    var file = null;
+
+                    var tipo = '';
+
+                    if($scope.fileRg != undefined){
+
+                        file =   $scope.fileRg;
+                        tipo = 'fileRg';
+
+                        servidorService.uploadFileToUrl(file,tipo,cpf_upload);
+                    }
+
+                    if($scope.docCpf != undefined){
+
+                        file =   $scope.docCpf;
+                        tipo = 'docCpf';
+
+                        servidorService.uploadFileToUrl(file,tipo,cpf_upload);
+                    }
+
+                    if($scope.doc_comp_residencia != undefined){
+
+                        file =   $scope.doc_comp_residencia;
+                        tipo = 'doc_comp_residencia';
+
+                        servidorService.uploadFileToUrl(file,tipo,cpf_upload);
+                    }
+
+                    if($scope.doc_ctps != undefined){
+
+                        file =   $scope.doc_ctps;
+                        tipo = 'doc_ctps';
+
+                        servidorService.uploadFileToUrl(file,tipo,cpf_upload);
+                    }
+
+                    if($scope.doc_titulo_eleitoral != undefined){
+
+                        file =   $scope.doc_titulo_eleitoral;
+                        tipo = 'doc_titulo_eleitoral';
+
+                        servidorService.uploadFileToUrl(file,tipo,cpf_upload);
+                    }
+
+                    if($scope.doc_diploma_nivel_medio != undefined){
+
+                        file =   $scope.doc_diploma_nivel_medio;
+                        tipo = 'doc_diploma_nivel_medio';
+
+                        servidorService.uploadFileToUrl(file,tipo,cpf_upload);
+                    }
+
+                    if($scope.doc_diploma_nivel_superior != undefined){
+
+                        file =   $scope.doc_diploma_nivel_superior;
+                        tipo = 'doc_diploma_nivel_superior';
+                        servidorService.uploadFileToUrl(file,tipo,cpf_upload);
+                    }
+
+                    $scope.serverResponse = response;
+
+                }, function () {
+
+                    alert("opa deu erro na gravação sem uploads...");
+
+                    $scope.serverResponse = 'An error has occurred';
+                })
+
+
+
+
             }
 
         } else {
