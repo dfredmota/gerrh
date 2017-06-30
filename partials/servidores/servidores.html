@@ -2,6 +2,7 @@
 
     <script>
 
+        $("#dateNascimento").mask('99/99/9999');
 
         function habilitaFiltro(){
 
@@ -10,15 +11,42 @@
             if(tipoFiltro == 0 || tipoFiltro == 3){
 
                 document.getElementById("filtroNomeServidor").style.display="none";
+                document.getElementById("filtro_nascimento").style.display="none";
+                document.getElementById("div_secretaria").style.display="none";
+                document.getElementById("div_unidade").style.display="none";
 
             }
 
             if(tipoFiltro == 1){
 
                 document.getElementById("filtroNomeServidor").style.display="block";
+                document.getElementById("filtro_nascimento").style.display="block";
+
+                document.getElementById("div_unidade").style.display="none";
+                document.getElementById("div_secretaria").style.display="none";
 
             }
 
+            if(tipoFiltro == 2){
+
+                document.getElementById("filtroNomeServidor").style.display="none";
+                document.getElementById("filtro_nascimento").style.display="none";
+                document.getElementById("div_unidade").style.display="none";
+
+                document.getElementById("div_secretaria").style.display="block";
+
+            }
+
+            if(tipoFiltro == 3){
+
+                document.getElementById("filtroNomeServidor").style.display="none";
+                document.getElementById("filtro_nascimento").style.display="none";
+                document.getElementById("div_secretaria").style.display="none";
+
+
+                document.getElementById("div_unidade").style.display="block";
+
+            }
 
         }
 
@@ -61,10 +89,37 @@
                                 />
                             </div>
 
+                            <div class="col-xs-2" id="filtro_nascimento" style="display:none">
+                                <label for="dateNascimento">Data de Nascimento</label>
+                                <input required type="text" id="dateNascimento" ng-model="ctrl.servidor.dateNascimento"
+                                       placeholder="Data de Nascimento"
+                                       class="form-control" bs-tooltip  />
+                            </div>
 
                         </div>
 
-                        <br/><br/>
+                        <div class="row">
+
+                            <div class="col-xs-3" id="div_secretaria" style="display: none">
+                                <label for="secretarias">Secretaria:</label>
+                                <select ng-model="selectedSecretaria" id="secretarias" name="secretarias" class="form-control"
+                                        ng-options="item.cdSecretaria as item.nmSecretaria for item in secretarias">
+                                    <option value="">Selecione</option>
+                                </select>
+                                <span class="help-block">&nbsp;</span>
+                            </div>
+
+                            <div class="col-xs-3" id="div_unidade" style="display: none">
+                                <label for="unidades">Unidade:</label>
+                                <select ng-model="selectedUnidade" id="unidades" name="unidades" class="form-control"
+                                        ng-options="item.cdUnidade as item.nmUnidade for item in unidades">
+                                    <option value="">Selecione</option>
+                                </select>
+                                <span class="help-block">&nbsp;</span>
+                            </div>
+
+
+                        </div>
 
                         <div class="row">
                             <div class="col-xs-6">
@@ -106,6 +161,11 @@
                                                 <i class="glyphicon glyphicon-edit"></i>
                                             </button>
 
+                                            <button type="button" ng-click="ctrl.edit(servidor.cdServidor)"
+                                                    class="btn btn-small btn-primary" data-toggle="modal" data-target="#myModal">
+                                                <i class="glyphicon glyphicon-search"></i>
+                                            </button>
+
                                         </td>
 
                                     </tr>
@@ -113,6 +173,52 @@
                                 </table>
                             </div>
                         </div>
+
+
+
+                        <div class="modal" id="myModal" tabindex="-1" role="dialog"
+                             aria-labelledby="myModalLabel" style="padding-top: 70px ">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="myModalLabel">Dados do Servidor</h4>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="panel panel-default">
+                                            <label for="dados">Nome: {{ctrl.servidor.nome}}</label>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <label for="dados">Cpf: {{ctrl.servidor.cpf}}</label>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <label for="dados">Secretaria: </label>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <label for="dados">Unidade:</label>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <label for="dados">Tipo de Cargo: </label>
+                                        </div>
+
+                                        <div class="panel panel-default">
+                                            <label for="dados">Cargo: </label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
                         <hr>
                         <div align="right" class="footer">
                         </div>

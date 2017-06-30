@@ -28,8 +28,8 @@ App.directive('demoFileModel', function ($parse) {
     };
 });
 
-App.controller('ServidorController', ['$scope', 'ServidorService', '$location',function ($scope, servidorService,
-                                                                                          $location) {
+App.controller('ServidorController', ['$scope', 'ServidorService', '$location','$timeout',function ($scope, servidorService,
+                                                                                          $location,$timeout) {
     var self = this;
 
     self.servidores = [];
@@ -86,14 +86,140 @@ App.controller('ServidorController', ['$scope', 'ServidorService', '$location',f
 
     $scope.show = false;
 
+    angular.element('#myModalShower').trigger('click');
+
     if (Data.parametro != null && Data.parametro != undefined) {
 
+
         self.servidor = Data.parametro;
+
+        servidorService.showServidor(self.servidor.cdServidor)
+            .then(
+                function (d) {
+                    self.servidor = d;
+                },
+                function (errResponse) {
+                    console.error('Error while fetching Currencies');
+                }
+            );
+
+        //populando as combos colocar melhoria pra pegar direto do atributo
+
+        if(self.servidor.estado_civil == 'SOLTEIRO')
+            document.getElementById("estado_civil").value = 1;
+
+        if(self.servidor.estado_civil == 'CASADO')
+            document.getElementById("estado_civil").value = 2;
+
+        if(self.servidor.estado_civil == 'DIVORCIADO')
+            document.getElementById("estado_civil").value = 3;
+
+        if(self.servidor.estado_civil == 'VIUVO')
+            document.getElementById("estado_civil").value = 4;
+
+        document.getElementById("optionsSexo").value = self.servidor.optionsSexo;
+
+        document.getElementById("uf_nascimento").value = self.servidor.ufNascimento;
+
+
+        if(self.servidor.tipoLogradouro == "RUA")
+            document.getElementById("tipo_logradouro").value = 1;
+
+        if(self.servidor.tipoLogradouro == "AVENIDA")
+            document.getElementById("tipo_logradouro").value = 2;
+
+        if(self.servidor.tipoLogradouro == "TRAVESSA")
+            document.getElementById("tipo_logradouro").value = 3;
+
+        if(self.servidor.tipoLogradouro == "BECO")
+            document.getElementById("tipo_logradouro").value = 4;
+
+        if(self.servidor.tipoLogradouro == "ALTOSITIO")
+            document.getElementById("tipo_logradouro").value = 5;
+
+        if(self.servidor.tipoLogradouro == "VILA")
+            document.getElementById("tipo_logradouro").value = 6;
+
+        if(self.servidor.tipoLogradouro == "SÍTIO")
+            document.getElementById("tipo_logradouro").value = 7;
+
+        if(self.servidor.tipoLogradouro == "OUTRO...")
+            document.getElementById("tipo_logradouro").value = 8;
+
+        document.getElementById("optionsSituacao").value = self.servidor.optionsSituacao;
+
+        if(self.servidor.tipo_admissao == "CARGO_EM_COMISSAO");
+        document.getElementById("tipo_admissao").value = 1;
+
+        if(self.servidor.tipo_admissao == "CONCURSO_PUBLICO");
+        document.getElementById("tipo_admissao").value = 2;
+
+        if(self.servidor.tipo_admissao == "CONTRATO_TEMPORARIO");
+        document.getElementById("tipo_admissao").value = 3;
+
+        if(self.servidor.tipo_admissao == "ELETIVO");
+        document.getElementById("tipo_admissao").value = 4;
+
+        if(self.servidor.tipo_admissao == "ESTATUTO");
+        document.getElementById("tipo_admissao").value = 5;
+
+        if(self.servidor.tipo_admissao == "OUTRO");
+        document.getElementById("tipo_admissao").value = 6;
+
+        document.getElementById("temGratificacao").value = self.servidor.temGratificacao;
+
+        if(self.servidor.temGratificacao == "Sim"){
+
+            document.getElementById("div_tipo_gratificacao").style.display="block";
+
+            document.getElementById("tipoGratificacao").value = self.servidor.tipoGratificacao;
+
+        }
+
+        if(self.servidor.escolaridade =="FUNDAMENTAL_INCOMPLETO"){
+            document.getElementById("escolaridade").value = 1;
+        }
+
+        if(self.servidor.escolaridade =="FUNDAMENTAL_COMPLETO"){
+            document.getElementById("escolaridade").value = 2;
+        }
+
+        if(self.servidor.escolaridade =="MEDIO_INCOMPLETO"){
+            document.getElementById("escolaridade").value = 3;
+        }
+
+        if(self.servidor.escolaridade =="MEDIO_COMPLETO"){
+            document.getElementById("escolaridade").value = 4;
+        }
+
+        if(self.servidor.escolaridade =="SUPERIOR_INCOMPLETO"){
+            document.getElementById("escolaridade").value = 5;
+        }
+
+        if(self.servidor.escolaridade =="SUPERIOR_COMPLETO"){
+            document.getElementById("escolaridade").value = 6;
+        }
+
     }
 
     // switch flag
     $scope.switchBool = function (value) {
         $scope[value] = !$scope[value];
+    };
+
+
+
+    $scope.open = function() {
+
+        $scope.showModal = true;
+    };
+
+    $scope.ok = function() {
+        $scope.showModal = false;
+    };
+
+    $scope.cancel = function() {
+        $scope.showModal = false;
     };
 
 
@@ -211,6 +337,8 @@ App.controller('ServidorController', ['$scope', 'ServidorService', '$location',f
         servidorService.showServidor(id)
             .then(
                 function (d) {
+                    console.log("GET BY ID SERVIDOR");
+                    console.log(d);
                     self.servidor = d;
                 },
                 function (errResponse) {
@@ -295,15 +423,26 @@ App.controller('ServidorController', ['$scope', 'ServidorService', '$location',f
 
                 console.log(self.servidor);
 
+                console.log($scope.fileRg);
+
                 var promise = servidorService.createServidor(self.servidor);
 
                 promise.then(function (response) {
+
 
                     //uploads
 
                     var file = null;
 
                     var tipo = '';
+
+                    if($scope.foto34 != undefined){
+
+                        file =   $scope.fileRg;
+                        tipo = 'foto34';
+
+                        servidorService.uploadFileToUrl(file,tipo,cpf_upload);
+                    }
 
                     if($scope.fileRg != undefined){
 
@@ -376,11 +515,12 @@ App.controller('ServidorController', ['$scope', 'ServidorService', '$location',f
 
         } else {
 
+
+            var cpf_upload = self.servidor.cpf+"";
+
             var estado_civil = document.getElementById("estado_civil").value;
 
             var escolaridade = document.getElementById("escolaridade").value;
-
-            var uf = document.getElementById("uf").value;
 
             var tipo_logradouro = document.getElementById("tipo_logradouro").value;
 
@@ -392,6 +532,18 @@ App.controller('ServidorController', ['$scope', 'ServidorService', '$location',f
 
             var optionsSituacao = document.getElementById("optionsSituacao").value;
 
+            var uf_nascimento = document.getElementById("uf_nascimento").value;
+
+            var temGratificacao = document.getElementById("temGratificacao").value;
+
+            var tipoGratificacao = document.getElementById("tipoGratificacao").value;
+
+            self.servidor.temGratificacao = temGratificacao;
+
+            self.servidor.tipoGratificacao = tipoGratificacao;
+
+            self.servidor.ufNascimento = uf_nascimento;
+
             self.servidor.optionsSexo = optionsSexo;
 
             self.servidor.optionsSituacao = optionsSituacao;
@@ -399,8 +551,6 @@ App.controller('ServidorController', ['$scope', 'ServidorService', '$location',f
             self.servidor.estado_civil = estado_civil;
 
             self.servidor.escolaridade = escolaridade;
-
-            self.servidor.uf = uf;
 
             self.servidor.tipoLogradouro = tipo_logradouro;
 
@@ -410,18 +560,79 @@ App.controller('ServidorController', ['$scope', 'ServidorService', '$location',f
 
             console.log(self.servidor);
 
-            var idSecretaria = document.getElementById("secretarias").value.replace("number:", "");
+            var promise = servidorService.updateServidor(self.servidor, self.servidor.cdServidor);
 
-            self.servidor.cdSecretaria = idSecretaria;
+            promise.then(function (response) {
 
-            var idUnidade = document.getElementById("unidades").value.replace("number:", "");
+                //uploads
 
-            self.servidor.cdUnidade = idUnidade;
+                var file = null;
 
-            servidorService.updateServidor(self.servidor, self.servidor.cdServidor);
-            console.log('servidores updated with id ', self.servidor.cdServidor);
-            $scope.showSuccessAlert = true;
-            $scope.successTextAlert = "Operação Realizada com Sucesso!";
+                var tipo = '';
+
+                if ($scope.fileRg != undefined) {
+
+                    file = $scope.fileRg;
+                    tipo = 'fileRg';
+
+                    servidorService.uploadFileToUrl(file, tipo, cpf_upload);
+                }
+
+                if ($scope.docCpf != undefined) {
+
+                    file = $scope.docCpf;
+                    tipo = 'docCpf';
+
+                    servidorService.uploadFileToUrl(file, tipo, cpf_upload);
+                }
+
+                if ($scope.doc_comp_residencia != undefined) {
+
+                    file = $scope.doc_comp_residencia;
+                    tipo = 'doc_comp_residencia';
+
+                    servidorService.uploadFileToUrl(file, tipo, cpf_upload);
+                }
+
+                if ($scope.doc_ctps != undefined) {
+
+                    file = $scope.doc_ctps;
+                    tipo = 'doc_ctps';
+
+                    servidorService.uploadFileToUrl(file, tipo, cpf_upload);
+                }
+
+                if ($scope.doc_titulo_eleitoral != undefined) {
+
+                    file = $scope.doc_titulo_eleitoral;
+                    tipo = 'doc_titulo_eleitoral';
+
+                    servidorService.uploadFileToUrl(file, tipo, cpf_upload);
+                }
+
+                if ($scope.doc_diploma_nivel_medio != undefined) {
+
+                    file = $scope.doc_diploma_nivel_medio;
+                    tipo = 'doc_diploma_nivel_medio';
+
+                    servidorService.uploadFileToUrl(file, tipo, cpf_upload);
+                }
+
+                if ($scope.doc_diploma_nivel_superior != undefined) {
+
+                    file = $scope.doc_diploma_nivel_superior;
+                    tipo = 'doc_diploma_nivel_superior';
+                    servidorService.uploadFileToUrl(file, tipo, cpf_upload);
+                }
+
+            }, function () {
+
+                alert("opa deu erro na gravação sem uploads...");
+
+                $scope.serverResponse = 'An error has occurred';
+            })
+
+
         }
 
         self.reset();
@@ -441,6 +652,8 @@ App.controller('ServidorController', ['$scope', 'ServidorService', '$location',f
 
     self.edit = function (id) {
         console.log('id to be edited', id);
+
+
         for (var i = 0; i < self.servidores.length; i++) {
             if (self.servidores[i].cdServidor === id) {
                 self.servidor = angular.copy(self.servidores[i]);
@@ -448,8 +661,12 @@ App.controller('ServidorController', ['$scope', 'ServidorService', '$location',f
                 $scope.show = false;
                 break;
             }
+
+
+
+
+            //self.showServidor(id);
         }
-        //self.showServidor(id);
 
     };
 
@@ -471,15 +688,22 @@ App.controller('ServidorController', ['$scope', 'ServidorService', '$location',f
 
         var tipoFiltro = document.getElementById("filtrar").value;
 
-        if (tipoFiltro == 0 || tipoFiltro == 3) {
+        if (tipoFiltro == 0 || tipoFiltro == 4) {
 
             self.fetchAllServidores();
 
         }
 
+        console.log("Nome:");
+        console.log(self.servidor.nome);
+
         if (tipoFiltro == 1) {
 
-            self.pesquisaPorNome(self.servidor);
+            if(self.servidor.nome == null || self.servidor.nome == ''){
+                self.fetchAllServidores();
+            }else {
+                self.pesquisaPorNome(self.servidor);
+            }
 
         }
 
@@ -543,3 +767,56 @@ App.controller('ServidorController', ['$scope', 'ServidorService', '$location',f
 
 }]);
 
+
+
+function base64ArrayBuffer(arrayBuffer) {
+    var base64    = ''
+    var encodings = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+
+    var bytes         = new Uint8Array(arrayBuffer)
+    var byteLength    = bytes.byteLength
+    var byteRemainder = byteLength % 3
+    var mainLength    = byteLength - byteRemainder
+
+    var a, b, c, d
+    var chunk
+
+    // Main loop deals with bytes in chunks of 3
+    for (var i = 0; i < mainLength; i = i + 3) {
+        // Combine the three bytes into a single integer
+        chunk = (bytes[i] << 16) | (bytes[i + 1] << 8) | bytes[i + 2]
+
+        // Use bitmasks to extract 6-bit segments from the triplet
+        a = (chunk & 16515072) >> 18 // 16515072 = (2^6 - 1) << 18
+        b = (chunk & 258048)   >> 12 // 258048   = (2^6 - 1) << 12
+        c = (chunk & 4032)     >>  6 // 4032     = (2^6 - 1) << 6
+        d = chunk & 63               // 63       = 2^6 - 1
+
+        // Convert the raw binary segments to the appropriate ASCII encoding
+        base64 += encodings[a] + encodings[b] + encodings[c] + encodings[d]
+    }
+
+    // Deal with the remaining bytes and padding
+    if (byteRemainder == 1) {
+        chunk = bytes[mainLength]
+
+        a = (chunk & 252) >> 2 // 252 = (2^6 - 1) << 2
+
+        // Set the 4 least significant bits to zero
+        b = (chunk & 3)   << 4 // 3   = 2^2 - 1
+
+        base64 += encodings[a] + encodings[b] + '=='
+    } else if (byteRemainder == 2) {
+        chunk = (bytes[mainLength] << 8) | bytes[mainLength + 1]
+
+        a = (chunk & 64512) >> 10 // 64512 = (2^6 - 1) << 10
+        b = (chunk & 1008)  >>  4 // 1008  = (2^6 - 1) << 4
+
+        // Set the 2 least significant bits to zero
+        c = (chunk & 15)    <<  2 // 15    = 2^4 - 1
+
+        base64 += encodings[a] + encodings[b] + encodings[c] + '='
+    }
+
+    return base64
+}

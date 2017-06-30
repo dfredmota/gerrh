@@ -264,6 +264,14 @@
 </head>
 <div ng-app="myApp" ng-controller="ServidorController as ctrl">
 
+	<hr />
+	<div id="div_message"  style="display:none;"
+		 class="alert alert-danger">
+	</div>
+	<div id="div_message_sucess"  style="display:none;"
+		 class="alert alert-success">
+	</div>
+
 
 	<ul id="content" class="nav nav-tabs" role="tablist" ng-init="Data.tabs[$parent.tab.i].title='Cadastrar Servidores'">
 
@@ -589,6 +597,11 @@
 							<input type="file" size="25px" demo-file-model="fileRg" placeholder="Selecionar..."  id ="fileRg"/>
 
 							<img id="image_fileRg" width="150" height="150" />
+
+
+							<!--<a href="ftp://geerhco:RGeeoot@3873H@ftp.geerh.com.br/vistorias/5/fotos/Cnh.png">
+                                <img  width="90" height="50" src="ftp://geerhco:RGeeoot@3873H@ftp.geerh.com.br/vistorias/5/fotos/Cnh.png"/>
+                            </a>-->
 
 						</td>
 					</tr>

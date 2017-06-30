@@ -1,6 +1,6 @@
 'use strict';
 
-App.factory('ServidorService', ['$http', '$q', function($http, $q){
+App.factory('ServidorService', ['$http', '$q','$timeout', function($http, $q,$timeout){
 
     //var url_local = "localhost:8080";
     var url_local = "209.172.51.58:7447";
@@ -57,7 +57,7 @@ App.factory('ServidorService', ['$http', '$q', function($http, $q){
 
     function pesquisaPorNome(servidor) {
         var deferred = $q.defer();
-        $http.post(REST_SERVICE_URI_PESQUISA_NOME,servidor.nome)
+        $http.post(REST_SERVICE_URI_PESQUISA_NOME,servidor)
             .then(
                 function (response) {
                     deferred.resolve(response.data);
@@ -120,12 +120,32 @@ App.factory('ServidorService', ['$http', '$q', function($http, $q){
         $http.post(REST_SERVICE_URI, servidor)
             .then(
                 function (response) {
-                    alert("Servidor Salva com Sucesso!");
+
+                    var div_message = document.getElementById("div_message_sucess");
+
+                    div_message.style.display="block";
+
+                    div_message.innerHTML = "Ok! Dados Gravados com sucesso!";
+
+                    $timeout(function(){
+                        div_message.style.display="none";
+                    }, 5500);
+
                     deferred.resolve(response.data);
                 },
                 function(errResponse){
-                    alert("Já existe um servidor com essa nome!");
-                    console.error('Error while creating Servidor');
+
+                    var div_error = document.getElementById("div_message");
+
+                    div_error.style.display="block";
+
+                    div_error.innerHTML = "Ops! Ocorreu um erro inesperado. Tente novamente ou contate o suporte";
+
+                    $timeout(function(){
+                        div_error.style.display="none";
+                    }, 5500);
+
+
                     deferred.reject(errResponse);
                 }
             );
@@ -138,12 +158,32 @@ App.factory('ServidorService', ['$http', '$q', function($http, $q){
         $http.put(REST_SERVICE_URI+id, servidor)
             .then(
                 function (response) {
-                    alert("Servidor atualizada com Sucesso!");
+
+                    var div_message = document.getElementById("div_message_sucess");
+
+                    div_message.style.display="block";
+
+                    div_message.innerHTML = "Ok! Dados Gravados com sucesso!";
+
+                    $timeout(function(){
+                        div_message.style.display="none";
+                    }, 5500);
+
+
                     deferred.resolve(response.data);
                 },
                 function(errResponse){
-                    alert('erro ao atualizar a servidor!');
-                    console.error('Error while updating Servidor');
+
+                    var div_error = document.getElementById("div_message");
+
+                    div_error.style.display="block";
+
+                    div_error.innerHTML = "Ops! Ocorreu um erro inesperado. Tente novamente ou contate o suporte";
+
+                    $timeout(function(){
+                        div_error.style.display="none";
+                    }, 5500);
+
                     deferred.reject(errResponse);
                 }
             );
