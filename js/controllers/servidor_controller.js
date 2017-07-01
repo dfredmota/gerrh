@@ -72,7 +72,11 @@ App.controller('ServidorController', ['$scope', 'ServidorService', '$location','
         cpf: '',
         ufNascimento: '',
         temGratificacao: '',
-        tipoGratificacao: ''
+        tipoGratificacao: '',
+        doc_rg: '',
+        imagem:'',
+        foto34:'',
+        doc_cpf:'',
     };
 
     $scope.successTextAlert = "";
@@ -97,6 +101,12 @@ App.controller('ServidorController', ['$scope', 'ServidorService', '$location','
             .then(
                 function (d) {
                     self.servidor = d;
+                    console.log("RETORNO SERVIDOR...");
+                    console.log(self.servidor.doc_rg);
+
+                    // console.log("imagem");
+                    // console.log(self.servidor.imagem);
+
                 },
                 function (errResponse) {
                     console.error('Error while fetching Currencies');
@@ -438,7 +448,7 @@ App.controller('ServidorController', ['$scope', 'ServidorService', '$location','
 
                     if($scope.foto34 != undefined){
 
-                        file =   $scope.fileRg;
+                        file =   $scope.foto34;
                         tipo = 'foto34';
 
                         servidorService.uploadFileToUrl(file,tipo,cpf_upload);

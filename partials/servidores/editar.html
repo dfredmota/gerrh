@@ -170,6 +170,17 @@
         //            alert(nome_arquivo);
         //        });
 
+        document.getElementById("foto34").onchange = function () {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                // get loaded data and render thumbnail.
+                document.getElementById("image_foto34").src = e.target.result;
+            };
+
+            // read the image file as a data URL.
+            reader.readAsDataURL(this.files[0]);
+        };
 
         document.getElementById("fileRg").onchange = function () {
             var reader = new FileReader();
@@ -592,12 +603,24 @@
 					</thead>
 					<tbody>
 					<tr >
+						<td>FOTO 3X4</td>
+						<td>
+							<input type="file" size="25px" demo-file-model="foto34" placeholder="Selecionar..."  id ="foto34"/>
+
+							<img id="image_foto34" width="150" height="150" src="data:image/gif;base64,{{ctrl.servidor.foto34}}">
+
+							<!--<a href="ftp://geerhco:RGeeoot@3873H@ftp.geerh.com.br/vistorias/5/fotos/Cnh.png">
+                                <img  width="90" height="50" src="ftp://geerhco:RGeeoot@3873H@ftp.geerh.com.br/vistorias/5/fotos/Cnh.png"/>
+                            </a>-->
+
+						</td>
+					</tr>
+					<tr >
 						<td>RG</td>
 						<td>
 							<input type="file" size="25px" demo-file-model="fileRg" placeholder="Selecionar..."  id ="fileRg"/>
 
-							<img id="image_fileRg" width="150" height="150" />
-
+							<img id="image_fileRg" width="150" height="150" src="data:image/gif;base64,{{ctrl.servidor.doc_rg}}">
 
 							<!--<a href="ftp://geerhco:RGeeoot@3873H@ftp.geerh.com.br/vistorias/5/fotos/Cnh.png">
                                 <img  width="90" height="50" src="ftp://geerhco:RGeeoot@3873H@ftp.geerh.com.br/vistorias/5/fotos/Cnh.png"/>
@@ -609,7 +632,8 @@
 						<td>CPF</td>
 						<td>
 							<input type="file" demo-file-model="docCpf" id="doc_cpf" name="doc_cpf" placeholder="Selecionar..." />
-							<img id="image_doc_cpf" width="150" height="150" />
+
+							<img id="image_doc_cpf" width="150" height="150" src="data:image/gif;base64,{{ctrl.servidor.doc_cpf}}">
 						</td>
 					</tr>
 					<tr>
